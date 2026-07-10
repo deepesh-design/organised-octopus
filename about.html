@@ -1,9 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Organised Octopus</title>
+<meta name="description" content="Meet Organised Octopus: material-driven, minimalist furniture shaped by Swiss graphic design. Our story, our values, and the designer behind Luno, Arco and Vera.">
+<link rel="canonical" href="https://organisedoctopus.com/about">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Organised Octopus">
+<meta property="og:title" content="About — Organised Octopus">
+<meta property="og:description" content="Material-driven, minimalist furniture shaped by Swiss graphic design. Our story, our values, and the designer behind Luno, Arco and Vera.">
+<meta property="og:url" content="https://organisedoctopus.com/about">
+<meta property="og:image" content="https://organisedoctopus.com/assets/og/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Organised Octopus">
+<meta name="twitter:description" content="Material-driven, minimalist furniture shaped by Swiss graphic design. Our story, our values, and the designer behind Luno, Arco and Vera.">
+<meta name="twitter:image" content="https://organisedoctopus.com/assets/og/og-image.png">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -25,6 +40,12 @@ a:hover{color:#555;}
 .r-hovable:hover .r-hov-a,.r-hovable:hover .r-hov-b{transform:translateY(-100%);}
 @media (max-width:767px){
   .r-big{font-size:44px !important;max-width:none !important;}
+  .r-mid{font-size:26px !important;}
+  .r-sec{padding-top:96px !important;}
+  .r-gap-sm{gap:56px !important;}
+  .r-stack{grid-template-columns:1fr !important;gap:24px !important;}
+  .r-stack > *{grid-column:1 / -1 !important;justify-self:start !important;width:100% !important;}
+  .r-stack img{aspect-ratio:2/1.4 !important;}
   .r-logo{right:auto !important;width:200px !important;transform:none !important;transition:none !important;}
   .r-footer{grid-template-columns:1fr 1fr !important;gap:24px 16px !important;}
   .r-footer > *{grid-column:auto !important;justify-self:start !important;}
@@ -47,15 +68,15 @@ a:hover{color:#555;}
   <!-- LOADING SCREEN -->
   <div ref="{{ loadingRef }}" style="position:fixed;inset:0;z-index:100;background:#fff;color:#000;padding:16px;transform:translateY(0%);transition:transform 1s cubic-bezier(.77,0,.18,1);">
     <img class="r-loading-img" src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9afb0cd024e19c7378f8_3.webp" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:2/2.6;object-fit:cover;">
-    <img src="./assets/loading-icon.svg" alt="Organied Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
-    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.</p>
+    <img src="./assets/loading-icon.svg" alt="Organised Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
+    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.</p>
   </div>
 
   <div ref="{{ mainRef }}" style="position:relative;z-index:1;background:#fff;">
 
   <!-- HEADER -->
   <div style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:flex-start;padding:16px;">
-    <a ref="{{ logoRef }}" href="./" class="r-logo" style="position:absolute;top:16px;left:16px;right:16px;transform-origin:top left;will-change:transform;display:flex;align-items:center;overflow:hidden;"><img ref="{{ logoSlideRef }}" src="./icon-black-mrdekrfj.svg" alt="Organied Octopus" style="width: 100%; display: block; object-fit: contain; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);"></a>
+    <a ref="{{ logoRef }}" href="./" class="r-logo" style="position:absolute;top:16px;left:16px;right:16px;transform-origin:top left;will-change:transform;display:flex;align-items:center;overflow:hidden;"><img ref="{{ logoSlideRef }}" src="./icon-black-mrdekrfj.svg" alt="Organised Octopus" style="width: 100%; display: block; object-fit: contain; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);"></a>
     <div></div>
     <div style="overflow:hidden;"><button ref="{{ menuBtnRef }}" onClick="{{ toggleMenu }}" aria-label="Menu" style="position:relative;z-index:50;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">
       <span ref="{{ bar1Ref }}" style="display:block;width:28px;height:2px;background:#000;transition:transform .4s cubic-bezier(.77,0,.18,1),background .4s;"></span>
@@ -64,12 +85,49 @@ a:hover{color:#555;}
     </button></div>
   </div>
 
-  <!-- PAGE CONTENT : ABOUT (placeholder) -->
-  <div style="padding:0 16px;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;">
-    <div style="overflow:hidden;">
-      <h1 class="r-big" style="font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0 0 16px;">About</h1>
-      <p style="font-size:16px;font-weight:500;color:#8f8f8f;margin:0;">Coming soon.</p>
+  <!-- PAGE CONTENT : ABOUT -->
+  <div class="r-sec r-gap-sm" style="padding-top:200px;padding-bottom:120px;display:flex;flex-direction:column;gap:120px;">
+
+    <!-- Hero -->
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+      <div style="grid-column:1 / 13;overflow:hidden;">
+        <h1 class="r-big" style="font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0 0 16px;">About</h1>
+      </div>
+      <p style="grid-column:1 / 6;font-size:22px;font-weight:500;line-height:120%;margin:0;">Your home called. It wants art.</p>
     </div>
+
+    <!-- Brand story -->
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+      <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
+        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">Like the octopus, we're intelligent, adaptive and endlessly resourceful — reaching into every corner of your home with furniture built to last.</h2>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+      <p style="grid-column:1 / 2;font-size:16px;font-weight:500;margin:0;">Values</p>
+      <div style="grid-column:5 / 13;display:grid;grid-template-columns:1fr 1fr;gap:44px;">
+        <div>
+          <p style="font-size:16px;font-weight:500;margin:0 0 8px;color:#8f8f8f;">Art in utility</p>
+          <p style="font-size:22px;font-weight:500;line-height:120%;margin:0;">Every piece is a sculptural object first — function follows form, but never at its expense.</p>
+        </div>
+        <div>
+          <p style="font-size:16px;font-weight:500;margin:0 0 8px;color:#8f8f8f;">Routine as ritual</p>
+          <p style="font-size:22px;font-weight:500;line-height:120%;margin:0;">We don't sell furniture. We sell the architecture of the rituals that happen around it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Designer -->
+    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+      <p style="grid-column:1 / 2;font-size:16px;font-weight:500;margin:0;">Designer</p>
+      <img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67aeea2493e039a559fb6a2f_0_0%20(2).webp" alt="Kei Rose" style="grid-column:2 / 6;aspect-ratio:2/2.6;object-fit:cover;width:100%;">
+      <div style="grid-column:7 / 13;align-self:end;display:flex;flex-direction:column;gap:16px;">
+        <h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Kei Rose</h3>
+        <p style="font-size:16px;font-weight:500;line-height:130%;margin:0;max-width:380px;color:#8f8f8f;">Kei designs every piece in the collection — Luno, Arco and Vera each a study in how Swiss structural order can furnish a room.</p>
+      </div>
+    </div>
+
   </div>
 
   </div>
@@ -80,24 +138,19 @@ a:hover{color:#555;}
   <!-- FOOTER -->
   <div ref="{{ footerRef }}" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 0; background: #000; padding: 16px 0; padding-bottom: 16px">
     <div class="r-footer" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;align-items:start;">
-      <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:4px;">
+      <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:12px;">
         <a href="./" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
         <a href="./collection" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Collection</div><div class="r-hov-a">Collection</div><div class="r-hov-b" aria-hidden="true">Collection</div></div></a>
         <a href="./about" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">About</div><div class="r-hov-a">About</div><div class="r-hov-b" aria-hidden="true">About</div></div></a>
       </div>
-      <div style="grid-column:4 / 7;display:flex;flex-direction:column;gap:4px;">
+      <div style="grid-column:4 / 7;display:flex;flex-direction:column;gap:12px;">
         <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a>
         <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a>
       </div>
-      <div style="grid-column:7 / 10;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Licence</div><div class="r-hov-a">Licence</div><div class="r-hov-b" aria-hidden="true">Licence</div></div></a>
-        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Changelog</div><div class="r-hov-a">Changelog</div><div class="r-hov-b" aria-hidden="true">Changelog</div></div></a>
-        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Design system</div><div class="r-hov-a">Design system</div><div class="r-hov-b" aria-hidden="true">Design system</div></div></a>
+      <div style="grid-column:10 / 13;justify-self:end;display:flex;flex-direction:column;gap:12px;">
+        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">© 2025 Organised Octopus</a>
       </div>
-      <div style="grid-column:10 / 13;justify-self:end;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">© 2025 Organied Octopus</a>
-      </div>
-      <a href="./" class="r-footer-logo" style="grid-column:1 / 13;display:flex;width:100%;padding-top:8px;"><img src="./octopus-white-mrdelehg.svg" alt="Organied Octopus" style="width: 100%; display: block"></a>
+      <a href="./" class="r-footer-logo" style="grid-column:1 / 13;display:flex;width:100%;padding-top:8px;"><img src="./octopus-white-mrdelehg.svg" alt="Organised Octopus" style="width: 100%; display: block"></a>
     </div>
   </div>
 
@@ -107,17 +160,17 @@ a:hover{color:#555;}
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(45deg);"></span>
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(-45deg);"></span>
     </button>
-    <div class="r-menu-links" style="grid-column: 1 / 8; grid-row: 2; display: flex; flex-direction: column; gap: 4px; margin-left: 24px">
+    <div class="r-menu-links" style="grid-column: 1 / 8; grid-row: 2; display: flex; flex-direction: column; gap: 24px; margin-left: 24px">
       <a href="./" onClick="{{ closeMenu }}" ref="{{ mi0 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
       <a href="./collection" ref="{{ mi1 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Collection</div><div class="r-hov-a">Collection</div><div class="r-hov-b" aria-hidden="true">Collection</div></div></a>
       <a href="./about" ref="{{ mi2 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">About</div><div class="r-hov-a">About</div><div class="r-hov-b" aria-hidden="true">About</div></div></a>
     </div>
     <div class="r-menu-desc" style="grid-column:9 / 13;grid-row:2;align-self:end;display:flex;flex-direction:column;gap:24px;">
-      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.</p>
+      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.</p>
     </div>
     <div class="r-menu-bottom" style="grid-column: 1 / 13; grid-row: 3; display: flex; justify-content: space-between; align-items: flex-end; margin-left: 24px; margin-right: 24px; margin-bottom: 24px">
       <div style="display:flex;gap:24px;"><a href="#" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a><a href="#" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a></div>
-      <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">© 2025 Organied Octopus</p>
+      <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">© 2025 Organised Octopus</p>
     </div>
   </div>
 

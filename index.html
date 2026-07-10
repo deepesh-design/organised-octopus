@@ -1,8 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organised Octopus — Minimalist Furniture, Swiss-Designed</title>
+<meta name="description" content="Organised Octopus designs material-driven, minimalist furniture inspired by Swiss graphic design. Discover the Luno, Arco and Vera collections.">
+<link rel="canonical" href="https://organisedoctopus.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Organised Octopus">
+<meta property="og:title" content="Organised Octopus — Minimalist Furniture, Swiss-Designed">
+<meta property="og:description" content="Material-driven, minimalist furniture inspired by Swiss graphic design. Discover the Luno, Arco and Vera collections.">
+<meta property="og:url" content="https://organisedoctopus.com/">
+<meta property="og:image" content="https://organisedoctopus.com/assets/og/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Organised Octopus — Minimalist Furniture, Swiss-Designed">
+<meta name="twitter:description" content="Material-driven, minimalist furniture inspired by Swiss graphic design. Discover the Luno, Arco and Vera collections.">
+<meta name="twitter:image" content="https://organisedoctopus.com/assets/og/og-image.png">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -37,16 +53,19 @@ a:hover{color:#555;}
   .r-hero-grid{grid-template-columns:1fr !important;}
   .r-hero-img-wrap{height:55vh !important;}
   .r-hero-copyright{position:static !important;text-align:left !important;order:-1;}
-  .r-hero-thumbs{position:absolute !important;top:0 !important;right:16px !important;left:auto !important;bottom:auto !important;transform:none !important;flex-direction:column !important;align-items:flex-end !important;margin-top:0 !important;}
+  .r-hero-content{position:static !important;}
+  .r-hero-side{margin-top:24px !important;}
   .r-hero-thumbs img{height:64px !important;}
   /* logo: fixed size, no scroll animation on mobile */
   .r-logo{right:auto !important;width:200px !important;transform:none !important;transition:none !important;}
   .r-hero-pad{padding-top:70px !important;}
-  /* discover: link list alignment (number + name in a row) */
-  .r-coll-link{flex-direction:row !important;align-items:baseline !important;gap:20px !important;}
   .r-coll-desc p{font-size:14px !important;}
+  /* discover: reorder so "View all" renders after the product images */
+  .r-disc-grid{grid-template-columns:1fr !important;gap:24px !important;}
+  .r-disc-list{display:contents !important;}
+  .r-disc-list .r-view-all{order:3;width:100% !important;justify-content:space-between !important;margin-top:32px !important;padding-top:8px !important;padding-bottom:8px !important;}
   /* discover: product layout — big main image, small side image + desc, full-width name & buy */
-  .r-2col{grid-template-columns:1.7fr 1fr !important;grid-template-areas:'main side' 'name name' 'shop shop' !important;align-items:start !important;}
+  .r-2col{order:2;grid-column:1 / -1 !important;width:100%;grid-template-columns:1.7fr 1fr !important;grid-template-areas:'main side' 'name name' 'shop shop' !important;align-items:start !important;}
   /* section 03 material driven: no sticky/scroll interaction, static product row */
   .r-s3{height:auto !important;margin-top:56px !important;}
   .r-s3-sticky{position:relative !important;height:auto !important;display:block !important;padding:7vh 16px !important;overflow:visible !important;}
@@ -82,15 +101,15 @@ a:hover{color:#555;}
   <!-- LOADING SCREEN -->
   <div ref="{{ loadingRef }}" style="position:fixed;inset:0;z-index:100;background:#fff;color:#000;padding:16px;transform:translateY(0%);transition:transform 1s cubic-bezier(.77,0,.18,1);">
     <img class="r-loading-img" src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9afb0cd024e19c7378f8_3.webp" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:2/2.6;object-fit:cover;">
-    <img src="./assets/loading-icon.svg" alt="Organied Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
-    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.</p>
+    <img src="./assets/loading-icon.svg" alt="Organised Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
+    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.</p>
   </div>
 
   <div ref="{{ mainRef }}" style="position:relative;z-index:1;background:#fff;">
 
   <!-- HEADER -->
   <div style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:flex-start;padding:16px;">
-    <a ref="{{ logoRef }}" href="https://organisedoctopus.com/" class="r-logo" style="position:absolute;top:16px;left:16px;right:16px;transform-origin:top left;will-change:transform;display:flex;align-items:center;overflow:hidden;"><img ref="{{ logoSlideRef }}" src="./icon-black-mrdekrfj.svg" alt="Organied Octopus" style="width: 100%; display: block; object-fit: contain; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);"></a>
+    <a ref="{{ logoRef }}" href="https://organisedoctopus.com/" class="r-logo" style="position:absolute;top:16px;left:16px;right:16px;transform-origin:top left;will-change:transform;display:flex;align-items:center;overflow:hidden;"><img ref="{{ logoSlideRef }}" src="./icon-black-mrdekrfj.svg" alt="Organised Octopus" style="width: 100%; display: block; object-fit: contain; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);"></a>
     <div></div>
     <div style="overflow:hidden;"><button ref="{{ menuBtnRef }}" onClick="{{ toggleMenu }}" aria-label="Menu" style="position:relative;z-index:50;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">
       <span ref="{{ bar1Ref }}" style="display:block;width:28px;height:2px;background:#000;transition:transform .4s cubic-bezier(.77,0,.18,1),background .4s;"></span>
@@ -103,22 +122,25 @@ a:hover{color:#555;}
   <div style="padding-top: 20vw" class="r-hero-pad">
     <div style="padding: 0 16px; position: relative">
       <div class="r-hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; justify-content: center">
-        
-        <div style="overflow:hidden;aspect-ratio: 2/2.6; height: 650px; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9afb0cd024e19c7378f8_3.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; padding-right: 60px; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></div><div style="display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 16px; position: relative; align-self: stretch">
-          <p class="r-hero-copyright" style="position: absolute; top: 0; right: 0; font-size: 16px; font-weight: 500; margin: 0; left: 0px; text-align: right; display: none">© 2025 Organied Octopus</p>
-          <div style="overflow:hidden;"><h1 ref="{{ heroTitleRef }}" class="r-big" style="font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;max-width:500px;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">{{ heroTitle }}</h1></div>
-          <div style="overflow:hidden;width:100%;"><a ref="{{ heroBtnRef }}" href="#" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">
-            <span style="font-size:16px;font-weight:500;">Shop now</span>
-            <span style="font-size:16px;font-weight:500;">{{ heroPrice }}</span>
-          </a></div>
+
+        <div style="overflow:hidden;aspect-ratio: 2/2.6; height: 650px; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9afb0cd024e19c7378f8_3.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; padding-right: 60px; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></div>
+        <div class="r-hero-side" style="position: relative; align-self: stretch">
+          <p class="r-hero-copyright" style="position: absolute; top: 0; right: 0; font-size: 16px; font-weight: 500; margin: 0; left: 0px; text-align: right; display: none">© 2025 Organised Octopus</p>
+          <div class="r-hero-content" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
+            <div class="r-hero-thumbs" style="overflow:hidden;">
+              <div ref="{{ thumbsInnerRef }}" style="display: flex; flex-direction: row; gap: 12px; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);">
+              <a onClick="{{ hero0 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae0685ff1f5c71d6d11da5_1.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero1 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae06859d1375c4a3906bf8_2.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero2 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae068561a0d053b567dc86_3.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+            </div>
+            </div>
+            <div style="overflow:hidden;"><h1 ref="{{ heroTitleRef }}" class="r-big" style="font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;max-width:500px;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">{{ heroTitle }}</h1></div>
+            <div style="overflow:hidden;width:100%;"><a ref="{{ heroBtnRef }}" href="#" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">
+              <span style="font-size:16px;font-weight:500;">Shop on Amazon</span>
+              <span style="font-size:16px;font-weight:500;">{{ heroPrice }}</span>
+            </a></div>
+          </div>
         </div>
-      </div>
-      <div class="r-hero-thumbs" style="position: absolute; top: 50%; right: 16px; left: auto; transform: translateY(-50%); z-index: 2; overflow:hidden;">
-        <div ref="{{ thumbsInnerRef }}" style="display: flex; flex-direction: column; gap: 12px; align-items: flex-end; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);">
-        <a onClick="{{ hero0 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae0685ff1f5c71d6d11da5_1.webp" alt="" style="aspect-ratio: 2/2.6; object-fit: cover; display: block; height: 94px"></a>
-        <a onClick="{{ hero1 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae06859d1375c4a3906bf8_2.webp" alt="" style="aspect-ratio: 2/2.6; object-fit: cover; display: block; height: 94px"></a>
-        <a onClick="{{ hero2 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae068561a0d053b567dc86_3.webp" alt="" style="aspect-ratio: 2/2.6; object-fit: cover; display: block; height: 94px"></a>
-      </div>
       </div>
     </div>
   </div>
@@ -127,12 +149,12 @@ a:hover{color:#555;}
   <div ref="{{ sec2Ref }}" class="r-sec r-gap-sm" style="padding-top:200px;display:flex;flex-direction:column;gap:120px;">
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">Organied Octopus is a material-driven minimalist furniture brand that embodies the structural order and functionality of Swiss graphic design.</h2>
+        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">We believe furniture should earn its shape — bringing the structural order and quiet functionality of Swiss graphic design into every room you live in.</h2>
       </div>
     </div>
     <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <p style="grid-column:1 / 2;font-size:16px;font-weight:500;margin:0;">Vision</p>
-      <p style="grid-column: 5 / 9; font-size: 22px; font-weight: 500; margin: 0; line-height: 120%">Redefining minimalism through material authenticity and design order. Organied Octopus moves beyond simple form, creating refined designs that shape spaces.</p>
+      <p style="grid-column: 5 / 9; font-size: 22px; font-weight: 500; margin: 0; line-height: 120%">A home curated with intention, not clutter. Every piece is a sculptural object first — function follows form, but never at its expense.</p>
     </div>
   </div>
 
@@ -147,19 +169,19 @@ a:hover{color:#555;}
         <div ref="{{ leftRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
           <img src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9b7fdaa7aa4b594f62f4_5.webp" alt="Arco Shelf Metal" style="aspect-ratio:2/2.6;object-fit:cover;width:100%;">
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0"><p style="font-size:16px;font-weight:500;margin:0;">Arco Shelf Metal</p></div>
-          <a ref="{{ btn0 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop now</span><span style="font-size:16px;font-weight:500;">$ 4,200.00 USD</span></a>
+          <a ref="{{ btn0 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop on Amazon</span><span style="font-size:16px;font-weight:500;">₹ 4,200</span></a>
         </div>
         <!-- right -->
         <div ref="{{ rightRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
           <img src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9b4f3bd234953e76f057_4.webp" alt="Arco Stool Metal" style="aspect-ratio:2/2.6;object-fit:cover;width:100%;">
           <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">Arco Stool Metal</p></div>
-          <a ref="{{ btn1 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop now</span><span style="font-size:16px;font-weight:500;">$ 1,500.00 USD</span></a>
+          <a ref="{{ btn1 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop on Amazon</span><span style="font-size:16px;font-weight:500;">₹ 1,500</span></a>
         </div>
         <!-- center -->
         <div ref="{{ centerRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:2;background:#fff;">
           <img src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9ba0de7bb305ceaf65f5_6.webp" alt="Arco Sofa Metal" style="aspect-ratio:2/2.6;object-fit:cover;width:100%;">
           <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">Arco Sofa Metal</p></div>
-          <a ref="{{ btn2 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop now</span><span style="font-size:16px;font-weight:500;">$ 7,500.00 USD</span></a>
+          <a ref="{{ btn2 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop on Amazon</span><span style="font-size:16px;font-weight:500;">₹ 7,500</span></a>
         </div>
       </div>
     </div></div>
@@ -169,12 +191,12 @@ a:hover{color:#555;}
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <h1 class="r-big" style="grid-column:1 / 13;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;">Discover<br>Collection</h1>
     </div>
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <div style="grid-column:1 / 5;display:flex;flex-direction:column;">
-        <a onClick="{{ c0 }}" class="r-coll-link r-hovable" style="{{ coll0Style }}"><div class="r-hov"><div class="r-hov-ph"><p style="font-size:16px;font-weight:500;margin:0;">001</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div><div class="r-hov-a"><p style="font-size:16px;font-weight:500;margin:0;">001</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div><div class="r-hov-b" aria-hidden="true"><p style="font-size:16px;font-weight:500;margin:0;">001</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div></div></a>
-        <a onClick="{{ c1 }}" class="r-coll-link r-hovable" style="{{ coll1Style }}"><div class="r-hov"><div class="r-hov-ph"><p style="font-size:16px;font-weight:500;margin:0;">002</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div><div class="r-hov-a"><p style="font-size:16px;font-weight:500;margin:0;">002</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div><div class="r-hov-b" aria-hidden="true"><p style="font-size:16px;font-weight:500;margin:0;">002</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div></div></a>
-        <a onClick="{{ c2 }}" class="r-coll-link r-hovable" style="{{ coll2Style }}"><div class="r-hov"><div class="r-hov-ph"><p style="font-size:16px;font-weight:500;margin:0;">003</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div><div class="r-hov-a"><p style="font-size:16px;font-weight:500;margin:0;">003</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div><div class="r-hov-b" aria-hidden="true"><p style="font-size:16px;font-weight:500;margin:0;">003</p><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div></div></a>
-        <a href="./collection" class="r-hovable" style="margin-top:16px;border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;">
+    <div class="r-disc-grid" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+      <div class="r-disc-list" style="grid-column:1 / 5;display:flex;flex-direction:column;">
+        <a onClick="{{ c0 }}" class="r-coll-link r-hovable" style="{{ coll0Style }}"><p style="font-size:16px;font-weight:500;margin:0;">001</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div><div class="r-hov-a"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div></div></a>
+        <a onClick="{{ c1 }}" class="r-coll-link r-hovable" style="{{ coll1Style }}"><p style="font-size:16px;font-weight:500;margin:0;">002</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div><div class="r-hov-a"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div></div></a>
+        <a onClick="{{ c2 }}" class="r-coll-link r-hovable" style="{{ coll2Style }}"><p style="font-size:16px;font-weight:500;margin:0;">003</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div><div class="r-hov-a"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div></div></a>
+        <a href="./collection" class="r-hovable r-view-all" style="margin-top:64px;border:1px solid #000;color:#000;width:auto;padding:16px 40px;display:flex;justify-content:flex-start;align-items:center;gap:24px;text-decoration:none;">
           <div class="r-hov" style="font-size:16px;font-weight:500;"><div class="r-hov-ph">View all</div><div class="r-hov-a">View all</div><div class="r-hov-b" aria-hidden="true">View all</div></div>
           <svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg>
         </a>
@@ -186,7 +208,7 @@ a:hover{color:#555;}
           <div class="r-coll-desc" style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;max-width:280px;">{{ collDesc }}</p></div>
         </div>
         <div style="grid-area:name;display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">{{ collName }}</p></div>
-        <a href="#" style="grid-area:shop;background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;"><span style="font-size:16px;font-weight:500;">Shop now</span><span style="font-size:16px;font-weight:500;">{{ collPrice }}</span></a>
+        <a href="#" style="grid-area:shop;background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;"><span style="font-size:16px;font-weight:500;">Shop on Amazon</span><span style="font-size:16px;font-weight:500;">{{ collPrice }}</span></a>
       </div>
     </div>
   </div>
@@ -195,7 +217,7 @@ a:hover{color:#555;}
   <div id="about" class="r-sec" style="position:relative;padding-top:200px;background:#fff;">
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">Inspired by the structural order and visual logic of Swiss graphic design, Organied Octopus applies these principles to furniture, shaping elements that seamlessly integrate into spaces.</h2>
+        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">We borrow the structural order and visual logic of Swiss graphic design and let it shape furniture instead of pages — objects that hold their own space without asking for attention.</h2>
       </div>
     </div>
     <div style="position:relative;margin-top:80px;">
@@ -208,7 +230,7 @@ a:hover{color:#555;}
       <!-- rich text scrolls transparently OVER the image, no background -->
       <div class="r-kei-text" style="position: relative; z-index: 1; margin-top: -100vh; padding: 96vh 16px 120vh; display: grid; grid-template-columns: repeat(12,1fr); gap: 44px; align-content: start; padding-bottom: 80vh; padding-top: 90vh">
         <h1 class="r-kei-title" style="grid-column:4 / 10;text-align:center;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;grid-row:1;">Kei Rose</h1>
-        <p class="r-kei-para" style="grid-column:7 / 11;grid-row:2;font-size:16px;font-weight:500;margin:0;line-height:120%;max-width:350px;">Redefining minimalism through material authenticity and design order. Organied Octopus moves beyond simple form, creating refined designs that shape spaces.</p>
+        <p class="r-kei-para" style="grid-column:7 / 11;grid-row:2;font-size:16px;font-weight:500;margin:0;line-height:120%;max-width:350px;">We don't sell furniture. We sell the architecture of the rituals that happen around it.</p>
       </div>
     </div>
   </div>
@@ -221,24 +243,19 @@ a:hover{color:#555;}
   <!-- FOOTER -->
   <div ref="{{ footerRef }}" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 0; background: #000; padding: 16px 0; padding-bottom: 16px">
     <div class="r-footer" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;align-items:start;">
-      <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:4px;">
+      <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:12px;">
         <a href="./" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
         <a href="./collection" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Collection</div><div class="r-hov-a">Collection</div><div class="r-hov-b" aria-hidden="true">Collection</div></div></a>
         <a href="./about" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">About</div><div class="r-hov-a">About</div><div class="r-hov-b" aria-hidden="true">About</div></div></a>
       </div>
-      <div style="grid-column:4 / 7;display:flex;flex-direction:column;gap:4px;">
+      <div style="grid-column:4 / 7;display:flex;flex-direction:column;gap:12px;">
         <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a>
         <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a>
       </div>
-      <div style="grid-column:7 / 10;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Licence</div><div class="r-hov-a">Licence</div><div class="r-hov-b" aria-hidden="true">Licence</div></div></a>
-        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Changelog</div><div class="r-hov-a">Changelog</div><div class="r-hov-b" aria-hidden="true">Changelog</div></div></a>
-        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Design system</div><div class="r-hov-a">Design system</div><div class="r-hov-b" aria-hidden="true">Design system</div></div></a>
+      <div style="grid-column:10 / 13;justify-self:end;display:flex;flex-direction:column;gap:12px;">
+        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">© 2025 Organised Octopus</a>
       </div>
-      <div style="grid-column:10 / 13;justify-self:end;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">© 2025 Organied Octopus</a>
-      </div>
-      <a href="#" class="r-footer-logo" style="grid-column:1 / 13;display:flex;width:100%;padding-top:8px;"><img src="./octopus-white-mrdelehg.svg" alt="Organied Octopus" style="width: 100%; display: block"></a>
+      <a href="#" class="r-footer-logo" style="grid-column:1 / 13;display:flex;width:100%;padding-top:8px;"><img src="./octopus-white-mrdelehg.svg" alt="Organised Octopus" style="width: 100%; display: block"></a>
     </div>
   </div>
 
@@ -248,17 +265,17 @@ a:hover{color:#555;}
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(45deg);"></span>
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(-45deg);"></span>
     </button>
-    <div class="r-menu-links" style="grid-column: 1 / 8; grid-row: 2; display: flex; flex-direction: column; gap: 4px; margin-left: 24px">
+    <div class="r-menu-links" style="grid-column: 1 / 8; grid-row: 2; display: flex; flex-direction: column; gap: 24px; margin-left: 24px">
       <a href="./" onClick="{{ closeMenu }}" ref="{{ mi0 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
       <a href="./collection" ref="{{ mi1 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Collection</div><div class="r-hov-a">Collection</div><div class="r-hov-b" aria-hidden="true">Collection</div></div></a>
       <a href="./about" ref="{{ mi2 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">About</div><div class="r-hov-a">About</div><div class="r-hov-b" aria-hidden="true">About</div></div></a>
     </div>
     <div class="r-menu-desc" style="grid-column:9 / 13;grid-row:2;align-self:end;display:flex;flex-direction:column;gap:24px;">
-      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.</p>
+      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.</p>
     </div>
     <div class="r-menu-bottom" style="grid-column: 1 / 13; grid-row: 3; display: flex; justify-content: space-between; align-items: flex-end; margin-left: 24px; margin-right: 24px; margin-bottom: 24px">
       <div style="display:flex;gap:24px;"><a href="#" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a><a href="#" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a></div>
-      <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">© 2025 Organied Octopus</p>
+      <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">© 2025 Organised Octopus</p>
     </div>
   </div>
 
@@ -471,19 +488,19 @@ class Component extends DCLogic {
   renderVals(){
     const B='https://cdn.prod.website-files.com/67a7721e638cc64a55110750/';
     const heroes=[
-      {img:B+'67ad96ab106d8fb7eb7c1eab_1.webp',name:'Luno Stool Blue',price:'$ 1,200.00 USD'},
-      {img:B+'67ad96dcb08629ee808e5994_2.webp',name:'Luno Shelf Red',price:'$ 3,500.00 USD'},
-      {img:B+'67ad9afb0cd024e19c7378f8_3.webp',name:'Luno Sofa Yellow',price:'$ 6,800.00 USD'}
+      {img:B+'67ad96ab106d8fb7eb7c1eab_1.webp',name:'Luno Stool Blue',price:'₹ 1,200'},
+      {img:B+'67ad96dcb08629ee808e5994_2.webp',name:'Luno Shelf Red',price:'₹ 3,500'},
+      {img:B+'67ad9afb0cd024e19c7378f8_3.webp',name:'Luno Sofa Yellow',price:'₹ 6,800'}
     ];
     const colls=[
-      {img:B+'67ad9afb0cd024e19c7378f8_3.webp',img2:B+'67b1d61e5c80ce0e3e4394c1_3-2.webp',name:'Luno Sofa Yellow',price:'$ 6,800.00 USD',desc:'A vibrant yellow sofa that brings warmth and energy.'},
-      {img:B+'67ad9ba0de7bb305ceaf65f5_6.webp',img2:B+'67b1d5f084a678ab1b0efec3_6-2.webp',name:'Arco Sofa Metal',price:'$ 7,500.00 USD',desc:'A minimalist metal shelf with a refined industrial look.'},
-      {img:B+'67ad9c39d7574971aad10695_9.webp',img2:B+'67b1d5c63fcfacb48ae7341d_9-2.webp',name:'Vera Sofa Blue',price:'$ 7,000.00 USD',desc:'A bold blue sofa that merges comfort with contemporary aesthetics.'}
+      {img:B+'67ad9afb0cd024e19c7378f8_3.webp',img2:B+'67b1d61e5c80ce0e3e4394c1_3-2.webp',name:'Luno Sofa Yellow',price:'₹ 6,800',desc:'A vibrant yellow sofa that brings warmth and energy.'},
+      {img:B+'67ad9ba0de7bb305ceaf65f5_6.webp',img2:B+'67b1d5f084a678ab1b0efec3_6-2.webp',name:'Arco Sofa Metal',price:'₹ 7,500',desc:'A minimalist metal shelf with a refined industrial look.'},
+      {img:B+'67ad9c39d7574971aad10695_9.webp',img2:B+'67b1d5c63fcfacb48ae7341d_9-2.webp',name:'Vera Sofa Blue',price:'₹ 7,000',desc:'A bold blue sofa that merges comfort with contemporary aesthetics.'}
     ];
     const h=heroes[this.state.hero];
     const c=colls[this.state.coll];
     const th=(i)=>({display:'block',cursor:'pointer',outline:this.state.hero===i?'2px solid #000':'2px solid transparent',outlineOffset:'2px',transition:'outline-color .2s'});
-    const ct=(i)=>({display:'flex',flexDirection:'column',gap:'8px',width:'100%',padding:'16px 0',textDecoration:'none',cursor:'pointer',color:this.state.coll===i?'#000':'#afafaf',borderBottom:this.state.coll===i?'1px solid #000':'1px solid #afafaf'});
+    const ct=(i)=>({display:'flex',flexDirection:'row',alignItems:'flex-end',gap:'16px',width:'100%',padding:'16px 0',textDecoration:'none',cursor:'pointer',color:this.state.coll===i?'#000':'#afafaf',borderBottom:this.state.coll===i?'1px solid #000':'1px solid #afafaf'});
     return {
       heroTitle:h.name, heroPrice:h.price,
       hero0:()=>this.setState({hero:0}), hero1:()=>this.setState({hero:1}), hero2:()=>this.setState({hero:2}),

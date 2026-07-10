@@ -201,7 +201,7 @@ try { (() => {
 // The brand's only button shape: a full-width black bar with the label on the
 // left and a value (price, or any secondary label) pinned to the right.
 function ShopButton({
-  label = 'Shop now',
+  label = 'Shop on Amazon',
   value = '',
   onClick,
   href = '#',
@@ -368,7 +368,7 @@ function MenuOverlay({
       gridColumn: '1 / 8',
       display: 'flex',
       flexDirection: 'column',
-      gap: 4,
+      gap: 24,
       marginLeft: 24
     }
   }, links.map((l, i) => /*#__PURE__*/React.createElement("a", {
@@ -447,7 +447,7 @@ try { (() => {
 function SiteFooter({
   columns = [],
   logoSrc,
-  copyright = '© 2025 Organied Octopus'
+  copyright = '© 2025 Organised Octopus'
 }) {
   return /*#__PURE__*/React.createElement("div", {
     style: {
@@ -470,7 +470,7 @@ function SiteFooter({
       gridColumn: col.span || 'auto',
       display: 'flex',
       flexDirection: 'column',
-      gap: 4
+      gap: 12
     }
   }, col.links.map((l, j) => /*#__PURE__*/React.createElement("a", {
     key: j,

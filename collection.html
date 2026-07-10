@@ -189,9 +189,9 @@ function LoadingScreen({ visible }) {
       transform: visible ? 'translateY(0%)' : 'translateY(-100%)',
       transition: 'transform 1s cubic-bezier(.77,0,.18,1)',
     }}>
-      <img src="assets/loading-icon.svg" alt="Organied Octopus" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 180, display: 'block' }} />
+      <img src="assets/loading-icon.svg" alt="Organised Octopus" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 180, display: 'block' }} />
       <p style={{ position: 'absolute', bottom: 16, right: 16, fontSize: 'var(--text-loading)', fontWeight: 500, lineHeight: 'var(--text-loading-line)', letterSpacing: 'var(--tracking-normal)', margin: 0, maxWidth: 380, textAlign: 'right' }}>
-        Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.
+        Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.
       </p>
     </div>
   );
@@ -296,11 +296,10 @@ function Page() {
       <div ref={footerRef} style={{ position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 0 }}>
         <SiteFooter
           logoSrc="octopus-white-mrdelehg.svg"
-          copyright="© 2025 Organied Octopus"
+          copyright="© 2025 Organised Octopus"
           columns={[
             { span: '1 / 4', links: [{ label: 'Home', href: './' }, { label: 'Collection', href: './collection' }, { label: 'About', href: './about' }] },
             { span: '4 / 7', links: [{ label: 'Instagram' }, { label: 'Email' }] },
-            { span: '7 / 10', links: [{ label: 'Licence' }, { label: 'Changelog' }, { label: 'Design system' }] },
           ]}
         />
       </div>
@@ -313,9 +312,9 @@ function Page() {
           { label: 'Collection', href: './collection' },
           { label: 'About', href: './about' },
         ]}
-        description="Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design."
+        description="Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design."
         social={[{ label: 'Instagram', href: '#' }, { label: 'Email', href: '#' }]}
-        copyright="© 2025 Organied Octopus"
+        copyright="© 2025 Organised Octopus"
       />
     </div>
   );
