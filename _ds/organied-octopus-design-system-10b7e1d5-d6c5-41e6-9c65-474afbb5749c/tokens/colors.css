@@ -1,0 +1,26 @@
+:root {
+  /* Base palette — Organied Octopus is strictly black, white, and one grayscale ramp.
+     No color accents, no gradients. */
+  --oo-black: #000000;
+  --oo-white: #ffffff;
+  --oo-gray-90: #555555;   /* link hover */
+  --oo-gray-60: #8f8f8f;   /* secondary copy, menu description */
+  --oo-gray-50: #afafaf;   /* inactive list items, dividers */
+  --oo-gray-scrollbar: rgba(0, 0, 0, 0.28);
+  --oo-gray-scrollbar-hover: rgba(0, 0, 0, 0.5);
+  --oo-scrim: rgba(0, 0, 0, 0.5); /* cart / modal backdrop */
+
+  /* Semantic aliases */
+  --surface-page: var(--oo-white);
+  --surface-inverted: var(--oo-black);
+  --text-primary: var(--oo-black);
+  --text-inverted: var(--oo-white);
+  --text-muted: var(--oo-gray-60);
+  --text-disabled: var(--oo-gray-50);
+  --border-hairline: var(--oo-gray-50);
+  --action-bg: var(--oo-black);
+  --action-fg: var(--oo-white);
+  --link-default: var(--oo-black);
+  --link-hover: var(--oo-gray-90);
+  --overlay-scrim: var(--oo-scrim);
+}

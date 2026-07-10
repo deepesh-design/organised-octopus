@@ -4,263 +4,307 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Collection — Organised Octopus</title>
-<script src="./support.js"></script>
+
+<link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/tokens/colors.css">
+<link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/tokens/typography.css">
+<link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/tokens/effects.css">
+<link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/base.css">
+<link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/styles.css">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/_ds_bundle.js"></script>
+
+<style>
+  html, body { margin: 0; padding: 0; background: #fff; }
+  * { box-sizing: border-box; }
+  a { color: var(--link-default); }
+  a:hover { color: var(--link-hover); }
+  .sort-toggle {
+    display: flex; align-items: center; gap: 8px; background: none; border: none;
+    border-bottom: 1px solid var(--oo-black); padding: 6px 0; cursor: pointer;
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 500;
+    letter-spacing: var(--tracking-tight); color: var(--text-primary);
+  }
+  .sort-option {
+    display: block; width: 100%; text-align: left; padding: 12px 16px; border: none; cursor: pointer;
+    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 500; letter-spacing: var(--tracking-tight);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .sort-option:last-child { border-bottom: none; }
+
+  @media (max-width: 767px) {
+    .r-big { font-size: var(--text-hero-mobile) !important; }
+    #product-grid { grid-template-columns: repeat(1, 1fr) !important; padding: 0 !important; }
+    .filterbar { flex-direction: column !important; align-items: stretch !important; gap: 20px !important; padding: 32px 0 16px !important; }
+    .cat-pills { gap: 16px !important; }
+    .sort-dropdown { align-self: flex-start; }
+    .sort-dropdown .sort-menu { left: 0 !important; right: auto !important; width: 220px; }
+  }
+</style>
 </head>
 <body>
-<x-dc>
-<helmet>
-<style>
-@font-face{font-family:Bdogrotesk;src:url("https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67a78595a859206cd764377b_BDOGrotesk-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:Bdogrotesk;src:url("https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67a785954dbb6364e4100d58_BDOGrotesk-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;}
-@font-face{font-family:Bdogrotesk;src:url("https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67a78595a859206cd764376b_BDOGrotesk-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;}
-html,body{margin:0;padding:0;background:#fff;}
-*{box-sizing:border-box;}
-a{color:#000;}
-a:hover{color:#555;}
-/* slim custom scrollbar */
-html{scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.28) transparent;}
-::-webkit-scrollbar{width:6px;height:6px;}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.28);border-radius:99px;}
-::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,0.5);}
-@media (max-width:767px){
-  .r-big{font-size:44px !important;max-width:none !important;}
-  .r-logo{right:auto !important;width:200px !important;transform:none !important;transition:none !important;}
-  .r-footer{grid-template-columns:1fr 1fr !important;gap:24px 16px !important;}
-  .r-footer > *{grid-column:auto !important;justify-self:start !important;}
-  .r-menu{padding:16px !important;}
-  .r-menu-links{grid-column:1 / -1 !important;grid-row:2 !important;}
-  .r-menu-link{font-size:44px !important;}
-  .r-menu-desc{grid-column:1 / -1 !important;grid-row:3 !important;}
-  .r-menu-bottom{grid-row:4 !important;flex-direction:column !important;align-items:flex-start !important;gap:12px !important;}
-  .r-footer > .r-footer-logo{grid-column:1 / -1 !important;padding-right:0 !important;}
-  .r-footer-logo img{width:100% !important;padding-right:0 !important;}
-  .r-cart{max-width:100% !important;}
-  .r-loading-text{font-size:15px !important;max-width:60vw !important;}
-  .r-loading-img{width:100px !important;}
+<div id="root"></div>
+
+<script type="text/babel">
+const { SiteHeader, MenuOverlay, SiteFooter, ShopButton, ProductThumb } = window.OrganiedOctopusDesignSystem_10b7e1;
+
+const CDN = 'https://cdn.prod.website-files.com/67a7721e638cc64a55110750/';
+const CDN2 = 'https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/';
+
+const PRODUCTS = [
+  { id: 'ripple-vase',    name: 'Ripple Vase',    cat: 'Vases',      price: 68,  added: 8, img: CDN2 + '67ae0685ff1f5c71d6d11da5_1.webp', imgHover: CDN + '67b1d61e5c80ce0e3e4394c1_3-2.webp', badge: 'New' },
+  { id: 'hollow-vase',    name: 'Hollow Vase',    cat: 'Vases',      price: 54,  added: 3, img: CDN + '67ad96ab106d8fb7eb7c1eab_1.webp', imgHover: CDN + '67b1d5f084a678ab1b0efec3_6-2.webp' },
+  { id: 'arc-lamp',       name: 'Arc Lamp',       cat: 'Lamps',      price: 120, added: 7, img: CDN + '67ad9b7fdaa7aa4b594f62f4_5.webp', imgHover: CDN + '67b1d5c63fcfacb48ae7341d_9-2.webp', badge: 'Featured' },
+  { id: 'nest-lamp',      name: 'Nest Lamp',      cat: 'Lamps',      price: 95,  added: 2, img: CDN + '67ad9b4f3bd234953e76f057_4.webp', imgHover: CDN + '67b1d61e5c80ce0e3e4394c1_3-2.webp' },
+  { id: 'coral-tray',     name: 'Coral Tray',     cat: 'Organising', price: 42,  added: 6, img: CDN + '67ad9ba0de7bb305ceaf65f5_6.webp', imgHover: CDN + '67b1d5f084a678ab1b0efec3_6-2.webp', badge: 'On sale' },
+  { id: 'loop-catchall',  name: 'Loop Catch-all', cat: 'Organising', price: 36,  added: 1, img: CDN + '67ad9c39d7574971aad10695_9.webp', imgHover: CDN + '67b1d5c63fcfacb48ae7341d_9-2.webp' },
+  { id: 'strand-bookend', name: 'Strand Bookend', cat: 'Decor',      price: 58,  added: 5, img: CDN + '67ad96dcb08629ee808e5994_2.webp', imgHover: CDN + '67b1d61e5c80ce0e3e4394c1_3-2.webp' },
+  { id: 'drift-bowl',     name: 'Drift Bowl',     cat: 'Decor',      price: 48,  added: 4, img: CDN + '67ad9afb0cd024e19c7378f8_3.webp', imgHover: CDN + '67b1d5f084a678ab1b0efec3_6-2.webp', badge: 'New' },
+];
+
+const CATEGORIES = ['Vases', 'Lamps', 'Organising', 'Decor'];
+
+function money(n) {
+  return '\u20b9 ' + n.toLocaleString('en-IN');
 }
-</style>
-</helmet>
 
-<div style="position:relative;font-family:Bdogrotesk,Arial,sans-serif;color:#000;letter-spacing:-0.03em;-webkit-font-smoothing:antialiased;overflow-x:clip;">
-
-  <!-- LOADING SCREEN -->
-  <div ref="{{ loadingRef }}" style="position:fixed;inset:0;z-index:100;background:#fff;color:#000;padding:16px;transform:translateY(0%);transition:transform 1s cubic-bezier(.77,0,.18,1);">
-    <img class="r-loading-img" src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9afb0cd024e19c7378f8_3.webp" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:2/2.6;object-fit:cover;">
-    <img src="./assets/loading-icon.svg" alt="Organied Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
-    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.</p>
-  </div>
-
-  <div ref="{{ mainRef }}" style="position:relative;z-index:1;background:#fff;">
-
-  <!-- HEADER -->
-  <div style="position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:flex-start;padding:16px;">
-    <a ref="{{ logoRef }}" href="./index.html" class="r-logo" style="position:absolute;top:16px;left:16px;right:16px;transform-origin:top left;will-change:transform;display:flex;align-items:center;overflow:hidden;"><img ref="{{ logoSlideRef }}" src="./icon-black-mrdekrfj.svg" alt="Organied Octopus" style="width: 100%; display: block; object-fit: contain; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);"></a>
-    <div></div>
-    <div style="overflow:hidden;"><button ref="{{ menuBtnRef }}" onClick="{{ toggleMenu }}" aria-label="Menu" style="position:relative;z-index:50;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">
-      <span ref="{{ bar1Ref }}" style="display:block;width:28px;height:2px;background:#000;transition:transform .4s cubic-bezier(.77,0,.18,1),background .4s;"></span>
-      <span ref="{{ bar2Ref }}" style="display:block;width:20px;height:2px;background:#000;transition:transform .4s cubic-bezier(.77,0,.18,1),opacity .3s,width .4s,background .4s;"></span>
-      <span ref="{{ bar3Ref }}" style="display:block;width:28px;height:2px;background:#000;transition:transform .4s cubic-bezier(.77,0,.18,1),background .4s;"></span>
-    </button></div>
-  </div>
-
-  <!-- PAGE CONTENT : COLLECTION (placeholder) -->
-  <div style="padding:0 16px;min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;">
-    <div style="overflow:hidden;">
-      <h1 class="r-big" style="font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0 0 16px;">Collection</h1>
-      <p style="font-size:16px;font-weight:500;color:#8f8f8f;margin:0;">Coming soon.</p>
-    </div>
-  </div>
-
-  </div>
-
-  <!-- spacer reserves scroll space to reveal the fixed footer beneath -->
-  <div ref="{{ spacerRef }}" style="width:100%;"></div>
-
-  <!-- FOOTER -->
-  <div ref="{{ footerRef }}" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 0; background: #000; padding: 16px 0; padding-bottom: 16px">
-    <div class="r-footer" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;align-items:start;">
-      <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:4px;">
-        <a href="./index.html" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Home</a>
-        <a onClick="{{ openMenu }}" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;cursor:pointer;">Store</a>
-        <a href="./collection.html" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Collection</a>
-        <a href="./about.html" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">About</a>
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Contact</a>
-      </div>
-      <div style="grid-column:4 / 7;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Instagram</a>
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Email</a>
-      </div>
-      <div style="grid-column:7 / 10;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Licence</a>
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Changelog</a>
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Design system</a>
-      </div>
-      <div style="grid-column:10 / 13;justify-self:end;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">© 2025 Organied Octopus</a>
-      </div>
-      <a href="./index.html" class="r-footer-logo" style="grid-column:1 / 13;display:flex;width:100%;padding-top:8px;"><img src="./octopus-white-mrdelehg.svg" alt="Organied Octopus" style="width: 100%; display: block"></a>
-    </div>
-  </div>
-
-  <!-- MENU OVERLAY : circle reveal from top-right -->
-  <div ref="{{ menuRef }}" class="r-menu" style="position: fixed; inset: 0; z-index: 35; background: #000; color: #fff; clip-path: circle(0px at calc(100% - 38px) 38px); -webkit-clip-path: circle(0px at calc(100% - 38px) 38px); transition: clip-path .75s cubic-bezier(.77,0,.18,1),-webkit-clip-path .75s cubic-bezier(.77,0,.18,1); pointer-events: none; display: grid; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 16px; align-content: space-between; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px">
-    <button onClick="{{ closeMenu }}" aria-label="Close menu" style="grid-column:1 / 13;grid-row:1;justify-self:end;align-self:start;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:0;position:relative;">
-      <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(45deg);"></span>
-      <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(-45deg);"></span>
-    </button>
-    <div class="r-menu-links" style="grid-column: 1 / 8; grid-row: 2; display: flex; flex-direction: column; gap: 4px; margin-left: 24px">
-      <a href="./index.html" onClick="{{ closeMenu }}" ref="{{ mi0 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Store</a>
-      <a href="./collection.html" ref="{{ mi1 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Collection</a>
-      <a href="./about.html" ref="{{ mi2 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">About</a>
-      <a href="#" onClick="{{ closeMenu }}" ref="{{ mi3 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Contact</a>
-    </div>
-    <div class="r-menu-desc" style="grid-column:9 / 13;grid-row:2;align-self:end;display:flex;flex-direction:column;gap:24px;">
-      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.</p>
-    </div>
-    <div class="r-menu-bottom" style="grid-column: 1 / 13; grid-row: 3; display: flex; justify-content: space-between; align-items: flex-end; margin-left: 24px; margin-right: 24px; margin-bottom: 24px">
-      <div style="display:flex;gap:24px;"><a href="#" onClick="{{ closeMenu }}" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;">Instagram</a><a href="#" onClick="{{ closeMenu }}" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;">Email</a></div>
-      <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">© 2025 Organied Octopus</p>
-    </div>
-  </div>
-
-  <!-- CART OVERLAY -->
-  <sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:fixed;inset:0;z-index:40;display:flex;justify-content:flex-end;">
-      <div onClick="{{ closeCart }}" style="position:absolute;inset:0;background:rgba(0,0,0,0.5);cursor:pointer;"></div>
-      <div class="r-cart" style="position:relative;z-index:1;background:#fff;width:100%;max-width:480px;min-width:320px;height:100%;display:flex;flex-direction:column;">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px;"><p style="font-size:16px;font-weight:500;margin:0;">Cart</p><a onClick="{{ closeCart }}" style="font-size:16px;font-weight:500;color:#000;text-decoration:none;cursor:pointer;">Close</a></div>
-        <div style="flex:1;display:flex;justify-content:center;align-items:center;"><p style="font-size:16px;font-weight:500;margin:0;">Cart is empty</p></div>
-      </div>
-    </div>
-  </sc-if>
-
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  constructor(props){
-    super(props);
-    this.state={menuOpen:false,cartOpen:false};
-    this.main=React.createRef();
-    this.footer=React.createRef();
-    this.spacer=React.createRef();
-    this.loadingRef=React.createRef();
-    this.logoSlideRef=React.createRef();
-    this.menuBtnRef=React.createRef();
-    this.menuRef=React.createRef();
-    this.bar1Ref=React.createRef();
-    this.bar2Ref=React.createRef();
-    this.bar3Ref=React.createRef();
-    this.mi0=React.createRef();
-    this.mi1=React.createRef();
-    this.mi2=React.createRef();
-    this.mi3=React.createRef();
-    this.logo=React.createRef();
-    this.minScale=0.11;
-    this.onScroll=this.onScroll.bind(this);
-    this.onResize=this.onResize.bind(this);
-  }
-  componentDidMount(){
-    window.addEventListener('scroll',this.onScroll,{passive:true});
-    window.addEventListener('resize',this.onResize);
-    window.addEventListener('load',this.onResize);
-    this.onResize();
-    this.onScroll();
-    this.menuSync();
-    document.documentElement.style.overflow='hidden';
-    document.body.style.overflow='hidden';
-    setTimeout(()=>{
-      if(this.loadingRef.current) this.loadingRef.current.style.transform='translateY(-100%)';
-      document.documentElement.style.overflow='';
-      document.body.style.overflow='';
-      setTimeout(()=>{ this.playHeroEntrance(); }, 500);
-    }, 1200);
-    setTimeout(()=>{
-      if(this.loadingRef.current) this.loadingRef.current.style.display='none';
-    }, 2400);
-    if(this.footer.current){
-      this.footer.current.querySelectorAll('img').forEach(img=>{
-        if(!img.complete) img.addEventListener('load',this.onResize,{once:true});
-      });
+function sortProducts(list, sortVal) {
+  const arr = list.slice();
+  arr.sort((a, b) => {
+    switch (sortVal) {
+      case 'price-asc': return a.price - b.price;
+      case 'price-desc': return b.price - a.price;
+      case 'name-asc': return a.name.localeCompare(b.name);
+      default: return b.added - a.added; // newest
     }
-    setTimeout(this.onResize,600);
-  }
-  componentDidUpdate(){ this.menuSync(); }
-  menuSync(){
-    const open=this.state.menuOpen;
-    const m=this.menuRef.current;
-    if(m){
-      const r=open?'circle(150% at calc(100% - 38px) 38px)':'circle(0px at calc(100% - 38px) 38px)';
-      m.style.clipPath=r; m.style.webkitClipPath=r;
-      m.style.pointerEvents=open?'auto':'none';
-    }
-    const b1=this.bar1Ref.current, b2=this.bar2Ref.current, b3=this.bar3Ref.current;
-    if(b1&&b2&&b3){
-      const c=open?'#fff':'#000';
-      b1.style.background=c; b2.style.background=c; b3.style.background=c;
-      b1.style.transform=open?'translateY(8px) rotate(45deg)':'none';
-      b3.style.transform=open?'translateY(-8px) rotate(-45deg)':'none';
-      b2.style.opacity=open?'0':'1';
-      b2.style.width=open?'28px':'20px';
-    }
-    [this.mi0,this.mi1,this.mi2,this.mi3].forEach((ref,i)=>{
-      const el=ref.current; if(!el) return;
-      el.style.transitionDelay=open?(0.12+i*0.07)+'s':'0s';
-      el.style.opacity=open?'1':'0';
-      el.style.transform=open?'translateY(0)':'translateY(24px)';
-    });
-  }
-  playHeroEntrance(){
-    const slideIn=ref=>{ if(ref.current) ref.current.style.transform='translateY(0%)'; };
-    slideIn(this.logoSlideRef);
-    setTimeout(()=>{
-      slideIn(this.menuBtnRef);
-    }, 800);
-  }
-  componentWillUnmount(){
-    window.removeEventListener('scroll',this.onScroll);
-    window.removeEventListener('resize',this.onResize);
-    window.removeEventListener('load',this.onResize);
-  }
-  onResize(){
-    if(this.footer.current && this.spacer.current){
-      this.spacer.current.style.height = this.footer.current.offsetHeight + 'px';
-    }
-    if(this.logo.current){
-      const fullW = this.logo.current.offsetWidth;
-      if(fullW>0) this.minScale = Math.min(1, 260/fullW);
-    }
-    this.onScroll();
-  }
-  logoScroll(){
-    const logo=this.logo.current;
-    if(!logo) return;
-    if(window.innerWidth<=767){ logo.style.transform='none'; return; }
-    const end = window.innerHeight*0.25;
-    let p = end>0 ? window.scrollY/end : 1;
-    p = Math.max(0, Math.min(1, p));
-    const s = 1 - p*(1 - this.minScale);
-    logo.style.transform = 'scale('+s+')';
-  }
-  onScroll(){
-    this.logoScroll();
-  }
-  renderVals(){
-    return {
-      menuOpen:this.state.menuOpen, cartOpen:this.state.cartOpen,
-      openMenu:()=>this.setState({menuOpen:true}), closeMenu:()=>this.setState({menuOpen:false}),
-      toggleMenu:()=>this.setState(s=>({menuOpen:!s.menuOpen})),
-      menuRef:this.menuRef, bar1Ref:this.bar1Ref, bar2Ref:this.bar2Ref, bar3Ref:this.bar3Ref,
-      mi0:this.mi0, mi1:this.mi1, mi2:this.mi2, mi3:this.mi3,
-      openCart:()=>this.setState({cartOpen:true}), closeCart:()=>this.setState({cartOpen:false}),
-      mainRef:this.main, footerRef:this.footer,
-      logoRef:this.logo, spacerRef:this.spacer,
-      loadingRef:this.loadingRef,
-      logoSlideRef:this.logoSlideRef, menuBtnRef:this.menuBtnRef
-    };
-  }
+  });
+  return arr;
 }
+
+function ChevronIcon({ open }) {
+  return (
+    <svg width="12" height="8" viewBox="0 0 12 8" style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform var(--duration-fast) ease', flexShrink: 0 }}>
+      <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="square" />
+    </svg>
+  );
+}
+
+const SORT_OPTIONS = [
+  { value: 'newest', label: 'Newest' },
+  { value: 'price-asc', label: 'Price: low\u2013high' },
+  { value: 'price-desc', label: 'Price: high\u2013low' },
+  { value: 'name-asc', label: 'Name A\u2013Z' },
+];
+
+function SortDropdown({ value, onChange }) {
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef(null);
+  const current = SORT_OPTIONS.find(o => o.value === value) || SORT_OPTIONS[0];
+
+  React.useEffect(() => {
+    function onDocClick(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    }
+    document.addEventListener('mousedown', onDocClick);
+    return () => document.removeEventListener('mousedown', onDocClick);
+  }, []);
+
+  return (
+    <div className="sort-dropdown" ref={ref} style={{ position: 'relative' }}>
+      <button type="button" className="sort-toggle" onClick={() => setOpen(o => !o)} aria-haspopup="listbox" aria-expanded={open}>
+        <span>{current.label}</span>
+        <ChevronIcon open={open} />
+      </button>
+      {open && (
+        <div className="sort-menu" role="listbox" style={{
+          position: 'absolute', top: 'calc(100% + 8px)', right: 0, zIndex: 10,
+          background: 'var(--surface-page)', border: '1px solid var(--border-hairline)', minWidth: 220,
+        }}>
+          {SORT_OPTIONS.map(o => (
+            <button
+              key={o.value}
+              type="button"
+              role="option"
+              aria-selected={o.value === value}
+              className="sort-option"
+              onClick={() => { onChange(o.value); setOpen(false); }}
+              style={{ background: o.value === value ? 'var(--oo-black)' : 'transparent', color: o.value === value ? 'var(--oo-white)' : 'var(--text-primary)' }}
+            >{o.label}</button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function Badge({ text }) {
+  return (
+    <span style={{
+      position: 'absolute', top: 8, left: 8, zIndex: 2,
+      background: 'var(--oo-black)', color: 'var(--oo-white)',
+      fontFamily: 'var(--font-sans)', fontSize: 12, fontWeight: 500,
+      letterSpacing: '0.02em', textTransform: 'uppercase', padding: '4px 8px',
+    }}>{text}</span>
+  );
+}
+
+function ProductTile({ p }) {
+  const [hover, setHover] = React.useState(false);
+  const src = (hover && p.imgHover) ? p.imgHover : p.img;
+  return (
+    <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+      <div style={{ position: 'relative' }}>
+        <ProductThumb src={src} alt={p.name} name={p.name} width="100%" />
+        {p.badge ? <Badge text={p.badge} /> : null}
+      </div>
+      <ShopButton label="Shop on Amazon" value={money(p.price)} />
+    </div>
+  );
+}
+
+function LoadingScreen({ visible }) {
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 100, background: 'var(--surface-page)', color: 'var(--text-primary)', padding: 16,
+      transform: visible ? 'translateY(0%)' : 'translateY(-100%)',
+      transition: 'transform 1s cubic-bezier(.77,0,.18,1)',
+    }}>
+      <img src="assets/loading-icon.svg" alt="Organied Octopus" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 180, display: 'block' }} />
+      <p style={{ position: 'absolute', bottom: 16, right: 16, fontSize: 'var(--text-loading)', fontWeight: 500, lineHeight: 'var(--text-loading-line)', letterSpacing: 'var(--tracking-normal)', margin: 0, maxWidth: 380, textAlign: 'right' }}>
+        Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.
+      </p>
+    </div>
+  );
+}
+
+function Page() {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [cat, setCat] = React.useState('all');
+  const [sort, setSort] = React.useState('newest');
+  const [loading, setLoading] = React.useState(true);
+  const [loadingDone, setLoadingDone] = React.useState(false);
+  const footerRef = React.useRef(null);
+  const spacerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    let timers = [];
+    function startReveal() {
+      timers.push(setTimeout(() => {
+        setLoading(false);
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }, 700));
+      timers.push(setTimeout(() => setLoadingDone(true), 1900));
+    }
+    // preload the loading-screen icon so it never flashes in blank —
+    // only start the reveal countdown once it's actually ready to paint
+    const icon = new Image();
+    icon.src = 'assets/loading-icon.svg';
+    if (icon.complete) {
+      startReveal();
+    } else {
+      icon.onload = startReveal;
+      icon.onerror = startReveal;
+      timers.push(setTimeout(startReveal, 1200)); // fallback if load never fires
+    }
+    return () => { timers.forEach(clearTimeout); };
+  }, []);
+
+  React.useEffect(() => {
+    function resize() {
+      if (footerRef.current && spacerRef.current) {
+        spacerRef.current.style.height = footerRef.current.offsetHeight + 'px';
+      }
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    window.addEventListener('load', resize);
+    const imgs = footerRef.current ? footerRef.current.querySelectorAll('img') : [];
+    imgs.forEach(img => { if (!img.complete) img.addEventListener('load', resize, { once: true }); });
+    const t = setTimeout(resize, 600);
+    return () => { window.removeEventListener('resize', resize); window.removeEventListener('load', resize); clearTimeout(t); };
+  }, []);
+
+  const filtered = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+  const sorted = sortProducts(filtered, sort);
+
+  return (
+    <div style={{ position: 'relative', fontFamily: 'var(--font-sans)', color: 'var(--text-primary)', letterSpacing: 'var(--tracking-tight)', WebkitFontSmoothing: 'antialiased', overflowX: 'clip' }}>
+      {!loadingDone && <LoadingScreen visible={loading} />}
+
+      <div style={{ position: 'relative', zIndex: 1, background: 'var(--surface-page)' }}>
+      <SiteHeader logoSrc="icon-black-mrdekrfj.svg" menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(o => !o)} homeHref="./index.html" />
+
+      <div style={{ padding: '140px 16px 120px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 16 }}>
+          <h1 className="r-big" style={{ gridColumn: '1 / 13', fontSize: 'var(--text-hero)', lineHeight: 'var(--text-hero-line)', fontWeight: 500, letterSpacing: 'var(--tracking-tight)', margin: 0 }}>
+            Collection
+          </h1>
+        </div>
+
+        <div className="filterbar" style={{
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          padding: '32px 16px 16px', borderBottom: '1px solid var(--border-hairline)', margin: '0 0 32px',
+        }}>
+          <div className="cat-pills" style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
+            {['all', ...CATEGORIES].map(c => (
+              <button
+                key={c}
+                onClick={() => setCat(c)}
+                style={{
+                  background: 'none', border: 'none', fontFamily: 'inherit', fontSize: 'var(--text-body)',
+                  fontWeight: 500, letterSpacing: 'var(--tracking-tight)', padding: 0, cursor: 'pointer',
+                  color: cat === c ? 'var(--text-primary)' : 'var(--text-disabled)',
+                }}
+              >{c === 'all' ? 'All' : c}</button>
+            ))}
+          </div>
+          <SortDropdown value={sort} onChange={setSort} />
+        </div>
+
+        <div id="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px 16px', padding: '0 16px' }}>
+          {sorted.map(p => <ProductTile key={p.id} p={p} />)}
+        </div>
+      </div>
+      </div>
+
+      <div ref={spacerRef} style={{ width: '100%' }}></div>
+
+      <div ref={footerRef} style={{ position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 0 }}>
+        <SiteFooter
+          logoSrc="octopus-white-mrdelehg.svg"
+          copyright="© 2025 Organied Octopus"
+          columns={[
+            { span: '1 / 4', links: [{ label: 'Home', href: './index.html' }, { label: 'Collection', href: './collection.html' }, { label: 'About', href: './about.html' }] },
+            { span: '4 / 7', links: [{ label: 'Instagram' }, { label: 'Email' }] },
+            { span: '7 / 10', links: [{ label: 'Licence' }, { label: 'Changelog' }, { label: 'Design system' }] },
+          ]}
+        />
+      </div>
+
+      <MenuOverlay
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        links={[
+          { label: 'Home', href: './index.html' },
+          { label: 'Collection', href: './collection.html' },
+          { label: 'About', href: './about.html' },
+        ]}
+        description="Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design."
+        social={[{ label: 'Instagram', href: '#' }, { label: 'Email', href: '#' }]}
+        copyright="© 2025 Organied Octopus"
+      />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
 </script>
 </body>
 </html>

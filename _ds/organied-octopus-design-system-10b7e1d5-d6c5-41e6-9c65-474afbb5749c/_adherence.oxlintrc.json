@@ -1,0 +1,255 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/commerce/**",
+              "components/navigation/**",
+              "ui_kits/storefront/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:BDOGrotesk))/i]",
+        "message": "Font not provided by the design system. Available: BDOGrotesk."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CartDrawer'] > JSXAttribute > JSXIdentifier[name!=/^(?:open|onClose|children|key|ref|className|style|children)$/]",
+        "message": "<CartDrawer> doesn't accept that prop. Declared props: open, onClose, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CollectionNavItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:index|name|active|onClick|key|ref|className|style|children)$/]",
+        "message": "<CollectionNavItem> doesn't accept that prop. Declared props: index, name, active, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='IconButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:open|onClick|dark|key|ref|className|style|children)$/]",
+        "message": "<IconButton> doesn't accept that prop. Declared props: open, onClick, dark."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MenuLink'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|href|key|ref|className|style|children)$/]",
+        "message": "<MenuLink> doesn't accept that prop. Declared props: label, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ProductThumb'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|alt|name|selected|onClick|width|key|ref|className|style|children)$/]",
+        "message": "<ProductThumb> doesn't accept that prop. Declared props: src, alt, name, selected, onClick, width."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ShopButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|value|href|onClick|disabled|key|ref|className|style|children)$/]",
+        "message": "<ShopButton> doesn't accept that prop. Declared props: label, value, href, onClick, disabled."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FooterLink'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|href|key|ref|className|style|children)$/]",
+        "message": "<FooterLink> doesn't accept that prop. Declared props: label, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SiteHeader'] > JSXAttribute > JSXIdentifier[name!=/^(?:logoSrc|menuOpen|onToggleMenu|homeHref|key|ref|className|style|children)$/]",
+        "message": "<SiteHeader> doesn't accept that prop. Declared props: logoSrc, menuOpen, onToggleMenu, homeHref."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "CartDrawer": {
+        "replaces": []
+      },
+      "CollectionNavItem": {
+        "replaces": []
+      },
+      "IconButton": {
+        "replaces": []
+      },
+      "MenuLink": {
+        "replaces": []
+      },
+      "ProductThumb": {
+        "replaces": []
+      },
+      "ShopButton": {
+        "replaces": []
+      },
+      "FooterLink": {
+        "replaces": []
+      },
+      "SiteHeader": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--action-bg",
+      "--action-fg",
+      "--border-hairline",
+      "--control-height",
+      "--control-pad-x",
+      "--duration-base",
+      "--duration-fast",
+      "--duration-loading",
+      "--duration-menu",
+      "--duration-slow",
+      "--ease-menu",
+      "--ease-reveal",
+      "--font-sans",
+      "--grid-columns",
+      "--link-default",
+      "--link-hover",
+      "--oo-black",
+      "--oo-gray-50",
+      "--oo-gray-60",
+      "--oo-gray-90",
+      "--oo-gray-scrollbar",
+      "--oo-gray-scrollbar-hover",
+      "--oo-scrim",
+      "--oo-white",
+      "--overlay-scrim",
+      "--radius-none",
+      "--scrollbar-width",
+      "--space-gap-grid",
+      "--space-gap-lg",
+      "--space-gap-md",
+      "--space-gap-sm",
+      "--space-gap-tight",
+      "--space-gap-xl",
+      "--space-gap-xs",
+      "--space-page-pad",
+      "--space-section-lg",
+      "--space-section-md",
+      "--space-section-sm",
+      "--surface-inverted",
+      "--surface-page",
+      "--text-body",
+      "--text-body-line",
+      "--text-collection",
+      "--text-collection-line",
+      "--text-disabled",
+      "--text-hero",
+      "--text-hero-line",
+      "--text-hero-mobile",
+      "--text-inverted",
+      "--text-lede",
+      "--text-lede-line",
+      "--text-lede-mobile",
+      "--text-loading",
+      "--text-loading-line",
+      "--text-menu-line",
+      "--text-menu-link",
+      "--text-muted",
+      "--text-primary",
+      "--text-section",
+      "--text-section-line",
+      "--text-section-mobile",
+      "--tracking-normal",
+      "--tracking-tight",
+      "--weight-bold",
+      "--weight-light",
+      "--weight-medium",
+      "--weight-regular"
+    ],
+    "tokenKinds": {
+      "--oo-black": "color",
+      "--oo-white": "color",
+      "--oo-gray-90": "color",
+      "--oo-gray-60": "color",
+      "--oo-gray-50": "color",
+      "--oo-gray-scrollbar": "color",
+      "--oo-gray-scrollbar-hover": "color",
+      "--oo-scrim": "color",
+      "--surface-page": "color",
+      "--surface-inverted": "color",
+      "--text-primary": "font",
+      "--text-inverted": "font",
+      "--text-muted": "font",
+      "--text-disabled": "font",
+      "--border-hairline": "color",
+      "--action-bg": "color",
+      "--action-fg": "color",
+      "--link-default": "color",
+      "--link-hover": "color",
+      "--overlay-scrim": "color",
+      "--font-sans": "font",
+      "--weight-light": "font",
+      "--weight-regular": "font",
+      "--weight-medium": "font",
+      "--weight-bold": "font",
+      "--tracking-tight": "font",
+      "--tracking-normal": "font",
+      "--text-hero": "font",
+      "--text-hero-line": "font",
+      "--text-section": "font",
+      "--text-section-line": "font",
+      "--text-menu-link": "font",
+      "--text-menu-line": "font",
+      "--text-collection": "font",
+      "--text-collection-line": "font",
+      "--text-lede": "font",
+      "--text-lede-line": "font",
+      "--text-body": "font",
+      "--text-body-line": "font",
+      "--text-loading": "font",
+      "--text-loading-line": "font",
+      "--text-hero-mobile": "font",
+      "--text-section-mobile": "font",
+      "--text-lede-mobile": "font",
+      "--space-page-pad": "spacing",
+      "--space-gap-grid": "spacing",
+      "--space-gap-tight": "spacing",
+      "--space-gap-xs": "spacing",
+      "--space-gap-sm": "spacing",
+      "--space-gap-md": "spacing",
+      "--space-gap-lg": "spacing",
+      "--space-gap-xl": "spacing",
+      "--space-section-sm": "spacing",
+      "--space-section-md": "spacing",
+      "--space-section-lg": "spacing",
+      "--control-height": "spacing",
+      "--control-pad-x": "spacing",
+      "--grid-columns": "other",
+      "--radius-none": "radius",
+      "--ease-reveal": "other",
+      "--ease-menu": "other",
+      "--duration-fast": "other",
+      "--duration-base": "other",
+      "--duration-slow": "other",
+      "--duration-menu": "other",
+      "--duration-loading": "other",
+      "--scrollbar-width": "spacing"
+    },
+    "fontFamilies": [
+      "BDOGrotesk"
+    ]
+  }
+}

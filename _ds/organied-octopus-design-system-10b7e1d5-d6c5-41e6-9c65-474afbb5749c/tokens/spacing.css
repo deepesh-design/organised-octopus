@@ -1,0 +1,21 @@
+:root {
+  /* Organied Octopus runs a 12-column grid, 16px page gutter, and a small set of
+     recurring gaps — not a strict 4/8px scale. Values below are the real ones in use. */
+  --space-page-pad: 16px;      /* outer page/section horizontal padding */
+  --space-gap-grid: 16px;      /* grid-gap on the 12-col layout */
+  --space-gap-tight: 4px;      /* footer link stacks */
+  --space-gap-xs: 8px;         /* product name/price row padding */
+  --space-gap-sm: 12px;        /* hero thumbnail stack gap */
+  --space-gap-md: 16px;
+  --space-gap-lg: 24px;        /* menu overlay outer padding, social links gap */
+  --space-gap-xl: 44px;        /* designer section rich-text grid gap */
+
+  --space-section-sm: 80px;    /* discover collection top padding */
+  --space-section-md: 120px;   /* material-driven margin, collection gap */
+  --space-section-lg: 200px;   /* designer / mission section top padding */
+
+  --control-height: 40px;      /* "Shop now" button height */
+  --control-pad-x: 16px;
+
+  --grid-columns: 12; /* @kind other */
+}

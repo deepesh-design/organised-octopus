@@ -1,0 +1,18 @@
+:root {
+  /* Organied Octopus has NO shadows, NO gradients, and NO border-radius anywhere —
+     product photography and a black/white grid carry all visual weight. Keep radius
+     tokens at 0 to make that intentional and greppable rather than accidental. */
+  --radius-none: 0px;
+
+  /* Motion: slow, editorial cubic-beziers — never a default ease/linear.
+     ease-reveal = entrance slides (logo, hero, thumbs); ease-menu = circle-reveal menu, loading screen, hamburger bars */
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-menu: cubic-bezier(0.77, 0, 0.18, 1); /* @kind other */
+  --duration-fast: 0.3s;   /* @kind other */
+  --duration-base: 0.4s;   /* @kind other */
+  --duration-slow: 0.8s;   /* @kind other */
+  --duration-menu: 0.75s;  /* @kind other */
+  --duration-loading: 1s;  /* @kind other */
+
+  --scrollbar-width: 6px;
+}

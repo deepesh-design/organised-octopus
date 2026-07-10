@@ -16,12 +16,6 @@ html,body{margin:0;padding:0;background:#fff;}
 *{box-sizing:border-box;}
 a{color:#000;}
 a:hover{color:#555;}
-/* slim custom scrollbar */
-html{scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.28) transparent;}
-::-webkit-scrollbar{width:6px;height:6px;}
-::-webkit-scrollbar-track{background:transparent;}
-::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.28);border-radius:99px;}
-::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,0.5);}
 @media (max-width:767px){
   /* generic 12-col grids stack */
   .r-stack{grid-template-columns:1fr !important;gap:12px !important;}
@@ -219,10 +213,8 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.28) transparent;}
     <div class="r-footer" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;align-items:start;">
       <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:4px;">
         <a href="./index.html" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Home</a>
-        <a onClick="{{ openMenu }}" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;cursor:pointer;">Store</a>
         <a href="./collection.html" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Collection</a>
         <a href="./about.html" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">About</a>
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Contact</a>
       </div>
       <div style="grid-column:4 / 7;display:flex;flex-direction:column;gap:4px;">
         <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Instagram</a>
@@ -247,10 +239,9 @@ html{scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.28) transparent;}
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(-45deg);"></span>
     </button>
     <div class="r-menu-links" style="grid-column: 1 / 8; grid-row: 2; display: flex; flex-direction: column; gap: 4px; margin-left: 24px">
-      <a href="#collection" onClick="{{ closeMenu }}" ref="{{ mi0 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Store</a>
+      <a href="./index.html" onClick="{{ closeMenu }}" ref="{{ mi0 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Home</a>
       <a href="./collection.html" ref="{{ mi1 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Collection</a>
       <a href="./about.html" ref="{{ mi2 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">About</a>
-      <a href="#" onClick="{{ closeMenu }}" ref="{{ mi3 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Contact</a>
     </div>
     <div class="r-menu-desc" style="grid-column:9 / 13;grid-row:2;align-self:end;display:flex;flex-direction:column;gap:24px;">
       <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.</p>

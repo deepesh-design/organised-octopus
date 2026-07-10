@@ -1,0 +1,36 @@
+:root {
+  --font-sans: 'BDOGrotesk', Arial, Helvetica, sans-serif;
+
+  /* Base weights available */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* Brand-wide letter tracking: a single tight negative value used almost everywhere */
+  --tracking-tight: -0.03em;
+  --tracking-normal: -0.02em;
+
+  /* Display / heading scale (desktop) */
+  --text-hero: 100px;       /* hero + "Discover Collection" headline */
+  --text-hero-line: 95%;
+  --text-section: 70px;     /* mission / designer statement headline */
+  --text-section-line: 100%;
+  --text-menu-link: 88px;   /* fullscreen nav overlay links */
+  --text-menu-line: 104%;
+  --text-collection: 56px;  /* collection index numerals/names */
+  --text-collection-line: 90%;
+  --text-lede: 22px;        /* vision / intro paragraph */
+  --text-lede-line: 120%;
+
+  /* Body / UI scale — nearly everything else in the product runs on one size */
+  --text-body: 16px;
+  --text-body-line: 130%;
+  --text-loading: 20px;
+  --text-loading-line: 110%;
+
+  /* Mobile collapses */
+  --text-hero-mobile: 44px;
+  --text-section-mobile: 40px;
+  --text-lede-mobile: 26px;
+}
