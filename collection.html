@@ -23,6 +23,12 @@
   * { box-sizing: border-box; }
   a { color: var(--link-default); }
   a:hover { color: var(--link-hover); }
+  /* hover label slide-swap: current label slides up+out, duplicate slides in from below */
+  .r-hov { position: relative; display: inline-block; overflow: hidden; vertical-align: top; }
+  .r-hov-ph { visibility: hidden; }
+  .r-hov-a, .r-hov-b { position: absolute; top: 0; left: 0; width: 100%; transition: transform .45s cubic-bezier(.65,0,.35,1); }
+  .r-hov-b { top: 100%; }
+  .r-hovable:hover .r-hov-a, .r-hovable:hover .r-hov-b { transform: translateY(-100%); }
   .sort-toggle {
     display: flex; align-items: center; gap: 8px; background: none; border: none;
     border-bottom: 1px solid var(--oo-black); padding: 6px 0; cursor: pointer;
@@ -100,6 +106,16 @@ const SORT_OPTIONS = [
   { value: 'name-asc', label: 'Name A\u2013Z' },
 ];
 
+function SwapLabel({ text }) {
+  return (
+    <span className="r-hov">
+      <span className="r-hov-ph">{text}</span>
+      <span className="r-hov-a">{text}</span>
+      <span className="r-hov-b" aria-hidden="true">{text}</span>
+    </span>
+  );
+}
+
 function SortDropdown({ value, onChange }) {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef(null);
@@ -115,8 +131,8 @@ function SortDropdown({ value, onChange }) {
 
   return (
     <div className="sort-dropdown" ref={ref} style={{ position: 'relative' }}>
-      <button type="button" className="sort-toggle" onClick={() => setOpen(o => !o)} aria-haspopup="listbox" aria-expanded={open}>
-        <span>{current.label}</span>
+      <button type="button" className="sort-toggle r-hovable" onClick={() => setOpen(o => !o)} aria-haspopup="listbox" aria-expanded={open}>
+        <SwapLabel text={current.label} />
         <ChevronIcon open={open} />
       </button>
       {open && (
@@ -130,10 +146,10 @@ function SortDropdown({ value, onChange }) {
               type="button"
               role="option"
               aria-selected={o.value === value}
-              className="sort-option"
+              className="sort-option r-hovable"
               onClick={() => { onChange(o.value); setOpen(false); }}
               style={{ background: o.value === value ? 'var(--oo-black)' : 'transparent', color: o.value === value ? 'var(--oo-white)' : 'var(--text-primary)' }}
-            >{o.label}</button>
+            ><SwapLabel text={o.label} /></button>
           ))}
         </div>
       )}
@@ -257,12 +273,13 @@ function Page() {
               <button
                 key={c}
                 onClick={() => setCat(c)}
+                className="r-hovable"
                 style={{
                   background: 'none', border: 'none', fontFamily: 'inherit', fontSize: 'var(--text-body)',
                   fontWeight: 500, letterSpacing: 'var(--tracking-tight)', padding: 0, cursor: 'pointer',
                   color: cat === c ? 'var(--text-primary)' : 'var(--text-disabled)',
                 }}
-              >{c === 'all' ? 'All' : c}</button>
+              ><SwapLabel text={c === 'all' ? 'All' : c} /></button>
             ))}
           </div>
           <SortDropdown value={sort} onChange={setSort} />

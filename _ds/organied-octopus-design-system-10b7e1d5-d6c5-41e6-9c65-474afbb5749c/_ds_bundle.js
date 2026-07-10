@@ -6,6 +6,17 @@ const __ds_ns = (window.OrganiedOctopusDesignSystem_10b7e1 = window.OrganiedOcto
 
 const __ds_scope = {};
 
+// shared hover label slide-swap: renders a label as a placeholder (sets box size) plus
+// two absolutely-positioned copies; pair with the "r-hovable" class + .r-hov CSS to make
+// the current label slide up+out on hover while a duplicate slides in from below.
+function __rSwap(text) {
+  return React.createElement('span', { className: 'r-hov' },
+    React.createElement('span', { className: 'r-hov-ph' }, text),
+    React.createElement('span', { className: 'r-hov-a' }, text),
+    React.createElement('span', { className: 'r-hov-b', 'aria-hidden': 'true' }, text)
+  );
+}
+
 (__ds_ns.__errors = __ds_ns.__errors || []);
 
 // components/commerce/CartDrawer.jsx
@@ -364,6 +375,7 @@ function MenuOverlay({
     key: i,
     href: l.href || '#',
     onClick: onClose,
+    className: 'r-hovable',
     style: {
       color: '#fff',
       textDecoration: 'none',
@@ -374,7 +386,7 @@ function MenuOverlay({
       transform: open ? 'translateY(0)' : 'translateY(24px)',
       transition: `opacity 0.5s ease ${0.12 + i * 0.07}s, transform 0.5s ease ${0.12 + i * 0.07}s`
     }
-  }, l.label))), /*#__PURE__*/React.createElement("div", {
+  }, __rSwap(l.label)))), /*#__PURE__*/React.createElement("div", {
     style: {
       gridColumn: '9 / 13',
       alignSelf: 'end',
@@ -409,13 +421,14 @@ function MenuOverlay({
   }, social.map((s, i) => /*#__PURE__*/React.createElement("a", {
     key: i,
     href: s.href || '#',
+    className: 'r-hovable',
     style: {
       color: 'var(--oo-gray-60)',
       textDecoration: 'none',
       fontSize: 'var(--text-body)',
       fontWeight: 500
     }
-  }, s.label))), /*#__PURE__*/React.createElement("p", {
+  }, __rSwap(s.label)))), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 'var(--text-body)',
       fontWeight: 500,
@@ -462,13 +475,14 @@ function SiteFooter({
   }, col.links.map((l, j) => /*#__PURE__*/React.createElement("a", {
     key: j,
     href: l.href || '#',
+    className: 'r-hovable',
     style: {
       color: '#fff',
       fontSize: 'var(--text-body)',
       fontWeight: 500,
       textDecoration: 'none'
     }
-  }, l.label)))), /*#__PURE__*/React.createElement("div", {
+  }, __rSwap(l.label))))), /*#__PURE__*/React.createElement("div", {
     style: {
       gridColumn: '10 / 13',
       justifySelf: 'end',

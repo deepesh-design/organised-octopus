@@ -17,6 +17,12 @@ html,body{margin:0;padding:0;background:#fff;}
 *{box-sizing:border-box;}
 a{color:#000;}
 a:hover{color:#555;}
+/* hover label slide-swap: current label slides up+out, duplicate slides in from below */
+.r-hov{position:relative;display:inline-block;overflow:hidden;vertical-align:top;}
+.r-hov-ph{visibility:hidden;}
+.r-hov-a,.r-hov-b{position:absolute;top:0;left:0;width:100%;transition:transform .45s cubic-bezier(.65,0,.35,1);}
+.r-hov-b{top:100%;}
+.r-hovable:hover .r-hov-a,.r-hovable:hover .r-hov-b{transform:translateY(-100%);}
 @media (max-width:767px){
   .r-big{font-size:44px !important;max-width:none !important;}
   .r-logo{right:auto !important;width:200px !important;transform:none !important;transition:none !important;}
@@ -75,18 +81,18 @@ a:hover{color:#555;}
   <div ref="{{ footerRef }}" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 0; background: #000; padding: 16px 0; padding-bottom: 16px">
     <div class="r-footer" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;align-items:start;">
       <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:4px;">
-        <a href="./" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Home</a>
-        <a href="./collection" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Collection</a>
-        <a href="./about" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">About</a>
+        <a href="./" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
+        <a href="./collection" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Collection</div><div class="r-hov-a">Collection</div><div class="r-hov-b" aria-hidden="true">Collection</div></div></a>
+        <a href="./about" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">About</div><div class="r-hov-a">About</div><div class="r-hov-b" aria-hidden="true">About</div></div></a>
       </div>
       <div style="grid-column:4 / 7;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Instagram</a>
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Email</a>
+        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a>
+        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a>
       </div>
       <div style="grid-column:7 / 10;display:flex;flex-direction:column;gap:4px;">
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Licence</a>
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Changelog</a>
-        <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">Design system</a>
+        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Licence</div><div class="r-hov-a">Licence</div><div class="r-hov-b" aria-hidden="true">Licence</div></div></a>
+        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Changelog</div><div class="r-hov-a">Changelog</div><div class="r-hov-b" aria-hidden="true">Changelog</div></div></a>
+        <a href="#" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Design system</div><div class="r-hov-a">Design system</div><div class="r-hov-b" aria-hidden="true">Design system</div></div></a>
       </div>
       <div style="grid-column:10 / 13;justify-self:end;display:flex;flex-direction:column;gap:4px;">
         <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">© 2025 Organied Octopus</a>
@@ -102,15 +108,15 @@ a:hover{color:#555;}
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(-45deg);"></span>
     </button>
     <div class="r-menu-links" style="grid-column: 1 / 8; grid-row: 2; display: flex; flex-direction: column; gap: 4px; margin-left: 24px">
-      <a href="./" onClick="{{ closeMenu }}" ref="{{ mi0 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Home</a>
-      <a href="./collection" ref="{{ mi1 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">Collection</a>
-      <a href="./about" ref="{{ mi2 }}" class="r-menu-link" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;">About</a>
+      <a href="./" onClick="{{ closeMenu }}" ref="{{ mi0 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
+      <a href="./collection" ref="{{ mi1 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Collection</div><div class="r-hov-a">Collection</div><div class="r-hov-b" aria-hidden="true">Collection</div></div></a>
+      <a href="./about" ref="{{ mi2 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">About</div><div class="r-hov-a">About</div><div class="r-hov-b" aria-hidden="true">About</div></div></a>
     </div>
     <div class="r-menu-desc" style="grid-column:9 / 13;grid-row:2;align-self:end;display:flex;flex-direction:column;gap:24px;">
       <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design.</p>
     </div>
     <div class="r-menu-bottom" style="grid-column: 1 / 13; grid-row: 3; display: flex; justify-content: space-between; align-items: flex-end; margin-left: 24px; margin-right: 24px; margin-bottom: 24px">
-      <div style="display:flex;gap:24px;"><a href="#" onClick="{{ closeMenu }}" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;">Instagram</a><a href="#" onClick="{{ closeMenu }}" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;">Email</a></div>
+      <div style="display:flex;gap:24px;"><a href="#" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a><a href="#" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a></div>
       <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">© 2025 Organied Octopus</p>
     </div>
   </div>
