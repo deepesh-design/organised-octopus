@@ -239,7 +239,7 @@ function Page() {
       {!loadingDone && <LoadingScreen visible={loading} />}
 
       <div style={{ position: 'relative', zIndex: 1, background: 'var(--surface-page)' }}>
-      <SiteHeader logoSrc="icon-black-mrdekrfj.svg" menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(o => !o)} homeHref="./index.html" />
+      <SiteHeader logoSrc="icon-black-mrdekrfj.svg" menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(o => !o)} homeHref="./" />
 
       <div style={{ padding: '140px 16px 120px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 16 }}>
@@ -281,7 +281,7 @@ function Page() {
           logoSrc="octopus-white-mrdelehg.svg"
           copyright="© 2025 Organied Octopus"
           columns={[
-            { span: '1 / 4', links: [{ label: 'Home', href: './index.html' }, { label: 'Collection', href: './collection.html' }, { label: 'About', href: './about.html' }] },
+            { span: '1 / 4', links: [{ label: 'Home', href: './' }, { label: 'Collection', href: './collection' }, { label: 'About', href: './about' }] },
             { span: '4 / 7', links: [{ label: 'Instagram' }, { label: 'Email' }] },
             { span: '7 / 10', links: [{ label: 'Licence' }, { label: 'Changelog' }, { label: 'Design system' }] },
           ]}
@@ -292,9 +292,9 @@ function Page() {
         open={menuOpen}
         onClose={() => setMenuOpen(false)}
         links={[
-          { label: 'Home', href: './index.html' },
-          { label: 'Collection', href: './collection.html' },
-          { label: 'About', href: './about.html' },
+          { label: 'Home', href: './' },
+          { label: 'Collection', href: './collection' },
+          { label: 'About', href: './about' },
         ]}
         description="Organied Octopus is a material-driven minimalist furniture brand inspired by Swiss graphic design."
         social={[{ label: 'Instagram', href: '#' }, { label: 'Email', href: '#' }]}
