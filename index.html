@@ -55,6 +55,8 @@ a:hover{color:#555;}
   .r-hero-copyright{position:static !important;text-align:left !important;order:-1;}
   .r-hero-content{position:static !important;}
   .r-hero-side{margin-top:24px !important;}
+  .r-hero-thumbs{position:absolute !important;top:0 !important;right:16px !important;left:auto !important;overflow:hidden;}
+  .r-hero-thumbs-inner{flex-direction:column !important;align-items:flex-end !important;}
   .r-hero-thumbs img{height:64px !important;}
   /* logo: fixed size, no scroll animation on mobile */
   .r-logo{right:auto !important;width:200px !important;transform:none !important;transition:none !important;}
@@ -63,7 +65,7 @@ a:hover{color:#555;}
   /* discover: reorder so "View all" renders after the product images */
   .r-disc-grid{grid-template-columns:1fr !important;gap:24px !important;}
   .r-disc-list{display:contents !important;}
-  .r-disc-list .r-view-all{order:3;width:100% !important;justify-content:space-between !important;margin-top:32px !important;padding-top:8px !important;padding-bottom:8px !important;}
+  .r-disc-list .r-view-all{order:3;margin-top:32px !important;padding-top:8px !important;padding-bottom:8px !important;}
   /* discover: product layout — big main image, small side image + desc, full-width name & buy */
   .r-2col{order:2;grid-column:1 / -1 !important;width:100%;grid-template-columns:1.7fr 1fr !important;grid-template-areas:'main side' 'name name' 'shop shop' !important;align-items:start !important;}
   /* section 03 material driven: no sticky/scroll interaction, static product row */
@@ -128,7 +130,7 @@ a:hover{color:#555;}
           <p class="r-hero-copyright" style="position: absolute; top: 0; right: 0; font-size: 16px; font-weight: 500; margin: 0; left: 0px; text-align: right; display: none">© 2025 Organised Octopus</p>
           <div class="r-hero-content" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
             <div class="r-hero-thumbs" style="overflow:hidden;">
-              <div ref="{{ thumbsInnerRef }}" style="display: flex; flex-direction: row; gap: 12px; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);">
+              <div ref="{{ thumbsInnerRef }}" class="r-hero-thumbs-inner" style="display: flex; flex-direction: row; gap: 12px; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);">
               <a onClick="{{ hero0 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae0685ff1f5c71d6d11da5_1.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
               <a onClick="{{ hero1 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae06859d1375c4a3906bf8_2.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
               <a onClick="{{ hero2 }}" style="border-radius: 0px"><img src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67ae068561a0d053b567dc86_3.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
@@ -196,7 +198,7 @@ a:hover{color:#555;}
         <a onClick="{{ c0 }}" class="r-coll-link r-hovable" style="{{ coll0Style }}"><p style="font-size:16px;font-weight:500;margin:0;">001</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div><div class="r-hov-a"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Luno</h3></div></div></a>
         <a onClick="{{ c1 }}" class="r-coll-link r-hovable" style="{{ coll1Style }}"><p style="font-size:16px;font-weight:500;margin:0;">002</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div><div class="r-hov-a"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Arco</h3></div></div></a>
         <a onClick="{{ c2 }}" class="r-coll-link r-hovable" style="{{ coll2Style }}"><p style="font-size:16px;font-weight:500;margin:0;">003</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div><div class="r-hov-a"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Vera</h3></div></div></a>
-        <a href="./collection" class="r-hovable r-view-all" style="margin-top:64px;border:1px solid #000;color:#000;width:auto;padding:16px 40px;display:flex;justify-content:flex-start;align-items:center;gap:24px;text-decoration:none;">
+        <a href="./collection" class="r-hovable r-view-all" style="margin-top:64px;border:1px solid #000;color:#000;width:100%;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;text-decoration:none;">
           <div class="r-hov" style="font-size:16px;font-weight:500;"><div class="r-hov-ph">View all</div><div class="r-hov-a">View all</div><div class="r-hov-b" aria-hidden="true">View all</div></div>
           <svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg>
         </a>
