@@ -77,8 +77,9 @@ a:hover{color:#555;}
   .r-s3-btn{opacity:1 !important;transform:none !important;pointer-events:auto !important;}
   /* designer: simple stacked layout on mobile — no grid columns, no scroll-pin */
   .r-kei-img{width:48% !important;flex:0 0 48% !important;max-height:52vh !important;}
-  .r-kei-title{grid-column:1 / 13 !important;text-align:left !important;font-size:48px !important;line-height:100% !important;}
-  .r-kei-para{grid-column:1 / 13 !important;max-width:none !important;width:100%;}
+  .r-kei-text{position:relative !important;z-index:1 !important;margin-top:-100vh !important;padding:90vh 15vw 80vh !important;display:flex !important;grid-template-columns:repeat(12,1fr) !important;gap:24px !important;align-content:start !important;flex-direction:column !important;width:100vw !important;align-items:flex-start !important;}
+  .r-kei-title{text-align:left !important;font-size:48px !important;line-height:100% !important;}
+  .r-kei-para{max-width:none !important;width:100%;}
   /* footer */
   .r-footer{grid-template-columns:1fr 1fr !important;gap:24px 16px !important;}
   .r-footer > *{grid-column:auto !important;justify-self:start !important;}
