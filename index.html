@@ -77,10 +77,12 @@ a:hover{color:#555;}
   .r-s3-stage{position:relative !important;width:100% !important;height:auto !important;display:grid !important;grid-template-columns:1fr !important;gap:32px !important;padding:32px 0 0 !important;}
   .r-s3-stage > div{position:static !important;transform:none !important;width:100% !important;}
   .r-s3-btn{opacity:1 !important;transform:none !important;pointer-events:auto !important;}
-  /* designer: centered portrait with proper width */
-  .r-kei-img{width:48% !important;flex:0 0 48% !important;max-height:52vh !important;}
-  .r-kei-title{grid-column:1 / 13 !important;text-align:left !important;font-size:56px !important;line-height:100% !important;}
-  .r-kei-para{grid-column:1 / 13 !important;max-width:none !important;}
+  /* designer: simple stacked layout on mobile — no grid columns, no scroll-pin */
+  .r-kei-sticky{position:static !important;height:auto !important;flex-direction:column !important;align-items:flex-start !important;justify-content:flex-start !important;gap:16px !important;padding:0 10vw !important;}
+  .r-kei-img{width:100% !important;max-width:none !important;flex:none !important;max-height:52vh !important;}
+  .r-kei-text{position:static !important;margin-top:24px !important;padding:0 10vw !important;display:flex !important;flex-direction:column !important;gap:16px !important;}
+  .r-kei-title{text-align:left !important;font-size:48px !important;line-height:100% !important;}
+  .r-kei-para{max-width:none !important;width:100% !important;}
   /* footer */
   .r-footer{grid-template-columns:1fr 1fr !important;gap:24px 16px !important;}
   .r-footer > *{grid-column:auto !important;justify-self:start !important;}
