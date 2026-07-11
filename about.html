@@ -67,7 +67,7 @@ a:hover{color:#555;}
 
   <!-- LOADING SCREEN -->
   <div ref="{{ loadingRef }}" style="position:fixed;inset:0;z-index:100;background:#fff;color:#000;padding:16px;transform:translateY(0%);transition:transform 1s cubic-bezier(.77,0,.18,1);">
-    <img class="r-loading-img" src="https://cdn.prod.website-files.com/67a7721e638cc64a55110750/67ad9afb0cd024e19c7378f8_3.webp" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:2/2.6;object-fit:cover;">
+    <img class="r-loading-img" src="{{ loadingImg }}" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:2/2.6;object-fit:cover;">
     <img src="./assets/loading-icon.svg" alt="Organised Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
     <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.</p>
   </div>
@@ -188,9 +188,11 @@ a:hover{color:#555;}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
+const LOADING_IMAGES=['./assets/loading/luno-sofa-yellow.webp','./assets/loading/arco-shelf-metal.webp','./assets/loading/arco-stool-metal.webp','./assets/loading/arco-sofa-metal.webp','./assets/loading/luno-stool-blue.webp','./assets/loading/luno-shelf-red.webp','./assets/loading/vera-sofa-blue.webp','./assets/loading/luno-hero-thumb.webp'];
 class Component extends DCLogic {
   constructor(props){
     super(props);
+    this.loadingImg=LOADING_IMAGES[Math.floor(Math.random()*LOADING_IMAGES.length)];
     this.state={menuOpen:false,cartOpen:false};
     this.main=React.createRef();
     this.footer=React.createRef();
@@ -306,7 +308,7 @@ class Component extends DCLogic {
       openCart:()=>this.setState({cartOpen:true}), closeCart:()=>this.setState({cartOpen:false}),
       mainRef:this.main, footerRef:this.footer,
       logoRef:this.logo, spacerRef:this.spacer,
-      loadingRef:this.loadingRef,
+      loadingRef:this.loadingRef, loadingImg:this.loadingImg,
       logoSlideRef:this.logoSlideRef, menuBtnRef:this.menuBtnRef
     };
   }

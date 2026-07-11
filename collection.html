@@ -49,6 +49,7 @@
     .cat-pills { gap: 16px !important; }
     .sort-dropdown { align-self: flex-start; }
     .sort-dropdown .sort-menu { left: 0 !important; right: auto !important; width: 220px; }
+    .r-loading-img { width: 100px !important; }
   }
 </style>
 </head>
@@ -60,6 +61,8 @@ const { SiteHeader, MenuOverlay, SiteFooter, ShopButton, ProductThumb } = window
 
 const CDN = 'https://cdn.prod.website-files.com/67a7721e638cc64a55110750/';
 const CDN2 = 'https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/';
+
+const LOADING_IMAGES = ['assets/loading/luno-sofa-yellow.webp', 'assets/loading/arco-shelf-metal.webp', 'assets/loading/arco-stool-metal.webp', 'assets/loading/arco-sofa-metal.webp', 'assets/loading/luno-stool-blue.webp', 'assets/loading/luno-shelf-red.webp', 'assets/loading/vera-sofa-blue.webp', 'assets/loading/luno-hero-thumb.webp'];
 
 const PRODUCTS = [
   { id: 'ripple-vase',    name: 'Ripple Vase',    cat: 'Vases',      price: 68,  added: 8, img: CDN2 + '67ae0685ff1f5c71d6d11da5_1.webp', imgHover: CDN + '67b1d61e5c80ce0e3e4394c1_3-2.webp', badge: 'New' },
@@ -183,12 +186,14 @@ function ProductTile({ p }) {
 }
 
 function LoadingScreen({ visible }) {
+  const loadingImg = React.useMemo(() => LOADING_IMAGES[Math.floor(Math.random() * LOADING_IMAGES.length)], []);
   return (
     <div style={{
       position: 'fixed', inset: 0, zIndex: 100, background: 'var(--surface-page)', color: 'var(--text-primary)', padding: 16,
       transform: visible ? 'translateY(0%)' : 'translateY(-100%)',
       transition: 'transform 1s cubic-bezier(.77,0,.18,1)',
     }}>
+      <img className="r-loading-img" src={loadingImg} alt="" style={{ position: 'absolute', top: 16, left: 16, width: 160, aspectRatio: '2/2.6', objectFit: 'cover' }} />
       <img src="assets/loading-icon.svg" alt="Organised Octopus" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 180, display: 'block' }} />
       <p style={{ position: 'absolute', bottom: 16, right: 16, fontSize: 'var(--text-loading)', fontWeight: 500, lineHeight: 'var(--text-loading-line)', letterSpacing: 'var(--tracking-normal)', margin: 0, maxWidth: 380, textAlign: 'right' }}>
         Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.
