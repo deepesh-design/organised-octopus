@@ -1,12 +1,13 @@
 /* "Ask for price" buttons.
    Any element with data-oo-share="whatsapp" | "instagram" plus data-slug, data-name and data-img.
 
-   A picture card is built for the piece (photo, name, "Could you share the price?") and then:
-   - WhatsApp:  the card is copied to the clipboard, the chat opens with a written message, and the customer pastes the card.
-   - Instagram: Instagram's web chat can't take a pasted picture, so on a computer the card is saved to the downloads
-                (and copied) and the chat opens, ready for the customer to attach it with the photo icon.
-                On a phone the share sheet opens with the card so it can be sent straight to Instagram.
-   If a browser can't do any of this, the written message with the piece's link is used instead. */
+   On click:
+   1. A picture card is built for the piece (photo, name, "Could you share the price?").
+   2. The card is copied to the clipboard as an image.
+   3. The studio's chat opens and the customer pastes the card and sends it.
+   WhatsApp also opens with a written message that links to the piece's own page. For Instagram, whose chat can't be
+   pre-filled, that same message is copied alongside the picture, so pasting still gives the studio the product.
+   If a browser can't copy images, the written message is copied instead. */
 (function () {
   var WHATSAPP = '917013319687';
   var INSTAGRAM_DM = 'https://ig.me/m/organised_octopus';
@@ -51,19 +52,6 @@
     toastEl.classList.add('is-on');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { toastEl.classList.remove('is-on'); }, 7000);
-  }
-
-  function hideToast() {
-    if (toastEl) toastEl.classList.remove('is-on');
-    clearTimeout(toastTimer);
-  }
-
-  function download(blob, fileName) {
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url; a.download = fileName;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setTimeout(function () { URL.revokeObjectURL(url); }, 15000);
   }
 
   // Product photo on top, name and the question underneath, as a PNG.
@@ -129,7 +117,6 @@
     var slug = el.getAttribute('data-slug');
     var imgUrl = new URL(el.getAttribute('data-img'), document.baseURI).href;
     var text = message(name, slug);
-    var fileName = slug + '-price.png';
     if (kind === 'whatsapp' && !WHATSAPP) return;
 
     var chatUrl = kind === 'whatsapp'
@@ -145,55 +132,15 @@
         : 'Send the message in the chat.');
     }
 
-    var canCopyImage = !!(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write && window.isSecureContext);
-    var cardPromise = (canCopyImage || kind === 'instagram') ? buildCard(imgUrl, name) : null;
-
-    // ---- Instagram on a phone: share sheet with the card, so it can go straight into a chat ----
-    var isTouch = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-    var canShareFile = false;
-    if (kind === 'instagram' && isTouch && navigator.canShare && typeof File === 'function') {
-      try { canShareFile = navigator.canShare({ files: [new File([new Blob()], fileName, { type: 'image/png' })] }); } catch (err) { canShareFile = false; }
-    }
-
-    // ---- Instagram on a computer: save the card, copy it, open the chat ----
-    function instagramSaveAndOpen(tryClipboard) {
-      var copied = false;
-      var write = (tryClipboard && canCopyImage)
-        ? navigator.clipboard.write([new window.ClipboardItem({ 'image/png': cardPromise })]).then(function () { copied = true; }, function () {})
-        : Promise.resolve();
-      write.then(function () { return cardPromise; }).then(function (blob) {
-        download(blob, fileName);
-        var opened = openChat(chatUrl);
-        var msg = copied
-          ? 'Image saved and copied. Paste it in the chat, or attach it with the photo icon.'
-          : 'Image saved to your downloads. Attach it in the chat with the photo icon.';
-        if (opened) toast(msg); else toast(msg, chatUrl, 'Open Instagram');
-      }).catch(textFallback);
-    }
-
-    if (kind === 'instagram') {
-      if (canShareFile) {
-        toast('Getting the image ready…');
-        cardPromise.then(function (blob) {
-          var file = new File([blob], fileName, { type: 'image/png' });
-          hideToast();
-          return navigator.share({ files: [file] });
-        }).catch(function (err) {
-          if (err && err.name === 'AbortError') return; // customer closed the share sheet
-          instagramSaveAndOpen(false);
-        });
-        return;
-      }
-      toast('Getting the image ready…');
-      instagramSaveAndOpen(true);
-      return;
-    }
-
-    // ---- WhatsApp: copy the card, open the chat with a written message ----
+    var canCopyImage = window.ClipboardItem && navigator.clipboard && navigator.clipboard.write && window.isSecureContext;
     if (!canCopyImage) { textFallback(); return; }
+
     toast('Getting the image ready…');
+    var item = { 'image/png': buildCard(imgUrl, name) };
+    if (kind === 'instagram') item['text/plain'] = new Blob([text], { type: 'text/plain' });
+
     // The image is copied first, while this page still has focus, then the chat opens.
-    navigator.clipboard.write([new window.ClipboardItem({ 'image/png': cardPromise })])
+    navigator.clipboard.write([new window.ClipboardItem(item)])
       .then(function () {
         if (openChat(chatUrl)) toast('Image copied. Paste it in the chat and send.');
         else toast('Image copied. Paste it in the chat and send.', chatUrl, 'Open ' + chatName);
