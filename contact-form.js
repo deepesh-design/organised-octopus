@@ -38,7 +38,7 @@
     var payload = {
       name: name,
       email: email,
-      topic: data.get('topic'),
+      topic: data.get('topic') || 'Not specified',
       message: message,
       _replyto: email,
       _subject: 'New message from organisedoctopus.com',

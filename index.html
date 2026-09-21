@@ -32,6 +32,8 @@ html,body{margin:0;padding:0;background:#fff;}
 *{box-sizing:border-box;}
 a{color:#000;}
 a:hover{color:#555;}
+/* keep two-line statements even */
+.r-mid{text-wrap:balance;}
 /* hover label slide-swap: current label slides up+out, duplicate slides in from below */
 .r-hov{position:relative;display:inline-block;overflow:hidden;vertical-align:top;}
 .r-hov-ph{visibility:hidden;}
@@ -155,21 +157,35 @@ a:hover{color:#555;}
     </div>
   </div>
 
-  <!-- SECTION 02 : INTRODUCTION -->
+  <!-- SECTION 02 : ORGANISING -->
   <div ref="{{ sec2Ref }}" class="r-sec r-gap-sm" style="padding-top:200px;display:flex;flex-direction:column;gap:120px;">
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">Everything has its place. Even the strange stuff.</h2>
+        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">Everything has a place. Ours are just stranger.</h2>
       </div>
     </div>
     <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <p style="grid-column:1 / 2;font-size:16px;font-weight:500;margin:0;">Studio</p>
-      <p style="grid-column: 5 / 9; font-size: 22px; font-weight: 500; margin: 0; line-height: 120%">We like furniture with a bit of a face. A panda holds your coffee, a dog carries the tray, and guests ask where you found it.</p>
-      <p style="grid-column: 9 / 13; font-size: 16px; font-weight: 500; margin: 0; line-height: 130%; color:#8f8f8f; max-width:340px;">Every piece starts as a sketch or a strange idea, becomes a 3D model, and gets printed layer by layer. Then we sand it, fix it, paint it and finish it by hand.</p>
-    </div>
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <p style="grid-column:1 / 2;font-size:16px;font-weight:500;margin:0;">Method</p>
-      <p style="grid-column: 5 / 10; font-size: 22px; font-weight: 500; margin: 0; line-height: 120%">Designed on screen.<br>Printed in layers.<br>Sanded and painted by hand.</p>
+      <div style="grid-column:span 4;border-top:1px solid #afafaf;padding-top:16px;display:flex;flex-direction:column;gap:56px;">
+        <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">01</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Hold</h3>
+          <p style="font-size:22px;font-weight:500;line-height:120%;margin:0;max-width:400px;">Trays, tabletops and shelves carried by a dog, a bear or an elephant. Keys, coffee and books all get somewhere to land.</p>
+        </div>
+      </div>
+      <div style="grid-column:span 4;border-top:1px solid #afafaf;padding-top:16px;display:flex;flex-direction:column;gap:56px;">
+        <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">02</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Store</h3>
+          <p style="font-size:22px;font-weight:500;line-height:120%;margin:0;max-width:400px;">An open shelf on a creature’s head. A little fire with snacks in its belly. A wall planter with tusks.</p>
+        </div>
+      </div>
+      <div style="grid-column:span 4;border-top:1px solid #afafaf;padding-top:16px;display:flex;flex-direction:column;gap:56px;">
+        <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">03</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Display</h3>
+          <p style="font-size:22px;font-weight:500;line-height:120%;margin:0;max-width:400px;">Chess sets, busts and figures for the shelf, desk or windowsill that needs something.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -204,7 +220,7 @@ a:hover{color:#555;}
   <!-- SECTION 04 : DISCOVER COLLECTION -->
   <div id="collection" class="r-sec r-gap-sm" style="padding-top:120px;display:flex;flex-direction:column;gap:80px;">
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <h1 class="r-big" style="grid-column:1 / 13;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;">The<br>collection</h1>
+      <h1 class="r-big" style="grid-column:1 / 13;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;">Collection</h1>
     </div>
     <div class="r-disc-grid" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <div class="r-disc-list" style="grid-column:1 / 5;display:flex;flex-direction:column;align-self:start;">
@@ -245,12 +261,7 @@ a:hover{color:#555;}
 
   <!-- SECTION 06 : DESIGNER -->
   <div id="about" class="r-sec" style="position:relative;padding-top:200px;background:#fff;">
-    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">Furniture that looks like sculpture, and sculpture that feels at home.</h2>
-      </div>
-    </div>
-    <div style="position:relative;margin-top:80px;">
+    <div style="position:relative;">
       <!-- sticky centered cover image -->
       <div class="r-kei-sticky" style="position: sticky; top: 0; z-index: 0; display: flex; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 0 16px; height: 100vh; align-items: center; justify-content: space-between">
         <p style="grid-column: 1 / 6; font-size: 16px; font-weight: 500; margin: 0; padding-top: 16px; position: static; align-self: center">Artists</p>
