@@ -64,25 +64,25 @@ const { SiteHeader, MenuOverlay, SiteFooter } = window.OrganiedOctopusDesignSyst
 const LOADING_IMAGES = ['assets/products/sm/geometric-dog-side-table.webp', 'assets/products/sm/pink-elephant-side-table.webp', 'assets/products/sm/nobo-side-stand.webp', 'assets/products/sm/tree-hugger-side-table.webp', 'assets/products/sm/chess-pieces-black-gold.webp', 'assets/products/sm/chess-pieces-bronze.webp', 'assets/products/sm/teddy-statue.webp', 'assets/products/sm/elephant-planter.webp', 'assets/products/sm/xo-figure.webp', 'assets/products/sm/head-side-table.webp', 'assets/products/sm/fireplace-side-table.webp', 'assets/products/sm/elephant-lamp.webp', 'assets/products/sm/dab-bear-side-table.webp', 'assets/products/sm/panther-sculpture.webp', 'assets/products/sm/panda-side-table.webp', 'assets/products/sm/david-bust.webp'];
 
 const PRODUCTS = [
-  { id: 'geometric-dog-side-table', name: 'Geometric Dog Side Table', cat: 'Furniture', tag: 'Faceted, unbothered and very good with a tray.', added: 16, img: 'assets/products/geometric-dog-side-table.webp' },
-  { id: 'pink-elephant-side-table', name: 'Pink Elephant Side Table', cat: 'Furniture', tag: 'A pink elephant in the room. Entirely on purpose.', added: 15, img: 'assets/products/pink-elephant-side-table.webp' },
-  { id: 'nobo-side-stand', name: 'Nobo Side Stand', cat: 'Furniture', tag: 'A tidy little creature with a shelf for a hat.', added: 14, img: 'assets/products/nobo-side-stand.webp' },
-  { id: 'tree-hugger-side-table', name: 'Tree Hugger Side Table', cat: 'Furniture', tag: 'A bear who takes hugging seriously. It also holds your flowers.', added: 13, img: 'assets/products/tree-hugger-side-table.webp' },
-  { id: 'chess-pieces-black-gold', name: 'Black & Gold Chess Trio', cat: 'Objects', tag: 'Knight, king and queen in full costume. No board required.', added: 12, img: 'assets/products/chess-pieces-black-gold.webp' },
-  { id: 'chess-pieces-bronze', name: 'Bronze Chess Trio', cat: 'Objects', tag: 'A knight, a queen and a king. The board is optional.', added: 11, img: 'assets/products/chess-pieces-bronze.webp' },
-  { id: 'teddy-statue', name: 'Visor Bear Sculpture', cat: 'Sculpture', tag: 'Matte, calm and impossible to ignore.', added: 10, img: 'assets/products/teddy-statue.webp' },
-  { id: 'elephant-planter', name: 'Elephant Wall Planter', cat: 'Objects', tag: 'Greenery, but make it an elephant.', added: 9, img: 'assets/products/elephant-planter.webp' },
-  { id: 'xo-figure', name: 'XO Figure', cat: 'Sculpture', tag: 'One eye crossed. One eye in love.', added: 8, img: 'assets/products/xo-figure.webp' },
-  { id: 'head-side-table', name: 'Head Case Side Table', cat: 'Furniture', tag: 'A classical head that agreed to hold your books and your lamp.', added: 7, img: 'assets/products/head-side-table.webp' },
-  { id: 'fireplace-side-table', name: 'Ember Side Table', cat: 'Furniture', tag: 'A small fire with a big appetite. Snacks live inside.', added: 6, img: 'assets/products/fireplace-side-table.webp' },
-  { id: 'elephant-lamp', name: 'Elephant Lamp', cat: 'Light', tag: 'A little lighthearted. Literally.', added: 5, img: 'assets/products/elephant-lamp.webp' },
-  { id: 'dab-bear-side-table', name: 'Butler Bear Side Table', cat: 'Furniture', tag: 'Dabs, serves and never spills.', added: 4, img: 'assets/products/dab-bear-side-table.webp' },
-  { id: 'panther-sculpture', name: 'Panther Sculpture', cat: 'Sculpture', tag: 'It doesn\'t decorate the room. It watches over it.', added: 3, img: 'assets/products/panther-sculpture.webp' },
-  { id: 'panda-side-table', name: 'Panda Side Table', cat: 'Furniture', tag: 'A panda. A table. Apparently, both were necessary.', added: 2, img: 'assets/products/panda-side-table.webp' },
-  { id: 'david-bust', name: 'Big Spender Bust', cat: 'Sculpture', tag: 'Classical proportions. Contemporary opinions.', added: 1, img: 'assets/products/david-bust.webp' },
+  { id: 'geometric-dog-side-table', name: 'Geometric Dog Side Table', cat: 'Tables', tag: 'Faceted, unbothered and very good with a tray.', added: 16, img: 'assets/products/geometric-dog-side-table.webp' },
+  { id: 'pink-elephant-side-table', name: 'Pink Elephant Side Table', cat: 'Tables', tag: 'A pink elephant in the room. Entirely on purpose.', added: 15, img: 'assets/products/pink-elephant-side-table.webp' },
+  { id: 'nobo-side-stand', name: 'Nobo Side Stand', cat: 'Tables', tag: 'A tidy little creature with a shelf for a hat.', added: 14, img: 'assets/products/nobo-side-stand.webp' },
+  { id: 'tree-hugger-side-table', name: 'Tree Hugger Side Table', cat: 'Tables', tag: 'A bear who takes hugging seriously. It also holds your flowers.', added: 13, img: 'assets/products/tree-hugger-side-table.webp' },
+  { id: 'chess-pieces-black-gold', name: 'Black & Gold Chess Trio', cat: 'Decor', tag: 'Knight, king and queen in full costume. No board required.', added: 12, img: 'assets/products/chess-pieces-black-gold.webp' },
+  { id: 'chess-pieces-bronze', name: 'Bronze Chess Trio', cat: 'Decor', tag: 'A knight, a queen and a king. The board is optional.', added: 11, img: 'assets/products/chess-pieces-bronze.webp' },
+  { id: 'teddy-statue', name: 'Visor Bear Sculpture', cat: 'Sculptures', tag: 'Matte, calm and impossible to ignore.', added: 10, img: 'assets/products/teddy-statue.webp' },
+  { id: 'elephant-planter', name: 'Elephant Wall Planter', cat: 'Decor', tag: 'Greenery, but make it an elephant.', added: 9, img: 'assets/products/elephant-planter.webp' },
+  { id: 'xo-figure', name: 'XO Figure', cat: 'Sculptures', tag: 'One eye crossed. One eye in love.', added: 8, img: 'assets/products/xo-figure.webp' },
+  { id: 'head-side-table', name: 'Head Case Side Table', cat: 'Tables', tag: 'A classical head that agreed to hold your books and your lamp.', added: 7, img: 'assets/products/head-side-table.webp' },
+  { id: 'fireplace-side-table', name: 'Ember Side Table', cat: 'Tables', tag: 'A small fire with a big appetite. Snacks live inside.', added: 6, img: 'assets/products/fireplace-side-table.webp' },
+  { id: 'elephant-lamp', name: 'Elephant Lamp', cat: 'Lights', tag: 'A little lighthearted. Literally.', added: 5, img: 'assets/products/elephant-lamp.webp' },
+  { id: 'dab-bear-side-table', name: 'Butler Bear Side Table', cat: 'Tables', tag: 'Dabs, serves and never spills.', added: 4, img: 'assets/products/dab-bear-side-table.webp' },
+  { id: 'panther-sculpture', name: 'Panther Sculpture', cat: 'Sculptures', tag: 'It doesn\'t decorate the room. It watches over it.', added: 3, img: 'assets/products/panther-sculpture.webp' },
+  { id: 'panda-side-table', name: 'Panda Side Table', cat: 'Tables', tag: 'A panda. A table. Apparently, both were necessary.', added: 2, img: 'assets/products/panda-side-table.webp' },
+  { id: 'david-bust', name: 'Big Spender Bust', cat: 'Sculptures', tag: 'Classical proportions. Contemporary opinions.', added: 1, img: 'assets/products/david-bust.webp' },
 ];
 
-const CATEGORIES = ['Furniture', 'Light', 'Sculpture', 'Objects'];
+const CATEGORIES = ['Tables', 'Lights', 'Sculptures', 'Decor'];
 
 function sortProducts(list, sortVal) {
   const arr = list.slice();
@@ -296,7 +296,7 @@ function Page() {
           copyright="© 2025 Organised Octopus"
           columns={[
             { span: '1 / 4', links: [{ label: 'Home', href: './' }, { label: 'Collection', href: './collection' }, { label: 'Studio', href: './about' }, { label: 'Contact', href: './contact' }] },
-            { span: '4 / 7', links: [{ label: 'Instagram', href: 'https://www.instagram.com/organised_octopus' }] },
+            { span: '4 / 7', links: [{ label: 'Instagram', href: 'https://www.instagram.com/organised_octopus' }, { label: 'Email', href: 'mailto:contact@organisedoctopus.com' }] },
           ]}
         />
       </div>
@@ -311,7 +311,7 @@ function Page() {
           { label: 'Contact', href: './contact' },
         ]}
         description="Make room for strange. Sculptural furniture, objects and interior pieces made for spaces with a point of view."
-        social={[{ label: 'Instagram', href: 'https://www.instagram.com/organised_octopus' }]}
+        social={[{ label: 'Instagram', href: 'https://www.instagram.com/organised_octopus' }, { label: 'Email', href: 'mailto:contact@organisedoctopus.com' }]}
         copyright="© 2025 Organised Octopus"
       />
     </div>
