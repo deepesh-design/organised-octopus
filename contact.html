@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — Organised Octopus</title>
-<meta name="description" content="Have a strange idea? Start a project or say hello. Custom pieces, commissions and trade enquiries for interiors, hospitality and installations.">
+<title>Contact | Organised Octopus</title>
+<meta name="description" content="Ask about a piece, a custom idea or a project. Send a message to Organised Octopus.">
 <link rel="canonical" href="https://organisedoctopus.com/contact">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Organised Octopus">
-<meta property="og:title" content="Contact — Organised Octopus">
-<meta property="og:description" content="Have a strange idea? Let’s make it real. Custom pieces and commissions.">
+<meta property="og:title" content="Contact | Organised Octopus">
+<meta property="og:description" content="Ask about a piece, a custom idea or a project. Send a message to Organised Octopus.">
 <meta property="og:url" content="https://organisedoctopus.com/contact">
 <meta property="og:image" content="https://organisedoctopus.com/assets/og/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact — Organised Octopus">
-<meta name="twitter:description" content="Have a strange idea? Let’s make it real. Custom pieces and commissions.">
+<meta name="twitter:title" content="Contact | Organised Octopus">
+<meta name="twitter:description" content="Ask about a piece, a custom idea or a project. Send a message to Organised Octopus.">
 <meta name="twitter:image" content="https://organisedoctopus.com/assets/og/og-image.png">
 <script src="./support.js"></script>
 </head>
@@ -67,10 +67,6 @@ a:hover{color:#555;}
   .r-disc-grid{grid-template-columns:1fr !important;gap:24px !important;}
   .r-disc-list{display:contents !important;}
   .r-disc-list .r-view-all{order:3;margin-top:8px !important;}
-  /* process rows stack */
-  .r-step{grid-template-columns:1fr !important;gap:8px !important;padding:20px 0 28px !important;}
-  .r-step > *{grid-column:1 / -1 !important;}
-  .r-step h3{font-size:40px !important;}
   /* discover: product layout — big main image, small side image + desc, full-width name & buy */
   .r-2col{order:2;grid-column:1 / -1 !important;width:100%;grid-template-columns:1.7fr 1fr !important;grid-template-areas:'main side' 'name name' 'shop shop' !important;align-items:start !important;}
   /* section 03 material driven: no sticky/scroll interaction, static product row */
@@ -103,6 +99,16 @@ a:hover{color:#555;}
   .r-loading-text{font-size:15px !important;max-width:60vw !important;}
   .r-loading-img{width:100px !important;}
 }
+  /* contact form */
+  .oo-field{display:block;width:100%;border:0;border-bottom:1px solid #000;border-radius:0;background:transparent;color:#000;font-family:inherit;font-size:22px;font-weight:500;letter-spacing:-0.02em;line-height:130%;padding:6px 0 10px;margin:0;outline:none;-webkit-appearance:none;appearance:none;box-sizing:border-box;}
+  .oo-field:focus{box-shadow:0 1px 0 #000;}
+  .oo-field::placeholder{color:#afafaf;}
+  select.oo-field{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23000' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:28px;}
+  textarea.oo-field{resize:none;min-height:150px;}
+  .oo-submit{background:#000;color:#fff;width:100%;height:40px;padding:0 16px;border:0;border-radius:0;display:flex;justify-content:space-between;align-items:center;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:-0.03em;cursor:pointer;transition:opacity .3s ease;}
+  .oo-submit:hover{opacity:.85;}
+  .oo-submit:disabled{opacity:.5;cursor:default;}
+  @media (max-width:767px){.oo-field{font-size:18px;}}
 </style>
 </helmet>
 
@@ -112,7 +118,7 @@ a:hover{color:#555;}
   <div ref="{{ loadingRef }}" style="position:fixed;inset:0;z-index:100;background:#fff;color:#000;padding:16px;transform:translateY(0%);transition:transform 1s cubic-bezier(.77,0,.18,1);">
     <img class="r-loading-img" src="{{ loadingImg }}" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:1/1;object-fit:cover;">
     <img src="./assets/loading-icon.svg" alt="Organised Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
-    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Make room for strange. Sculptural furniture, objects and interior pieces made for spaces with a point of view.</p>
+    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Make room for strange. Furniture, lamps and sculptures for rooms with a bit of personality.</p>
   </div>
 
   <div ref="{{ mainRef }}" style="position:relative;z-index:1;background:#fff;">
@@ -129,36 +135,35 @@ a:hover{color:#555;}
   </div>
 
   <!-- PAGE CONTENT : CONTACT -->
-  <div class="r-sec r-gap-sm" style="margin-top:8vw;padding-top:200px;padding-bottom:120px;display:flex;flex-direction:column;gap:120px;">
+  <div class="r-sec r-gap-sm" style="margin-top:8vw;padding-top:200px;padding-bottom:120px;display:flex;flex-direction:column;gap:80px;">
 
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <h1 class="r-big" style="grid-column:1 / 13;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0 0 16px;">Have a strange idea?</h1>
-      <p style="grid-column:1 / 6;font-size:22px;font-weight:500;line-height:120%;margin:0;">Let’s make it real.</p>
+      <h1 class="r-big" style="grid-column:1 / 13;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0 0 16px;">Say hello</h1>
+      <p style="grid-column:1 / 6;font-size:22px;font-weight:500;line-height:120%;margin:0;">Ask about a piece, a custom idea or a project. We’ll get back to you.</p>
     </div>
 
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;">What we make</p>
-      <p style="grid-column:5 / 9;font-size:22px;font-weight:500;line-height:120%;margin:0;">A giant sculpture for a lobby.<br>A table that looks like an animal.<br>A lamp designed around your space.<br>A wall piece that doesn’t exist yet.<br>A colour that doesn’t exist in our collection.</p>
-      <p style="grid-column:9 / 13;font-size:16px;font-weight:500;line-height:130%;margin:0;color:#8f8f8f;max-width:340px;">If you can describe it, sketch it or show us something that inspired it — we’ll figure out how to turn the idea into an object.</p>
-    </div>
-
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;">Who for</p>
-      <p style="grid-column:5 / 11;font-size:22px;font-weight:500;line-height:120%;margin:0;">Interior designers, architects, hotels, restaurants, offices, retail spaces, residential interiors, events and brand installations.</p>
-    </div>
-
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;">Email</p>
-      <a href="mailto:contact@organisedoctopus.com" style="grid-column:5 / 13;font-size:22px;font-weight:500;line-height:120%;margin:0;color:#000;text-decoration:underline;text-underline-offset:4px;justify-self:start;">contact@organisedoctopus.com</a>
-    </div>
-
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;">Say hello</p>
-      <div style="grid-column:5 / 9;display:flex;flex-direction:column;gap:8px;">
-        <a href="mailto:contact@organisedoctopus.com?subject=Start%20a%20project" class="r-hovable" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Start a project</div><div class="r-hov-a">Start a project</div><div class="r-hov-b" aria-hidden="true">Start a project</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
-        <a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" class="r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    <form id="contact-form" class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:24px 16px;padding:0 16px;">
+      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;padding-top:12px;">Name</p>
+      <div style="grid-column:5 / 11;"><input class="oo-field" type="text" name="name" autocomplete="name" aria-label="Name" required></div>
+      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;padding-top:12px;">Email</p>
+      <div style="grid-column:5 / 11;"><input class="oo-field" type="email" name="email" autocomplete="email" aria-label="Email" required></div>
+      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;padding-top:12px;">About</p>
+      <div style="grid-column:5 / 11;"><select class="oo-field" name="topic" aria-label="What is it about"><option value="A piece from the collection">A piece from the collection</option><option value="A custom piece">A custom piece</option><option value="A commission or trade project">A commission or trade project</option><option value="Something else">Something else</option></select></div>
+      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;padding-top:12px;">Message</p>
+      <div style="grid-column:5 / 11;"><textarea class="oo-field" name="message" rows="5" aria-label="Message" required></textarea></div>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+      <div style="grid-column:5 / 11;display:flex;flex-direction:column;gap:16px;">
+        <button type="submit" class="oo-submit"><span class="oo-submit-label">Send message</span><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <p id="form-status" role="status" style="display:none;font-size:16px;font-weight:500;line-height:130%;margin:0;"></p>
       </div>
-      <p style="grid-column:9 / 13;font-size:16px;font-weight:500;line-height:130%;margin:0;color:#8f8f8f;max-width:340px;">Email the studio or message us on Instagram. Send a sketch, a reference or just the idea.</p>
+    </form>
+
+    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+      <p style="grid-column:1 / 5;font-size:16px;font-weight:500;margin:0;">Or</p>
+      <div style="grid-column:5 / 11;display:flex;flex-direction:column;gap:6px;font-size:22px;font-weight:500;line-height:130%;">
+        <a href="mailto:contact@organisedoctopus.com" style="color:#000;text-decoration:underline;text-underline-offset:4px;justify-self:start;width:fit-content;">contact@organisedoctopus.com</a>
+        <a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" style="color:#000;text-decoration:underline;text-underline-offset:4px;width:fit-content;">Instagram</a>
+      </div>
     </div>
 
   </div>
@@ -200,7 +205,7 @@ a:hover{color:#555;}
       <a href="./contact" ref="{{ mi3 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Contact</div><div class="r-hov-a">Contact</div><div class="r-hov-b" aria-hidden="true">Contact</div></div></a>
     </div>
     <div class="r-menu-desc" style="grid-column:9 / 13;grid-row:2;align-self:end;display:flex;flex-direction:column;gap:24px;">
-      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Make room for strange. Sculptural furniture, objects and interior pieces made for spaces with a point of view.</p>
+      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Furniture, lamps and sculptures for rooms with a bit of personality.</p>
     </div>
     <div class="r-menu-bottom" style="grid-column: 1 / 13; grid-row: 3; display: flex; justify-content: space-between; align-items: flex-end; margin-left: 24px; margin-right: 24px; margin-bottom: 24px">
       <div style="display:flex;gap:24px;"><a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a><a href="mailto:contact@organisedoctopus.com" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a></div>
@@ -349,5 +354,6 @@ class Component extends DCLogic {
 }
 </script>
 <script src="./menu-stack.js?v=3"></script>
+<script src="./contact-form.js?v=2"></script>
 </body>
 </html>

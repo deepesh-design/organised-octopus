@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Studio — Organised Octopus</title>
-<meta name="description" content="We’re an organised bunch of weirdos. Organised Octopus is a design and making studio where digital fabrication meets traditional hands-on finishing.">
+<title>Studio | Organised Octopus</title>
+<meta name="description" content="We’re an organised bunch of weirdos. Organised Octopus is a design studio where 3D printing meets hands-on finishing.">
 <link rel="canonical" href="https://organisedoctopus.com/about">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Organised Octopus">
-<meta property="og:title" content="Studio — Organised Octopus">
-<meta property="og:description" content="A design and making studio where digital fabrication meets traditional hands-on finishing.">
+<meta property="og:title" content="Studio | Organised Octopus">
+<meta property="og:description" content="A design studio where 3D printing meets hands-on finishing.">
 <meta property="og:url" content="https://organisedoctopus.com/about">
 <meta property="og:image" content="https://organisedoctopus.com/assets/og/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Studio — Organised Octopus">
-<meta name="twitter:description" content="A design and making studio where digital fabrication meets traditional hands-on finishing.">
+<meta name="twitter:title" content="Studio | Organised Octopus">
+<meta name="twitter:description" content="A design studio where 3D printing meets hands-on finishing.">
 <meta name="twitter:image" content="https://organisedoctopus.com/assets/og/og-image.png">
 <script src="./support.js"></script>
 </head>
@@ -70,10 +70,6 @@ a:hover{color:#555;}
   .r-disc-grid{grid-template-columns:1fr !important;gap:24px !important;}
   .r-disc-list{display:contents !important;}
   .r-disc-list .r-view-all{order:3;margin-top:8px !important;}
-  /* process rows stack */
-  .r-step{grid-template-columns:1fr !important;gap:8px !important;padding:20px 0 28px !important;}
-  .r-step > *{grid-column:1 / -1 !important;}
-  .r-step h3{font-size:40px !important;}
   /* discover: product layout — big main image, small side image + desc, full-width name & buy */
   .r-2col{order:2;grid-column:1 / -1 !important;width:100%;grid-template-columns:1.7fr 1fr !important;grid-template-areas:'main side' 'name name' 'shop shop' !important;align-items:start !important;}
   /* section 03 material driven: no sticky/scroll interaction, static product row */
@@ -115,7 +111,7 @@ a:hover{color:#555;}
   <div ref="{{ loadingRef }}" style="position:fixed;inset:0;z-index:100;background:#fff;color:#000;padding:16px;transform:translateY(0%);transition:transform 1s cubic-bezier(.77,0,.18,1);">
     <img class="r-loading-img" src="{{ loadingImg }}" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:1/1;object-fit:cover;">
     <img src="./assets/loading-icon.svg" alt="Organised Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
-    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Make room for strange. Sculptural furniture, objects and interior pieces made for spaces with a point of view.</p>
+    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Make room for strange. Furniture, lamps and sculptures for rooms with a bit of personality.</p>
   </div>
 
   <div ref="{{ mainRef }}" style="position:relative;z-index:1;background:#fff;">
@@ -137,7 +133,7 @@ a:hover{color:#555;}
     <!-- 01 statement -->
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">We’re an organised bunch of weirdos. Organised enough to model it. Curious enough to print it. Obsessive enough to sand it. Stubborn enough to repaint it.</h2>
+        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">We’re an organised bunch of weirdos. We model it, print it, sand it and repaint it until we’re happy.</h2>
       </div>
     </div>
 
@@ -146,11 +142,11 @@ a:hover{color:#555;}
       <div style="grid-column:1 / 7;display:flex;flex-direction:column;gap:56px;align-self:start;">
         <div class="r-about-info" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
           <p style="font-size:16px;font-weight:500;margin:0;">Studio</p>
-          <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;">Organised Octopus is a design and making studio exploring what happens when digital fabrication meets traditional hands-on finishing.</p>
+          <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;">Organised Octopus is a design and making studio. We like seeing what happens when digital fabrication meets hands-on finishing.</p>
         </div>
         <div class="r-about-info" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
           <p style="font-size:16px;font-weight:500;margin:0;">Approach</p>
-          <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;">We design the form digitally, manufacture it through 3D printing, then sculpt, finish and paint each piece to achieve the final character.</p>
+          <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;">We design each piece on screen, print it, then sand, sculpt and paint it until it looks the way we pictured it.</p>
         </div>
       </div>
       <div style="grid-column:7 / 13;">
@@ -161,11 +157,11 @@ a:hover{color:#555;}
     <!-- 02 process -->
     <div style="padding-top:120px;display:flex;flex-direction:column;gap:80px;">
       <div class="r-about-split" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-        <p style="grid-column:1 / 7;font-size:16px;font-weight:500;margin:0;">How it becomes real</p>
-        <p style="grid-column:7 / 13;font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:350px;">The printer makes the shape. We make the object. Printing isn’t the finish line — we sand, fill, refine and sculpt until the piece becomes what we imagined.</p>
+        <p style="grid-column:1 / 7;font-size:16px;font-weight:500;margin:0;">Process</p>
+        <p style="grid-column:7 / 13;font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:350px;">Printing gets us the shape. The rest is sanding, filling, painting and a lot of patience.</p>
       </div>
       <div class="r-about-split" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-        <div style="grid-column:1 / 5;"><img src="./assets/products/geometric-dog-side-table.webp" alt="Geometric Dog Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"><p style="font-size:16px;font-weight:500;margin:0;padding-top:12px;">Designed digitally</p></div>
+        <div style="grid-column:1 / 5;"><img src="./assets/products/geometric-dog-side-table.webp" alt="Geometric Dog Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"><p style="font-size:16px;font-weight:500;margin:0;padding-top:12px;">Designed on screen</p></div>
         <div style="grid-column:5 / 9;"><img src="./assets/products/chess-pieces-bronze.webp" alt="Bronze Chess Trio" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"><p style="font-size:16px;font-weight:500;margin:0;padding-top:12px;">Printed in layers</p></div>
         <div style="grid-column:9 / 13;"><img src="./assets/products/elephant-planter.webp" alt="Elephant Wall Planter" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"><p style="font-size:16px;font-weight:500;margin:0;padding-top:12px;">Sculpted by hand</p></div>
       </div>
@@ -175,20 +171,20 @@ a:hover{color:#555;}
     <div id="about" style="position:relative;padding-top:120px;background:#fff;">
       <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
         <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-          <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">We’re interested in furniture that feels like sculpture, sculpture that feels at home, and objects that make ordinary spaces a little less ordinary.</h2>
+          <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">We like furniture that looks like sculpture, and sculpture that feels at home.</h2>
         </div>
       </div>
       <div style="position:relative;margin-top:80px;">
         <div class="r-kei-sticky" style="position: sticky; top: 0; z-index: 0; display: flex; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 0 16px; height: 100vh; align-items: center; justify-content: space-between">
-          <p style="font-size:16px;font-weight:500;margin:0;padding-top:16px;position:static;align-self:center;">Design-led</p>
+          <p style="font-size:16px;font-weight:500;margin:0;padding-top:16px;position:static;align-self:center;">Design</p>
           <img class="r-kei-img" src="./assets/products/tree-hugger-side-table.webp" alt="Tree Hugger Side Table" style="aspect-ratio: 1/1; object-fit: cover; justify-self: start; max-height: 44vh">
-          <p style="justify-self:end;align-self:center;padding-top:16px;font-size:16px;font-weight:500;margin:0;">Craft-led</p>
+          <p style="justify-self:end;align-self:center;padding-top:16px;font-size:16px;font-weight:500;margin:0;">Craft</p>
         </div>
         <div class="r-kei-text" style="position: relative; z-index: 1; margin-top: -100vh; padding: 96vh 16px 120vh; display: grid; grid-template-columns: repeat(12,1fr); gap: 44px; align-content: start; padding-bottom: 80vh; padding-top: 90vh">
           <h1 class="r-kei-title" style="grid-column:4 / 10;text-align:center;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;grid-row:1;">Make room for strange.</h1>
           <div class="r-kei-para" style="grid-column:7 / 11;grid-row:2;display:flex;flex-direction:column;gap:16px;max-width:350px;">
-            <p style="font-size:16px;font-weight:500;margin:0;line-height:120%;">A room doesn’t need more things. It needs the right things.</p>
-            <a href="./contact" class="r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;margin-top:8px;"><div class="r-hov"><div class="r-hov-ph">Start a project</div><div class="r-hov-a">Start a project</div><div class="r-hov-b" aria-hidden="true">Start a project</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+            <p style="font-size:16px;font-weight:500;margin:0;line-height:120%;">Every room has space for one odd thing.</p>
+            <a href="./contact" class="r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;margin-top:8px;"><div class="r-hov"><div class="r-hov-ph">Get in touch</div><div class="r-hov-a">Get in touch</div><div class="r-hov-b" aria-hidden="true">Get in touch</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
           </div>
         </div>
       </div>
@@ -232,7 +228,7 @@ a:hover{color:#555;}
       <a href="./contact" ref="{{ mi3 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Contact</div><div class="r-hov-a">Contact</div><div class="r-hov-b" aria-hidden="true">Contact</div></div></a>
     </div>
     <div class="r-menu-desc" style="grid-column:9 / 13;grid-row:2;align-self:end;display:flex;flex-direction:column;gap:24px;">
-      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Make room for strange. Sculptural furniture, objects and interior pieces made for spaces with a point of view.</p>
+      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Furniture, lamps and sculptures for rooms with a bit of personality.</p>
     </div>
     <div class="r-menu-bottom" style="grid-column: 1 / 13; grid-row: 3; display: flex; justify-content: space-between; align-items: flex-end; margin-left: 24px; margin-right: 24px; margin-bottom: 24px">
       <div style="display:flex;gap:24px;"><a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a><a href="mailto:contact@organisedoctopus.com" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a></div>

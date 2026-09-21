@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Collection — Organised Octopus</title>
-<meta name="description" content="Sculptural furniture, lighting, sculpture and objects with personality. Digitally designed, 3D printed, sculpted and finished by hand.">
+<title>Collection | Organised Octopus</title>
+<meta name="description" content="Sculptural furniture, lamps and objects from Organised Octopus. Designed on screen, 3D printed, then sanded, painted and finished by hand.">
 
 <link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/tokens/fonts.css">
 <link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/tokens/colors.css">
@@ -64,22 +64,22 @@ const { SiteHeader, MenuOverlay, SiteFooter } = window.OrganiedOctopusDesignSyst
 const LOADING_IMAGES = ['assets/products/sm/geometric-dog-side-table.webp', 'assets/products/sm/pink-elephant-side-table.webp', 'assets/products/sm/nobo-side-stand.webp', 'assets/products/sm/tree-hugger-side-table.webp', 'assets/products/sm/chess-pieces-black-gold.webp', 'assets/products/sm/chess-pieces-bronze.webp', 'assets/products/sm/teddy-statue.webp', 'assets/products/sm/elephant-planter.webp', 'assets/products/sm/xo-figure.webp', 'assets/products/sm/head-side-table.webp', 'assets/products/sm/fireplace-side-table.webp', 'assets/products/sm/elephant-lamp.webp', 'assets/products/sm/dab-bear-side-table.webp', 'assets/products/sm/panther-sculpture.webp', 'assets/products/sm/panda-side-table.webp', 'assets/products/sm/david-bust.webp'];
 
 const PRODUCTS = [
-  { id: 'geometric-dog-side-table', name: 'Geometric Dog Side Table', cat: 'Tables', tag: 'Faceted, unbothered and very good with a tray.', added: 16, img: 'assets/products/geometric-dog-side-table.webp' },
-  { id: 'pink-elephant-side-table', name: 'Pink Elephant Side Table', cat: 'Tables', tag: 'A pink elephant in the room. Entirely on purpose.', added: 15, img: 'assets/products/pink-elephant-side-table.webp' },
-  { id: 'nobo-side-stand', name: 'Nobo Side Stand', cat: 'Tables', tag: 'A tidy little creature with a shelf for a hat.', added: 14, img: 'assets/products/nobo-side-stand.webp' },
-  { id: 'tree-hugger-side-table', name: 'Tree Hugger Side Table', cat: 'Tables', tag: 'A bear who takes hugging seriously. It also holds your flowers.', added: 13, img: 'assets/products/tree-hugger-side-table.webp' },
-  { id: 'chess-pieces-black-gold', name: 'Black & Gold Chess Trio', cat: 'Decor', tag: 'Knight, king and queen in full costume. No board required.', added: 12, img: 'assets/products/chess-pieces-black-gold.webp' },
-  { id: 'chess-pieces-bronze', name: 'Bronze Chess Trio', cat: 'Decor', tag: 'A knight, a queen and a king. The board is optional.', added: 11, img: 'assets/products/chess-pieces-bronze.webp' },
-  { id: 'teddy-statue', name: 'Visor Bear Sculpture', cat: 'Sculptures', tag: 'Matte, calm and impossible to ignore.', added: 10, img: 'assets/products/teddy-statue.webp' },
-  { id: 'elephant-planter', name: 'Elephant Wall Planter', cat: 'Decor', tag: 'Greenery, but make it an elephant.', added: 9, img: 'assets/products/elephant-planter.webp' },
-  { id: 'xo-figure', name: 'XO Figure', cat: 'Sculptures', tag: 'One eye crossed. One eye in love.', added: 8, img: 'assets/products/xo-figure.webp' },
-  { id: 'head-side-table', name: 'Head Case Side Table', cat: 'Tables', tag: 'A classical head that agreed to hold your books and your lamp.', added: 7, img: 'assets/products/head-side-table.webp' },
-  { id: 'fireplace-side-table', name: 'Ember Side Table', cat: 'Tables', tag: 'A small fire with a big appetite. Snacks live inside.', added: 6, img: 'assets/products/fireplace-side-table.webp' },
+  { id: 'geometric-dog-side-table', name: 'Geometric Dog Side Table', cat: 'Tables', tag: 'A low-poly dog holding a brass tray.', added: 16, img: 'assets/products/geometric-dog-side-table.webp' },
+  { id: 'pink-elephant-side-table', name: 'Pink Elephant Side Table', cat: 'Tables', tag: 'A pink elephant balancing a round tabletop on its trunk.', added: 15, img: 'assets/products/pink-elephant-side-table.webp' },
+  { id: 'nobo-side-stand', name: 'Nobo Side Stand', cat: 'Tables', tag: 'A round little creature with an open shelf on its head.', added: 14, img: 'assets/products/nobo-side-stand.webp' },
+  { id: 'tree-hugger-side-table', name: 'Tree Hugger Side Table', cat: 'Tables', tag: 'A bear hugging a tree that holds up a scalloped tray.', added: 13, img: 'assets/products/tree-hugger-side-table.webp' },
+  { id: 'chess-pieces-black-gold', name: 'Black & Gold Chess Trio', cat: 'Decor', tag: 'A knight, a king and a queen in black and gold.', added: 12, img: 'assets/products/chess-pieces-black-gold.webp' },
+  { id: 'chess-pieces-bronze', name: 'Bronze Chess Trio', cat: 'Decor', tag: 'A knight, a queen and a king in antique bronze.', added: 11, img: 'assets/products/chess-pieces-bronze.webp' },
+  { id: 'teddy-statue', name: 'Visor Bear Sculpture', cat: 'Sculptures', tag: 'A matte black bear in a visor and big boots.', added: 10, img: 'assets/products/teddy-statue.webp' },
+  { id: 'elephant-planter', name: 'Elephant Wall Planter', cat: 'Decor', tag: 'A carved elephant head with room for a plant on top.', added: 9, img: 'assets/products/elephant-planter.webp' },
+  { id: 'xo-figure', name: 'XO Figure', cat: 'Sculptures', tag: 'A red figure with one crossed eye and one heart.', added: 8, img: 'assets/products/xo-figure.webp' },
+  { id: 'head-side-table', name: 'Head Case Side Table', cat: 'Tables', tag: 'A classical head that holds a stack of books and a lamp.', added: 7, img: 'assets/products/head-side-table.webp' },
+  { id: 'fireplace-side-table', name: 'Ember Side Table', cat: 'Tables', tag: 'A small fire with a wide mouth. Snacks go inside.', added: 6, img: 'assets/products/fireplace-side-table.webp' },
   { id: 'elephant-lamp', name: 'Elephant Lamp', cat: 'Lights', tag: 'A little lighthearted. Literally.', added: 5, img: 'assets/products/elephant-lamp.webp' },
-  { id: 'dab-bear-side-table', name: 'Butler Bear Side Table', cat: 'Tables', tag: 'Dabs, serves and never spills.', added: 4, img: 'assets/products/dab-bear-side-table.webp' },
-  { id: 'panther-sculpture', name: 'Panther Sculpture', cat: 'Sculptures', tag: 'It doesn\'t decorate the room. It watches over it.', added: 3, img: 'assets/products/panther-sculpture.webp' },
+  { id: 'dab-bear-side-table', name: 'Butler Bear Side Table', cat: 'Tables', tag: 'A dabbing bear in a cap, serving from a brass tray.', added: 4, img: 'assets/products/dab-bear-side-table.webp' },
+  { id: 'panther-sculpture', name: 'Panther Sculpture', cat: 'Sculptures', tag: 'A faceted panther on a rock, with gold light running through it.', added: 3, img: 'assets/products/panther-sculpture.webp' },
   { id: 'panda-side-table', name: 'Panda Side Table', cat: 'Tables', tag: 'A panda. A table. Apparently, both were necessary.', added: 2, img: 'assets/products/panda-side-table.webp' },
-  { id: 'david-bust', name: 'Big Spender Bust', cat: 'Sculptures', tag: 'Classical proportions. Contemporary opinions.', added: 1, img: 'assets/products/david-bust.webp' },
+  { id: 'david-bust', name: 'Big Spender Bust', cat: 'Sculptures', tag: 'A red bust with a dollar sign on its chest, on an ionic column.', added: 1, img: 'assets/products/david-bust.webp' },
 ];
 
 const CATEGORIES = ['Tables', 'Lights', 'Sculptures', 'Decor'];
@@ -182,7 +182,7 @@ function LoadingScreen({ visible }) {
       <img className="r-loading-img" src={loadingImg} alt="" style={{ position: 'absolute', top: 16, left: 16, width: 160, aspectRatio: '1/1', objectFit: 'cover' }} />
       <img src="assets/loading-icon.svg" alt="Organised Octopus" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 180, display: 'block' }} />
       <p style={{ position: 'absolute', bottom: 16, right: 16, fontSize: 'var(--text-loading)', fontWeight: 500, lineHeight: 'var(--text-loading-line)', letterSpacing: 'var(--tracking-normal)', margin: 0, maxWidth: 380, textAlign: 'right' }}>
-        Make room for strange. Sculptural furniture, objects and interior pieces made for spaces with a point of view.
+        Make room for strange. Furniture, lamps and sculptures for rooms with a bit of personality.
       </p>
     </div>
   );
@@ -257,7 +257,7 @@ function Page() {
             Collection
           </h1>
           <p className="r-lede" style={{ gridColumn: '1 / 6', fontSize: 'var(--text-lede)', lineHeight: 'var(--text-lede-line)', fontWeight: 500, margin: '32px 0 0' }}>
-            Small things with big personalities, and bigger things that refuse to disappear into the room.
+            Furniture, lamps and sculptures, designed on screen and finished by hand.
           </p>
         </div>
 
@@ -310,7 +310,7 @@ function Page() {
           { label: 'Studio', href: './about' },
           { label: 'Contact', href: './contact' },
         ]}
-        description="Make room for strange. Sculptural furniture, objects and interior pieces made for spaces with a point of view."
+        description="Furniture, lamps and sculptures for rooms with a bit of personality."
         social={[{ label: 'Instagram', href: 'https://www.instagram.com/organised_octopus' }, { label: 'Email', href: 'mailto:contact@organisedoctopus.com' }]}
         copyright="© 2025 Organised Octopus"
       />
