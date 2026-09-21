@@ -6,7 +6,7 @@
    To turn WhatsApp on, put the studio number below: country code + number, digits only,
    e.g. '919876543210'. While it is empty the WhatsApp buttons stay hidden. */
 (function () {
-  var WHATSAPP = '';
+  var WHATSAPP = '917013319687';
   var INSTAGRAM_DM = 'https://ig.me/m/organised_octopus';
   var SITE = 'https://organisedoctopus.com';
 
