@@ -51,7 +51,7 @@ a:hover{color:#555;}
   .r-gap-sm{gap:56px !important;}
   /* hero: vertical stacked column on mobile */
   .r-hero-grid{grid-template-columns:1fr !important;}
-  .r-hero-img-wrap{height:55vh !important;}
+  .r-hero-img-wrap{height:auto !important;}
   .r-hero-copyright{position:static !important;text-align:left !important;order:-1;}
   .r-hero-content{position:static !important;}
   .r-hero-side{margin-top:24px !important;}
@@ -103,7 +103,7 @@ a:hover{color:#555;}
 
   <!-- LOADING SCREEN -->
   <div ref="{{ loadingRef }}" style="position:fixed;inset:0;z-index:100;background:#fff;color:#000;padding:16px;transform:translateY(0%);transition:transform 1s cubic-bezier(.77,0,.18,1);">
-    <img class="r-loading-img" src="{{ loadingImg }}" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:2/2.6;object-fit:cover;">
+    <img class="r-loading-img" src="{{ loadingImg }}" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:1/1;object-fit:cover;">
     <img src="./assets/loading-icon.svg" alt="Organised Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
     <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.</p>
   </div>
@@ -126,7 +126,7 @@ a:hover{color:#555;}
     <div style="padding: 0 16px; position: relative">
       <div class="r-hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; justify-content: center">
 
-        <div style="overflow:hidden;aspect-ratio: 2/2.6; height: 650px; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" src="./assets/products/david-bust.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></div>
+        <div style="overflow:hidden;aspect-ratio: 1/1; height: auto; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" src="./assets/products/david-bust.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></div>
         <div class="r-hero-side" style="position: relative; align-self: stretch">
           <p class="r-hero-copyright" style="position: absolute; top: 0; right: 0; font-size: 16px; font-weight: 500; margin: 0; left: 0px; text-align: right; display: none">© 2025 Organised Octopus</p>
           <div class="r-hero-content" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
@@ -170,19 +170,19 @@ a:hover{color:#555;}
       <div ref="{{ stageRef }}" class="r-s3-stage" style="position:relative;width:100%;height:100%;">
         <!-- left -->
         <div ref="{{ leftRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
-          <img src="./assets/products/teddy-statue.webp" alt="Teddy Statue" style="aspect-ratio:2/2.6;object-fit:cover;width:100%;">
+          <img src="./assets/products/teddy-statue.webp" alt="Teddy Statue" style="aspect-ratio:1/1;object-fit:cover;width:100%;">
           <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0"><p style="font-size:16px;font-weight:500;margin:0;">Arco Shelf Metal</p></div>
           <a ref="{{ btn0 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop on Amazon</span><span style="font-size:16px;font-weight:500;"></span></a>
         </div>
         <!-- right -->
         <div ref="{{ rightRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
-          <img src="./assets/products/head-side-table.webp" alt="Head Side Table" style="aspect-ratio:2/2.6;object-fit:cover;width:100%;">
+          <img src="./assets/products/head-side-table.webp" alt="Head Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;">
           <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">Arco Stool Metal</p></div>
           <a ref="{{ btn1 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop on Amazon</span><span style="font-size:16px;font-weight:500;"></span></a>
         </div>
         <!-- center -->
         <div ref="{{ centerRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:2;background:#fff;">
-          <img src="./assets/products/dab-bear-side-table.webp" alt="Dab Bear Side Table" style="aspect-ratio:2/2.6;object-fit:cover;width:100%;">
+          <img src="./assets/products/dab-bear-side-table.webp" alt="Dab Bear Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;">
           <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">Arco Sofa Metal</p></div>
           <a ref="{{ btn2 }}" href="#" class="r-s3-btn" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><span style="font-size:16px;font-weight:500;">Shop on Amazon</span><span style="font-size:16px;font-weight:500;"></span></a>
         </div>
@@ -205,9 +205,9 @@ a:hover{color:#555;}
         </a>
       </div>
       <div class="r-2col" style="grid-column:5 / 13;display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-template-areas:'main side' 'name side' 'shop side';">
-        <img ref="{{ collImgRef }}" src="./assets/products/panda-side-table.webp" alt="{{ collName }}" style="grid-area:main;aspect-ratio:2/2.6;object-fit:cover;width:100%;">
+        <img ref="{{ collImgRef }}" src="./assets/products/panda-side-table.webp" alt="{{ collName }}" style="grid-area:main;aspect-ratio:1/1;object-fit:cover;width:100%;">
         <div style="grid-area:side;display:flex;flex-direction:column;">
-          <img ref="{{ coll2ImgRef }}" src="./assets/products/fireplace-side-table.webp" alt="" style="aspect-ratio:2/2.6;object-fit:cover;width:100%;">
+          <img ref="{{ coll2ImgRef }}" src="./assets/products/fireplace-side-table.webp" alt="" style="aspect-ratio:1/1;object-fit:cover;width:100%;">
           <div class="r-coll-desc" style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;max-width:280px;">{{ collDesc }}</p></div>
         </div>
         <div style="grid-area:name;display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">{{ collName }}</p></div>

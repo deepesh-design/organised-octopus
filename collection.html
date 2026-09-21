@@ -28,6 +28,8 @@
   .r-hov-ph { visibility: hidden; }
   .r-hov-a, .r-hov-b { position: absolute; top: 0; left: 0; width: 100%; transition: transform .45s cubic-bezier(.65,0,.35,1); }
   .r-hov-b { top: 100%; }
+  /* product tiles are square; ProductThumb hardcodes 2:2.6 inline */
+  #product-grid img { aspect-ratio: 1 / 1 !important; }
   .r-hovable:hover .r-hov-a, .r-hovable:hover .r-hov-b { transform: translateY(-100%); }
   .sort-toggle {
     display: flex; align-items: center; gap: 8px; background: none; border: none;
@@ -196,7 +198,7 @@ function LoadingScreen({ visible }) {
       transform: visible ? 'translateY(0%)' : 'translateY(-100%)',
       transition: 'transform 1s cubic-bezier(.77,0,.18,1)',
     }}>
-      <img className="r-loading-img" src={loadingImg} alt="" style={{ position: 'absolute', top: 16, left: 16, width: 160, aspectRatio: '2/2.6', objectFit: 'cover' }} />
+      <img className="r-loading-img" src={loadingImg} alt="" style={{ position: 'absolute', top: 16, left: 16, width: 160, aspectRatio: '1/1', objectFit: 'cover' }} />
       <img src="assets/loading-icon.svg" alt="Organised Octopus" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 180, display: 'block' }} />
       <p style={{ position: 'absolute', bottom: 16, right: 16, fontSize: 'var(--text-loading)', fontWeight: 500, lineHeight: 'var(--text-loading-line)', letterSpacing: 'var(--tracking-normal)', margin: 0, maxWidth: 380, textAlign: 'right' }}>
         Your home called. It wants art. We design material-driven, minimalist furniture inspired by Swiss graphic design.
