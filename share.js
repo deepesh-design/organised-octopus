@@ -1,14 +1,17 @@
 /* "Ask for price" buttons.
-   Any element with data-oo-share="whatsapp" | "instagram" plus data-slug and data-name
-   sends a ready-made message that links to the piece's own page, so the studio sees the
-   product image in the chat preview and can open the piece.
+   Any element with data-oo-share="whatsapp" | "instagram" plus data-slug, data-name and data-img.
 
-   To turn WhatsApp on, put the studio number below: country code + number, digits only,
-   e.g. '919876543210'. While it is empty the WhatsApp buttons stay hidden. */
+   What happens on click:
+   1. A picture card is built: the product photo with its name and "Could you share the price?" underneath.
+   2. The card is copied to the clipboard as an image.
+   3. The studio's chat opens and the customer pastes the image and sends it.
+   WhatsApp also gets a written message with a link to the piece's own page, so the studio can open the piece.
+   If the browser can't copy images, the written message is copied instead. */
 (function () {
   var WHATSAPP = '917013319687';
   var INSTAGRAM_DM = 'https://ig.me/m/organised_octopus';
   var SITE = 'https://organisedoctopus.com';
+  var FONT = '"BDOGrotesk", "Bdogrotesk", Arial, Helvetica, sans-serif';
 
   if (!WHATSAPP) document.documentElement.classList.add('oo-no-wa');
 
@@ -23,7 +26,8 @@
     '.oo-toast{position:fixed;left:50%;bottom:24px;z-index:120;transform:translate(-50%,16px);opacity:0;pointer-events:none;' +
     'background:#000;color:#fff;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:-0.03em;line-height:130%;' +
     'padding:12px 16px;max-width:calc(100vw - 32px);text-align:center;transition:opacity .3s ease,transform .3s ease;}' +
-    '.oo-toast.is-on{opacity:1;transform:translate(-50%,0);}';
+    '.oo-toast.is-on{opacity:1;transform:translate(-50%,0);pointer-events:auto;}' +
+    '.oo-toast a{color:#fff;text-decoration:underline;text-underline-offset:3px;margin-left:8px;}';
   document.head.appendChild(css);
 
   function message(name, slug) {
@@ -31,7 +35,7 @@
   }
 
   var toastEl = null, toastTimer = null;
-  function toast(text) {
+  function toast(text, linkUrl, linkLabel) {
     if (!toastEl) {
       toastEl = document.createElement('div');
       toastEl.className = 'oo-toast';
@@ -39,31 +43,68 @@
       document.body.appendChild(toastEl);
     }
     toastEl.textContent = text;
+    if (linkUrl) {
+      var a = document.createElement('a');
+      a.href = linkUrl; a.target = '_blank'; a.rel = 'noopener'; a.textContent = linkLabel;
+      toastEl.appendChild(a);
+    }
     toastEl.classList.add('is-on');
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toastEl.classList.remove('is-on'); }, 5000);
+    toastTimer = setTimeout(function () { toastEl.classList.remove('is-on'); }, 7000);
   }
 
-  function copy(text) {
+  // Product photo on top, name and the question underneath, as a PNG.
+  function buildCard(imgUrl, name) {
+    var fontReady = (document.fonts && document.fonts.load)
+      ? Promise.all([document.fonts.load('500 44px ' + FONT), document.fonts.ready]).catch(function () {})
+      : Promise.resolve();
+    return fontReady.then(function () {
+      return new Promise(function (resolve, reject) {
+        var img = new Image();
+        img.onload = function () {
+          var W = 1000, BAND = 170;
+          var c = document.createElement('canvas');
+          c.width = W; c.height = W + BAND;
+          var g = c.getContext('2d');
+          g.fillStyle = '#fff';
+          g.fillRect(0, 0, c.width, c.height);
+          g.drawImage(img, 0, 0, W, W);
+          g.fillStyle = '#000';
+          g.font = '500 44px ' + FONT;
+          g.fillText(name, 40, W + 70);
+          g.fillStyle = '#8f8f8f';
+          g.font = '500 30px ' + FONT;
+          g.fillText('Could you share the price?', 40, W + 120);
+          c.toBlob(function (b) { b ? resolve(b) : reject(new Error('no blob')); }, 'image/png');
+        };
+        img.onerror = reject;
+        img.src = imgUrl;
+      });
+    });
+  }
+
+  function copyText(text) {
     try {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text);
-        return true;
-      }
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text); return true; }
     } catch (e) { /* fall through */ }
     try {
       var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
+      ta.value = text; ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
       var ok = document.execCommand('copy');
       document.body.removeChild(ta);
       return ok;
     } catch (e) { return false; }
   }
+
+  function openChat(url) {
+    var w = window.open(url, '_blank');
+    if (w) { try { w.opener = null; } catch (e) { /* ignore */ } return true; }
+    return false; // blocked
+  }
+
+  window.ooShare = { buildCard: buildCard, message: message };
 
   document.addEventListener('click', function (e) {
     var el = e.target && e.target.closest ? e.target.closest('[data-oo-share]') : null;
@@ -71,17 +112,35 @@
     e.preventDefault();
 
     var kind = el.getAttribute('data-oo-share');
-    var text = message(el.getAttribute('data-name'), el.getAttribute('data-slug'));
+    var name = el.getAttribute('data-name');
+    var slug = el.getAttribute('data-slug');
+    var imgUrl = new URL(el.getAttribute('data-img'), document.baseURI).href;
+    var text = message(name, slug);
+    if (kind === 'whatsapp' && !WHATSAPP) return;
 
-    if (kind === 'whatsapp') {
-      if (!WHATSAPP) return;
-      window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
-      return;
+    var chatUrl = kind === 'whatsapp'
+      ? 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text)
+      : INSTAGRAM_DM;
+    var chatName = kind === 'whatsapp' ? 'WhatsApp' : 'Instagram';
+
+    function textFallback() {
+      var copied = kind === 'instagram' ? copyText(text) : true;
+      if (!openChat(chatUrl)) toast('Your browser blocked the chat.', chatUrl, 'Open ' + chatName);
+      else toast(kind === 'instagram'
+        ? (copied ? 'Message copied. Paste it in the chat and send.' : 'Send us this in the chat: ' + text)
+        : 'Send the message in the chat.');
     }
 
-    // Instagram can't be pre-filled from a link, so copy the message and open the chat.
-    var copied = copy(text);
-    window.open(INSTAGRAM_DM, '_blank', 'noopener');
-    toast(copied ? 'Message copied. Paste it in the chat and send.' : 'Send us this in the chat: ' + text);
+    var canCopyImage = window.ClipboardItem && navigator.clipboard && navigator.clipboard.write && window.isSecureContext;
+    if (!canCopyImage) { textFallback(); return; }
+
+    toast('Getting the image ready…');
+    // The image is copied first, while this page still has focus, then the chat opens.
+    navigator.clipboard.write([new window.ClipboardItem({ 'image/png': buildCard(imgUrl, name) })])
+      .then(function () {
+        if (openChat(chatUrl)) toast('Image copied. Paste it in the chat and send.');
+        else toast('Image copied. Paste it in the chat and send.', chatUrl, 'Open ' + chatName);
+      })
+      .catch(textFallback);
   });
 })();

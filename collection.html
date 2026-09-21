@@ -181,8 +181,8 @@ function ProductTile({ p }) {
           </button>
         ) : (
           <div style={{ display: 'flex', gap: 8 }}>
-            <button type="button" className="oo-bar oo-bar--solid" style={{ flex: '1 1 0', width: 'auto' }} data-oo-share="whatsapp" data-slug={p.slug} data-name={p.name}>WhatsApp</button>
-            <button type="button" className="oo-bar oo-bar--solid" style={{ flex: '1 1 0', width: 'auto' }} data-oo-share="instagram" data-slug={p.slug} data-name={p.name}>Instagram</button>
+            <button type="button" className="oo-bar oo-bar--solid" style={{ flex: '1 1 0', width: 'auto' }} data-oo-share="whatsapp" data-slug={p.slug} data-name={p.name} data-img={p.img}>WhatsApp</button>
+            <button type="button" className="oo-bar oo-bar--solid" style={{ flex: '1 1 0', width: 'auto' }} data-oo-share="instagram" data-slug={p.slug} data-name={p.name} data-img={p.img}>Instagram</button>
             <button type="button" className="oo-bar" style={{ width: 40, flexShrink: 0, padding: 0, justifyContent: 'center' }} aria-label="Close" onClick={() => setOpen(false)}>
               <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1L11 11M11 1L1 11" stroke="currentColor" strokeWidth="1.5" fill="none" /></svg>
             </button>
@@ -342,7 +342,7 @@ function Page() {
 
 ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
 </script>
-<script src="./share.js?v=2"></script>
+<script src="./share.js?v=4"></script>
 <script src="./menu-stack.js?v=3"></script>
 </body>
 </html>
