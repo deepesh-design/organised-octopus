@@ -43,6 +43,15 @@
   }
   .sort-option:last-child { border-bottom: none; }
 
+  /* opening a piece: everything but the chosen picture fades out */
+  .oo-leaving #product-grid > div:not(.oo-picked),
+  .oo-leaving .oo-picked > div,
+  .oo-leaving .filterbar,
+  .oo-leaving h1,
+  .oo-leaving .r-lede { opacity: 0 !important; transition: opacity .22s ease; }
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .25s; }
+
   @media (max-width: 767px) {
     .r-big { font-size: var(--text-hero-mobile) !important; }
     #product-grid { grid-template-columns: repeat(1, 1fr) !important; padding: 0 !important; }
@@ -344,5 +353,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
 </script>
 <script src="./share.js?v=6"></script>
 <script src="./menu-stack.js?v=3"></script>
+<script src="./piece-link.js?v=1"></script>
 </body>
 </html>
