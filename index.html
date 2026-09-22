@@ -137,15 +137,14 @@ a:hover{color:#555;}
     <div style="padding: 0 16px; position: relative">
       <div class="r-hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; justify-content: center">
 
-        <a href="{{ heroHref }}" style="display:block;overflow:hidden;aspect-ratio: 1/1; height: auto; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" data-piece-image src="./assets/products/fireplace-side-table.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></a>
+        <a href="{{ heroHref }}" style="display:block;overflow:hidden;aspect-ratio: 1/1; height: auto; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" data-piece-image src="./assets/products/head-side-table.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></a>
         <div class="r-hero-side" style="position: relative; align-self: stretch">
           <div class="r-hero-content" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
             <div class="r-hero-thumbs" style="overflow:hidden;">
               <div ref="{{ thumbsInnerRef }}" class="r-hero-thumbs-inner" style="display: flex; flex-direction: row; gap: 12px; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);">
-              <a onClick="{{ hero0 }}" style="border-radius: 0px"><img src="./assets/products/sm/fireplace-side-table.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
-              <a onClick="{{ hero1 }}" style="border-radius: 0px"><img src="./assets/products/sm/pink-elephant-side-table.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
-              <a onClick="{{ hero2 }}" style="border-radius: 0px"><img src="./assets/products/sm/xo-figure.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
-              <a onClick="{{ hero3 }}" style="border-radius: 0px"><img src="./assets/products/sm/nobo-side-stand.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero0 }}" style="border-radius: 0px"><img src="./assets/products/sm/head-side-table.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero1 }}" style="border-radius: 0px"><img src="./assets/products/sm/bronze-monkey-side-table.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero2 }}" style="border-radius: 0px"><img src="./assets/products/sm/elephant-planter.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
             </div>
             </div>
             <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;"><p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">{{ heroTitle }}</p><a href="{{ heroHref }}" data-piece-target=".r-hero-img" style="font-size:16px;font-weight:500;color:#000;text-decoration:underline;text-underline-offset:3px;">View details</a></div>
@@ -481,7 +480,7 @@ class Component extends DCLogic {
     if(this.coll2ImgRef.current) this.coll2ImgRef.current.src=v.coll2Img;
   }
   imgVals(){
-    const heroes=['./assets/products/fireplace-side-table.webp','./assets/products/pink-elephant-side-table.webp','./assets/products/xo-figure.webp','./assets/products/nobo-side-stand.webp'];
+    const heroes=['./assets/products/head-side-table.webp','./assets/products/bronze-monkey-side-table.webp','./assets/products/elephant-planter.webp'];
     const colls=[['./assets/products/panda-side-table.webp','./assets/products/pink-elephant-side-table.webp'],['./assets/products/elephant-lamp.webp','./assets/products/panther-sculpture.webp'],['./assets/products/david-bust.webp','./assets/products/xo-figure.webp'],['./assets/products/chess-pieces-bronze.webp','./assets/products/elephant-planter.webp']];
     return {heroImg:heroes[this.state.hero], collImg:colls[this.state.coll][0], coll2Img:colls[this.state.coll][1]};
   }
@@ -555,10 +554,9 @@ class Component extends DCLogic {
   }
   renderVals(){
     const heroes=[
-      {name:'Ember Side Table',slug:'ember-side-table'},
-      {name:'Pink Elephant Side Table',slug:'pink-elephant-side-table'},
-      {name:'XO Figure',slug:'xo-figure'},
-      {name:'Nobo Side Stand',slug:'nobo-side-stand'}
+      {name:'Head Case Side Table',slug:'head-case-side-table'},
+      {name:'Bronze Monkey Side Table',slug:'bronze-monkey-side-table'},
+      {name:'Elephant Wall Planter',slug:'elephant-wall-planter'}
     ];
     const colls=[
       {name:'Panda Side Table',slug:'panda-side-table',tag:'A panda. A table. Apparently, both were necessary.',name2:'Pink Elephant Side Table',slug2:'pink-elephant-side-table',tag2:'A pink elephant balancing a round tabletop on its trunk.'},
@@ -572,7 +570,7 @@ class Component extends DCLogic {
     const ct=(i)=>({display:'flex',flexDirection:'row',alignItems:'flex-end',gap:'16px',width:'100%',padding:'16px 0',textDecoration:'none',cursor:'pointer',color:this.state.coll===i?'#000':'#afafaf',borderBottom:this.state.coll===i?'1px solid #000':'1px solid #afafaf'});
     return {
       heroTitle:h.name, heroHref:'./pieces/'+h.slug,
-      hero0:()=>this.setState({hero:0}), hero1:()=>this.setState({hero:1}), hero2:()=>this.setState({hero:2}), hero3:()=>this.setState({hero:3}),
+      hero0:()=>this.setState({hero:0}), hero1:()=>this.setState({hero:1}), hero2:()=>this.setState({hero:2}),
       thumb0Style:th(0), thumb1Style:th(1), thumb2Style:th(2),
       collName:c.name, collTag:c.tag, pHref:'./pieces/'+c.slug, p2Href:'./pieces/'+c.slug2, p2Name:c.name2, p2Tag:c.tag2,
       c0:()=>this.setState({coll:0}), c1:()=>this.setState({coll:1}), c2:()=>this.setState({coll:2}), c3:()=>this.setState({coll:3}),
