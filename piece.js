@@ -51,6 +51,17 @@
     else setMenu(false);
   });
 
+
+  // Going back to the collection: skip its loading screen.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var path = (a.getAttribute('href') || '').split('#')[0].replace(/\/$/, '');
+    if (/(^|\/)collection(\.html)?$/.test(path)) {
+      try { sessionStorage.setItem('ooSkipLoader', '1'); } catch (err) { /* ignore */ }
+    }
+  });
+
   // Image hand-off: the clicked tile's picture glides from where it was to where it lives on this page.
   try {
     var raw = sessionStorage.getItem('ooPiece');

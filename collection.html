@@ -4,6 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Collection | Organised Octopus</title>
+<link rel="canonical" href="https://organisedoctopus.com/collection">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Organised Octopus">
+<meta property="og:title" content="Collection | Organised Octopus">
+<meta property="og:description" content="Sculptural furniture, lamps and objects. Designed on screen, printed, then finished by hand.">
+<meta property="og:url" content="https://organisedoctopus.com/collection">
+<meta property="og:image" content="https://organisedoctopus.com/assets/og/og-image.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Collection | Organised Octopus">
+<meta name="twitter:description" content="Sculptural furniture, lamps and objects. Designed on screen, printed, then finished by hand.">
+<meta name="twitter:image" content="https://organisedoctopus.com/assets/og/og-image.png?v=2">
 <meta name="description" content="Sculptural furniture, lamps and objects from Organised Octopus. Designed on screen, 3D printed, then sanded, painted and finished by hand.">
 
 <link rel="stylesheet" href="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/tokens/fonts.css">
@@ -43,16 +57,18 @@
   }
   .sort-option:last-child { border-bottom: none; }
 
-  /* opening a piece: everything but the chosen picture fades out */
-  .oo-leaving #product-grid > div:not(.oo-picked),
-  .oo-leaving .oo-picked > div,
-  .oo-leaving .filterbar,
-  .oo-leaving h1,
-  .oo-leaving .r-lede { opacity: 0 !important; transition: opacity .22s ease; }
   @view-transition { navigation: auto; }
   ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .25s; }
 
+  a.oo-bar:hover { color: #000; }
+  a.oo-bar--solid:hover { color: #fff; }
+  .oo-contact-h2 { font-size: 70px; line-height: 100%; font-weight: 500; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+  .oo-contact-row { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+
   @media (max-width: 767px) {
+    .oo-contact-h2 { font-size: 26px; }
+    .oo-contact-row { grid-template-columns: 1fr; gap: 12px; }
+    .oo-contact-row > * { grid-column: 1 / -1 !important; }
     .r-big { font-size: var(--text-hero-mobile) !important; }
     #product-grid { grid-template-columns: repeat(1, 1fr) !important; padding: 0 !important; }
     .filterbar { flex-direction: column !important; align-items: stretch !important; gap: 20px !important; padding: 32px 0 16px !important; }
@@ -169,7 +185,6 @@ function SortDropdown({ value, onChange }) {
 }
 
 function ProductTile({ p }) {
-  const [open, setOpen] = React.useState(false);
   const href = './pieces/' + p.slug;
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -183,20 +198,10 @@ function ProductTile({ p }) {
         <p style={{ fontSize: 'var(--text-body)', fontWeight: 500, lineHeight: 1.3, margin: '4px 0 0', color: 'var(--text-muted)', maxWidth: 340 }}>{p.tag}</p>
       </div>
       <div style={{ marginTop: 'auto', paddingTop: 12 }}>
-        {!open ? (
-          <button type="button" className="oo-bar" onClick={() => setOpen(true)} aria-expanded="false">
-            <span>Ask for price</span>
-            <ChevronIcon open={false} />
-          </button>
-        ) : (
-          <div style={{ display: 'flex', gap: 8 }}>
-            <button type="button" className="oo-bar oo-bar--solid" style={{ flex: '1 1 0', width: 'auto' }} data-oo-share="whatsapp" data-slug={p.slug} data-name={p.name} data-img={p.img}>WhatsApp</button>
-            <button type="button" className="oo-bar oo-bar--solid" style={{ flex: '1 1 0', width: 'auto' }} data-oo-share="instagram" data-slug={p.slug} data-name={p.name} data-img={p.img}>Instagram</button>
-            <button type="button" className="oo-bar" style={{ width: 40, flexShrink: 0, padding: 0, justifyContent: 'center' }} aria-label="Close" onClick={() => setOpen(false)}>
-              <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1L11 11M11 1L1 11" stroke="currentColor" strokeWidth="1.5" fill="none" /></svg>
-            </button>
-          </div>
-        )}
+        <a href={href} className="oo-bar">
+          <span>View details</span>
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none" style={{ flexShrink: 0 }} aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" strokeWidth="1.5" /></svg>
+        </a>
       </div>
     </div>
   );
@@ -219,6 +224,15 @@ function LoadingScreen({ visible }) {
   );
 }
 
+// Coming back from a product page: no loading screen, straight to the collection.
+const SKIP_LOADER = (() => {
+  try {
+    const flag = sessionStorage.getItem('ooSkipLoader');
+    sessionStorage.removeItem('ooSkipLoader');
+    return !!flag || /\/pieces\//.test(document.referrer);
+  } catch (e) { return false; }
+})();
+
 function Page() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [cat, setCat] = React.useState(() => {
@@ -226,12 +240,13 @@ function Page() {
     return CATEGORIES.find(c => c.toLowerCase() === h) || 'all';
   });
   const [sort, setSort] = React.useState('newest');
-  const [loading, setLoading] = React.useState(true);
-  const [loadingDone, setLoadingDone] = React.useState(false);
+  const [loading, setLoading] = React.useState(!SKIP_LOADER);
+  const [loadingDone, setLoadingDone] = React.useState(SKIP_LOADER);
   const footerRef = React.useRef(null);
   const spacerRef = React.useRef(null);
 
   React.useEffect(() => {
+    if (SKIP_LOADER) return;
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     let timers = [];
@@ -316,6 +331,23 @@ function Page() {
         <div id="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px 16px', padding: '0 16px' }}>
           {sorted.map(p => <ProductTile key={p.id} p={p} />)}
         </div>
+
+        <div style={{ paddingTop: 200, display: 'flex', flexDirection: 'column', gap: 80 }}>
+          <div style={{ paddingBottom: 16, overflow: 'hidden' }}>
+            <h2 className="oo-contact-h2">Got something in mind? We’ve got eight arms and room for one more idea.</h2>
+          </div>
+          <div className="oo-contact-row">
+            <p style={{ gridColumn: '1 / 5', fontSize: 16, fontWeight: 500, margin: 0 }}>Custom work</p>
+            <p style={{ gridColumn: '5 / 9', fontSize: 22, fontWeight: 500, lineHeight: '120%', margin: 0 }}>A table shaped like your dog, a lamp for an awkward corner, something big for a lobby. Tell us what you’re picturing and we’ll work out how to make it.</p>
+            <div style={{ gridColumn: '9 / 13', display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <a href="./contact" className="oo-bar oo-bar--solid">
+                <span>Get in touch</span>
+                <svg width="16" height="10" viewBox="0 0 16 10" fill="none" style={{ flexShrink: 0 }} aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" strokeWidth="1.5" /></svg>
+              </a>
+              <a href="mailto:contact@organisedoctopus.com" style={{ fontSize: 16, fontWeight: 500, color: '#000', textDecoration: 'underline', textUnderlineOffset: 3, width: 'fit-content' }}>contact@organisedoctopus.com</a>
+            </div>
+          </div>
+        </div>
       </div>
       </div>
 
@@ -353,6 +385,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
 </script>
 <script src="./share.js?v=6"></script>
 <script src="./menu-stack.js?v=3"></script>
-<script src="./piece-link.js?v=1"></script>
+<script src="./piece-link.js?v=3"></script>
 </body>
 </html>

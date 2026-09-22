@@ -11,14 +11,14 @@
 <meta property="og:title" content="Organised Octopus | Make room for strange">
 <meta property="og:description" content="Sculptural furniture, lamps and objects. Designed on screen, printed, then finished by hand.">
 <meta property="og:url" content="https://organisedoctopus.com/">
-<meta property="og:image" content="https://organisedoctopus.com/assets/og/og-image.png">
+<meta property="og:image" content="https://organisedoctopus.com/assets/og/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Organised Octopus | Make room for strange">
 <meta name="twitter:description" content="Sculptural furniture, lamps and objects. Designed on screen, printed, then finished by hand.">
-<meta name="twitter:image" content="https://organisedoctopus.com/assets/og/og-image.png">
+<meta name="twitter:image" content="https://organisedoctopus.com/assets/og/og-image.png?v=2">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -65,12 +65,13 @@ a:hover{color:#555;}
   .r-logo{right:auto !important;width:200px !important;transform:none !important;transition:none !important;}
   .r-hero-pad{padding-top:70px !important;}
   .r-coll-desc p{font-size:14px !important;}
+  .r-side-name,.r-side-cta{display:none !important;}
   /* discover: reorder so "View more in collection" renders after the product images */
   .r-disc-grid{grid-template-columns:1fr !important;gap:24px !important;}
   .r-disc-list{display:contents !important;}
   .r-disc-list .r-view-all{order:3;margin-top:8px !important;}
   /* discover: product layout — big main image, small side image + desc, full-width name & buy */
-  .r-2col{order:2;grid-column:1 / -1 !important;width:100%;grid-template-columns:1.7fr 1fr !important;grid-template-areas:'main side' 'name name' 'shop shop' !important;align-items:start !important;}
+  .r-2col{order:2;grid-column:1 / -1 !important;width:100%;grid-template-columns:1.7fr 1fr !important;grid-template-areas:'main side' 'name name' 'details details' 'shop shop' !important;align-items:start !important;}
   /* section 03 material driven: no sticky/scroll interaction, static product row */
   .r-s3{height:auto !important;margin-top:56px !important;}
   .r-s3-sticky{position:relative !important;height:auto !important;display:block !important;padding:7vh 16px !important;overflow:visible !important;}
@@ -131,7 +132,7 @@ a:hover{color:#555;}
     <div style="padding: 0 16px; position: relative">
       <div class="r-hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; justify-content: center">
 
-        <div style="overflow:hidden;aspect-ratio: 1/1; height: auto; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" src="./assets/products/fireplace-side-table.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></div>
+        <a href="{{ heroHref }}" style="display:block;overflow:hidden;aspect-ratio: 1/1; height: auto; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" data-piece-image src="./assets/products/fireplace-side-table.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></a>
         <div class="r-hero-side" style="position: relative; align-self: stretch">
           <div class="r-hero-content" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
             <div class="r-hero-thumbs" style="overflow:hidden;">
@@ -142,7 +143,7 @@ a:hover{color:#555;}
               <a onClick="{{ hero3 }}" style="border-radius: 0px"><img src="./assets/products/sm/nobo-side-stand.webp" alt="" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
             </div>
             </div>
-            <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">{{ heroTitle }}</p>
+            <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;"><p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">{{ heroTitle }}</p><a href="{{ heroHref }}" data-piece-target=".r-hero-img" style="font-size:16px;font-weight:500;color:#000;text-decoration:underline;text-underline-offset:3px;">View details</a></div>
             <div style="overflow:hidden;padding-bottom:24px;margin-bottom:-24px;"><h1 ref="{{ heroTitleRef }}" class="r-big" style="font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;transform:translateY(130%);transition:transform .8s cubic-bezier(.16,1,.3,1);">Make room for strange.</h1></div>
             <div style="overflow:hidden;width:100%;"><div ref="{{ heroBtnRef }}" style="display:flex;flex-direction:column;gap:16px;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">
               <p style="font-size:22px;font-weight:500;line-height:120%;margin:0;max-width:480px;">Furniture, lamps and sculptures for rooms with a bit of personality.</p>
@@ -197,22 +198,25 @@ a:hover{color:#555;}
       <p ref="{{ drvLabel }}" style="position:absolute;top:50%;right:16px;transform:translateY(-50%);font-size:16px;font-weight:500;margin:0;z-index:0;">to space</p>
       <div ref="{{ stageRef }}" class="r-s3-stage" style="position:relative;width:100%;height:100%;">
         <!-- left -->
-        <div ref="{{ leftRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
-          <img src="./assets/products/geometric-dog-side-table.webp" alt="Geometric Dog Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;">
+        <div ref="{{ leftRef }}" data-piece-tile style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
+          <a href="./pieces/geometric-dog-side-table" style="display:block;"><img src="./assets/products/geometric-dog-side-table.webp" alt="Geometric Dog Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;"></a>
           <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0 0;"><p style="font-size:16px;font-weight:500;margin:0;">Geometric Dog Side Table</p></div>
           <p style="font-size:16px;font-weight:500;line-height:130%;margin:4px 0 0;color:#8f8f8f;">A low-poly dog holding a brass tray.</p>
+          <a ref="{{ btn0 }}" href="./pieces/geometric-dog-side-table" class="r-s3-btn r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;margin-top:12px;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
         </div>
         <!-- right -->
-        <div ref="{{ rightRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
-          <img src="./assets/products/elephant-lamp.webp" alt="Elephant Lamp" style="aspect-ratio:1/1;object-fit:cover;width:100%;">
+        <div ref="{{ rightRef }}" data-piece-tile style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
+          <a href="./pieces/elephant-lamp" style="display:block;"><img src="./assets/products/elephant-lamp.webp" alt="Elephant Lamp" style="aspect-ratio:1/1;object-fit:cover;width:100%;"></a>
           <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0 0;"><p style="font-size:16px;font-weight:500;margin:0;">Elephant Lamp</p></div>
           <p style="font-size:16px;font-weight:500;line-height:130%;margin:4px 0 0;color:#8f8f8f;">A little lighthearted. Literally.</p>
+          <a ref="{{ btn1 }}" href="./pieces/elephant-lamp" class="r-s3-btn r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;margin-top:12px;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
         </div>
         <!-- center -->
-        <div ref="{{ centerRef }}" style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:2;background:#fff;">
-          <img src="./assets/products/panda-side-table.webp" alt="Panda Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;">
+        <div ref="{{ centerRef }}" data-piece-tile style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:2;background:#fff;">
+          <a href="./pieces/panda-side-table" style="display:block;"><img src="./assets/products/panda-side-table.webp" alt="Panda Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;"></a>
           <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0 0;"><p style="font-size:16px;font-weight:500;margin:0;">Panda Side Table</p></div>
           <p style="font-size:16px;font-weight:500;line-height:130%;margin:4px 0 0;color:#8f8f8f;">A panda. A table. Apparently, both were necessary.</p>
+          <a ref="{{ btn2 }}" href="./pieces/panda-side-table" class="r-s3-btn r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;margin-top:12px;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .45s ease,transform .45s ease;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
         </div>
       </div>
     </div></div>
@@ -230,13 +234,16 @@ a:hover{color:#555;}
         <a onClick="{{ c3 }}" class="r-coll-link r-hovable" style="{{ coll3Style }}"><p style="font-size:16px;font-weight:500;margin:0;">004</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Decor</h3></div><div class="r-hov-a"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Decor</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Decor</h3></div></div></a>
         <a href="./collection" class="r-hovable r-view-all" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;margin-top:32px;"><div class="r-hov"><div class="r-hov-ph">View all</div><div class="r-hov-a">View all</div><div class="r-hov-b" aria-hidden="true">View all</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
       </div>
-      <div class="r-2col" style="grid-column:5 / 13;display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-template-areas:'main side' 'name side' 'shop side';">
-        <img ref="{{ collImgRef }}" src="./assets/products/panda-side-table.webp" alt="{{ collName }}" style="grid-area:main;aspect-ratio:1/1;object-fit:cover;width:100%;">
-        <div style="grid-area:side;display:flex;flex-direction:column;">
-          <img ref="{{ coll2ImgRef }}" src="./assets/products/pink-elephant-side-table.webp" alt="" style="aspect-ratio:1/1;object-fit:cover;width:100%;">
-          <div class="r-coll-desc" style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;max-width:280px;">{{ collDesc }}</p></div>
+      <div class="r-2col" style="grid-column:5 / 13;display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-template-areas:'main side' 'name side' 'details side' 'shop side';">
+        <a href="{{ pHref }}" data-piece-tile style="grid-area:main;display:block;"><img ref="{{ collImgRef }}" data-piece-main src="./assets/products/panda-side-table.webp" alt="{{ collName }}" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
+        <div data-piece-tile style="grid-area:side;display:flex;flex-direction:column;">
+          <a href="{{ p2Href }}" style="display:block;"><img ref="{{ coll2ImgRef }}" src="./assets/products/pink-elephant-side-table.webp" alt="{{ p2Name }}" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
+          <div class="r-side-name" style="padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">{{ p2Name }}</p></div>
+          <a href="{{ p2Href }}" class="r-side-cta r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          <div class="r-coll-desc" style="display:flex;justify-content:space-between;align-items:center;padding:16px 0 0;"><p style="font-size:16px;font-weight:500;margin:0;max-width:280px;">{{ collDesc }}</p></div>
         </div>
         <div style="grid-area:name;display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">{{ collName }}</p></div>
+        <a href="{{ pHref }}" data-piece-target="[data-piece-main]" class="r-hovable" style="grid-area:details;border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
         <div style="grid-area:shop;"><a ref="{{ collLinkRef }}" href="{{ collHref }}" class="r-hovable" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">View more in collection</div><div class="r-hov-a">View more in collection</div><div class="r-hov-b" aria-hidden="true">View more in collection</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a></div>
       </div>
     </div>
@@ -530,26 +537,26 @@ class Component extends DCLogic {
   }
   renderVals(){
     const heroes=[
-      {name:'Ember Side Table'},
-      {name:'Pink Elephant Side Table'},
-      {name:'XO Figure'},
-      {name:'Nobo Side Stand'}
+      {name:'Ember Side Table',slug:'ember-side-table'},
+      {name:'Pink Elephant Side Table',slug:'pink-elephant-side-table'},
+      {name:'XO Figure',slug:'xo-figure'},
+      {name:'Nobo Side Stand',slug:'nobo-side-stand'}
     ];
     const colls=[
-      {name:'Panda Side Table',cat:'Tables',desc:'Side tables shaped like animals, heads and one small fire.'},
-      {name:'Elephant Lamp',cat:'Lights',desc:'Lamps that double as sculptures.'},
-      {name:'Big Spender Bust',cat:'Sculptures',desc:'Statues and figures for shelves, corners and blank walls.'},
-      {name:'Bronze Chess Trio',cat:'Decor',desc:'Smaller pieces for shelves, desks and windowsills.'}
+      {name:'Panda Side Table',slug:'panda-side-table',name2:'Pink Elephant Side Table',slug2:'pink-elephant-side-table',cat:'Tables',desc:'Side tables shaped like animals, heads and one small fire.'},
+      {name:'Elephant Lamp',slug:'elephant-lamp',name2:'Panther Sculpture',slug2:'panther-sculpture',cat:'Lights',desc:'Lamps that double as sculptures.'},
+      {name:'Big Spender Bust',slug:'big-spender-bust',name2:'XO Figure',slug2:'xo-figure',cat:'Sculptures',desc:'Statues and figures for shelves, corners and blank walls.'},
+      {name:'Bronze Chess Trio',slug:'bronze-chess-trio',name2:'Elephant Wall Planter',slug2:'elephant-wall-planter',cat:'Decor',desc:'Smaller pieces for shelves, desks and windowsills.'}
     ];
     const h=heroes[this.state.hero];
     const c=colls[this.state.coll];
     const th=(i)=>({display:'block',cursor:'pointer',outline:this.state.hero===i?'2px solid #000':'2px solid transparent',outlineOffset:'2px',transition:'outline-color .2s'});
     const ct=(i)=>({display:'flex',flexDirection:'row',alignItems:'flex-end',gap:'16px',width:'100%',padding:'16px 0',textDecoration:'none',cursor:'pointer',color:this.state.coll===i?'#000':'#afafaf',borderBottom:this.state.coll===i?'1px solid #000':'1px solid #afafaf'});
     return {
-      heroTitle:h.name,
+      heroTitle:h.name, heroHref:'./pieces/'+h.slug,
       hero0:()=>this.setState({hero:0}), hero1:()=>this.setState({hero:1}), hero2:()=>this.setState({hero:2}), hero3:()=>this.setState({hero:3}),
       thumb0Style:th(0), thumb1Style:th(1), thumb2Style:th(2),
-      collName:c.name, collHref:'./collection#'+c.cat, collDesc:c.desc,
+      collName:c.name, collHref:'./collection#'+c.cat, pHref:'./pieces/'+c.slug, p2Href:'./pieces/'+c.slug2, p2Name:c.name2, collDesc:c.desc,
       c0:()=>this.setState({coll:0}), c1:()=>this.setState({coll:1}), c2:()=>this.setState({coll:2}), c3:()=>this.setState({coll:3}),
       coll0Style:ct(0), coll1Style:ct(1), coll2Style:ct(2), coll3Style:ct(3),
       menuOpen:this.state.menuOpen, cartOpen:this.state.cartOpen,
@@ -568,5 +575,6 @@ class Component extends DCLogic {
 }
 </script>
 <script src="./menu-stack.js?v=3"></script>
+<script src="./piece-link.js?v=3"></script>
 </body>
 </html>
