@@ -1,25 +1,13 @@
 /* Product pages: header, menu, footer reveal, and the image hand-off from the collection page. */
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var logo = $('logo'), footer = $('footer'), spacer = $('spacer'), menu = $('menu');
+  var footer = $('footer'), spacer = $('spacer'), menu = $('menu');
   var bars = [$('bar1'), $('bar2'), $('bar3')];
   var links = Array.prototype.slice.call(document.querySelectorAll('.r-menu-link'));
-  var minScale = 0.11;
 
-  function onScroll() {
-    if (!logo) return;
-    if (window.innerWidth <= 767) { logo.style.transform = 'none'; return; }
-    var end = window.innerHeight * 0.25;
-    var p = end > 0 ? window.scrollY / end : 1;
-    p = Math.max(0, Math.min(1, p));
-    logo.style.transform = 'scale(' + (1 - p * (1 - minScale)) + ')';
-  }
   function onResize() {
     if (footer && spacer) spacer.style.height = footer.offsetHeight + 'px';
-    if (logo) { var w = logo.offsetWidth; if (w > 0) minScale = Math.min(1, 260 / w); }
-    onScroll();
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onResize);
   window.addEventListener('load', onResize);
   Array.prototype.forEach.call(footer.querySelectorAll('img'), function (img) {
