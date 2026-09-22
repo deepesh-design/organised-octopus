@@ -67,14 +67,15 @@ a:hover{color:#555;}
   /* logo: fixed size, no scroll animation on mobile */
   .r-logo{right:auto !important;width:200px !important;transform:none !important;transition:none !important;}
   .r-hero-pad{padding-top:70px !important;}
-  .r-coll-desc p{font-size:14px !important;}
-  .r-side-name,.r-side-cta{display:none !important;}
-  /* discover: reorder so "View more in collection" renders after the product images */
+  /* discover: reorder so "View all" renders after the product images */
   .r-disc-grid{grid-template-columns:1fr !important;gap:24px !important;}
   .r-disc-list{display:contents !important;}
   .r-disc-list .r-view-all{order:3;margin-top:8px !important;}
-  /* discover: product layout — big main image, small side image + desc, full-width name & buy */
-  .r-2col{order:2;grid-column:1 / -1 !important;width:100%;grid-template-columns:1.7fr 1fr !important;grid-template-areas:'main side' 'name name' 'details details' 'shop shop' !important;align-items:start !important;}
+  /* discover: two product tiles stack full-width, same as the collection grid */
+  .r-2col{order:2;grid-column:1 / -1 !important;width:100%;grid-template-columns:1fr !important;gap:32px !important;}
+  /* product tiles: smaller body copy, taller tap targets */
+  .r-tile-name,.r-tile-tag{font-size:14px !important;}
+  .r-tile-cta{height:48px !important;}
   /* section 03 material driven: no sticky/scroll interaction, static product row */
   .r-s3{height:auto !important;margin-top:56px !important;}
   .r-s3-sticky{position:relative !important;height:auto !important;display:block !important;padding:7vh 16px !important;overflow:visible !important;}
@@ -149,7 +150,10 @@ a:hover{color:#555;}
             <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;"><p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">{{ heroTitle }}</p><a href="{{ heroHref }}" data-piece-target=".r-hero-img" style="font-size:16px;font-weight:500;color:#000;text-decoration:underline;text-underline-offset:3px;">View details</a></div>
             <div style="overflow:hidden;padding-bottom:24px;margin-bottom:-24px;"><h1 ref="{{ heroTitleRef }}" class="r-big" style="font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;transform:translateY(130%);transition:transform .8s cubic-bezier(.16,1,.3,1);">Make room for strange.</h1></div>
             <div style="overflow:hidden;width:100%;"><div ref="{{ heroBtnRef }}" style="display:flex;flex-direction:column;gap:16px;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">
-              <p style="font-size:22px;font-weight:500;line-height:120%;margin:0;max-width:480px;">Furniture, lamps and sculptures for rooms with a bit of personality.</p>
+              <blockquote style="margin:0;max-width:480px;">
+                <p style="font-size:22px;font-weight:500;line-height:120%;margin:0;">“We don’t choose objects only for what they do. We choose them for how they make us feel.”</p>
+                <cite style="display:block;font-style:normal;font-size:16px;font-weight:500;margin:12px 0 0;color:#8f8f8f;">— Don Norman</cite>
+              </blockquote>
               <div style="display:flex;flex-direction:column;gap:8px;">
                 <a href="./collection" class="r-hovable" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Explore the collection</div><div class="r-hov-a">Explore the collection</div><div class="r-hov-b" aria-hidden="true">Explore the collection</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
                 <a href="./contact" class="r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Start a custom piece</div><div class="r-hov-a">Start a custom piece</div><div class="r-hov-b" aria-hidden="true">Start a custom piece</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
@@ -237,17 +241,27 @@ a:hover{color:#555;}
         <a onClick="{{ c3 }}" class="r-coll-link r-hovable" style="{{ coll3Style }}"><p style="font-size:16px;font-weight:500;margin:0;">004</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Decor</h3></div><div class="r-hov-a"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Decor</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:56px;line-height:90%;font-weight:500;letter-spacing:-0.03em;margin:0;">Decor</h3></div></div></a>
         <a href="./collection" class="r-hovable r-view-all" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;margin-top:32px;"><div class="r-hov"><div class="r-hov-ph">View all</div><div class="r-hov-a">View all</div><div class="r-hov-b" aria-hidden="true">View all</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
       </div>
-      <div class="r-2col" style="grid-column:5 / 13;display:grid;grid-template-columns:1fr 1fr;gap:16px;grid-template-areas:'main side' 'name side' 'details side' 'shop side';">
-        <a href="{{ pHref }}" data-piece-tile style="grid-area:main;display:block;"><img ref="{{ collImgRef }}" data-piece-main src="./assets/products/panda-side-table.webp" alt="{{ collName }}" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
-        <div data-piece-tile style="grid-area:side;display:flex;flex-direction:column;">
-          <a href="{{ p2Href }}" style="display:block;"><img ref="{{ coll2ImgRef }}" src="./assets/products/pink-elephant-side-table.webp" alt="{{ p2Name }}" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
-          <div class="r-side-name" style="padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">{{ p2Name }}</p></div>
-          <a href="{{ p2Href }}" class="r-side-cta r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
-          <div class="r-coll-desc" style="display:flex;justify-content:space-between;align-items:center;padding:16px 0 0;"><p style="font-size:16px;font-weight:500;margin:0;max-width:280px;">{{ collDesc }}</p></div>
+      <div class="r-2col" style="grid-column:5 / 13;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div data-piece-tile style="display:flex;flex-direction:column;">
+          <a href="{{ pHref }}" style="display:block;"><img ref="{{ collImgRef }}" data-piece-main src="./assets/products/panda-side-table.webp" alt="{{ collName }}" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
+          <div style="padding:12px 0 0;">
+            <p class="r-tile-name" style="font-size:16px;font-weight:500;margin:0;">{{ collName }}</p>
+            <p class="r-tile-tag" style="font-size:16px;font-weight:500;line-height:1.3;margin:4px 0 0;color:#8f8f8f;max-width:340px;">{{ collTag }}</p>
+          </div>
+          <div style="margin-top:auto;padding-top:12px;">
+            <a href="{{ pHref }}" data-piece-target="[data-piece-main]" class="r-tile-cta r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          </div>
         </div>
-        <div style="grid-area:name;display:flex;justify-content:space-between;align-items:center;padding:12px 0;"><p style="font-size:16px;font-weight:500;margin:0;">{{ collName }}</p></div>
-        <a href="{{ pHref }}" data-piece-target="[data-piece-main]" class="r-hovable" style="grid-area:details;border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
-        <div style="grid-area:shop;"><a ref="{{ collLinkRef }}" href="{{ collHref }}" class="r-hovable" style="background:#000;color:#fff;width:100%;height:40px;padding:0 16px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">View more in collection</div><div class="r-hov-a">View more in collection</div><div class="r-hov-b" aria-hidden="true">View more in collection</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a></div>
+        <div data-piece-tile style="display:flex;flex-direction:column;">
+          <a href="{{ p2Href }}" style="display:block;"><img ref="{{ coll2ImgRef }}" src="./assets/products/pink-elephant-side-table.webp" alt="{{ p2Name }}" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
+          <div style="padding:12px 0 0;">
+            <p class="r-tile-name" style="font-size:16px;font-weight:500;margin:0;">{{ p2Name }}</p>
+            <p class="r-tile-tag" style="font-size:16px;font-weight:500;line-height:1.3;margin:4px 0 0;color:#8f8f8f;max-width:340px;">{{ p2Tag }}</p>
+          </div>
+          <div style="margin-top:auto;padding-top:12px;">
+            <a href="{{ p2Href }}" class="r-tile-cta r-hovable" style="border:1px solid #000;color:#000;width:100%;height:40px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">View details</div><div class="r-hov-a">View details</div><div class="r-hov-b" aria-hidden="true">View details</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -269,19 +283,19 @@ a:hover{color:#555;}
     </div>
   </div>
 
-  <!-- SECTION 06 : DESIGNER -->
+  <!-- SECTION 06 : PROCESS -->
   <div id="about" class="r-sec" style="position:relative;padding-top:200px;background:#fff;">
     <div style="position:relative;">
       <!-- sticky centered cover image -->
       <div class="r-kei-sticky" style="position: sticky; top: 0; z-index: 0; display: flex; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 0 16px; height: 100vh; align-items: center; justify-content: space-between">
-        <p style="grid-column: 1 / 6; font-size: 16px; font-weight: 500; margin: 0; padding-top: 16px; position: static; align-self: center">Artists</p>
-        <img class="r-kei-img" src="https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67aeea2493e039a559fb6a2f_0_0%20(2).webp" alt="Kei Rose" style="grid-column: 1 / 5; aspect-ratio: 2/2.6; object-fit: cover; justify-self: start; max-height: 44vh"><p style="grid-column: 8 / 13; justify-self: end; align-self: center; padding-top: 16px; font-size: 16px; font-weight: 500; margin: 0">Designer</p>
-        
+        <p style="grid-column: 1 / 6; font-size: 16px; font-weight: 500; margin: 0; padding-top: 16px; position: static; align-self: center">Process</p>
+        <img class="r-kei-img" src="./assets/process/wip-elephant-planter.webp" alt="Hand-finishing the Elephant Wall Planter" style="grid-column: 1 / 5; aspect-ratio: 2/2.6; object-fit: cover; justify-self: start; max-height: 44vh"><p style="grid-column: 8 / 13; justify-self: end; align-self: center; padding-top: 16px; font-size: 16px; font-weight: 500; margin: 0">Made by us</p>
+
       </div>
       <!-- rich text scrolls transparently OVER the image, no background -->
       <div class="r-kei-text" style="position: relative; z-index: 1; margin-top: -100vh; padding: 96vh 16px 120vh; display: grid; grid-template-columns: repeat(12,1fr); gap: 44px; align-content: start; padding-bottom: 80vh; padding-top: 90vh">
-        <h1 class="r-kei-title" style="grid-column:4 / 10;text-align:center;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;grid-row:1;">Kei Rose</h1>
-        <p class="r-kei-para" style="grid-column:7 / 11;grid-row:2;font-size:16px;font-weight:500;margin:0;line-height:120%;max-width:350px;">Every piece starts as a sketch, becomes a 3D model, and ends up sanded, painted and finished by hand.</p>
+        <h1 class="r-kei-title" style="grid-column:4 / 10;text-align:center;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;grid-row:1;">From idea<br>to object</h1>
+        <p class="r-kei-para" style="grid-column:7 / 11;grid-row:2;font-size:16px;font-weight:500;margin:0;line-height:120%;max-width:350px;">Every piece starts as an idea, becomes a digital form, and passes through our hands before it becomes an object.</p>
       </div>
     </div>
   </div>
@@ -546,10 +560,10 @@ class Component extends DCLogic {
       {name:'Nobo Side Stand',slug:'nobo-side-stand'}
     ];
     const colls=[
-      {name:'Panda Side Table',slug:'panda-side-table',name2:'Pink Elephant Side Table',slug2:'pink-elephant-side-table',cat:'Tables',desc:'Side tables shaped like animals, heads and one small fire.'},
-      {name:'Elephant Lamp',slug:'elephant-lamp',name2:'Panther Sculpture',slug2:'panther-sculpture',cat:'Lights',desc:'Lamps that double as sculptures.'},
-      {name:'Big Spender Bust',slug:'big-spender-bust',name2:'XO Figure',slug2:'xo-figure',cat:'Sculptures',desc:'Statues and figures for shelves, corners and blank walls.'},
-      {name:'Bronze Chess Trio',slug:'bronze-chess-trio',name2:'Elephant Wall Planter',slug2:'elephant-wall-planter',cat:'Decor',desc:'Smaller pieces for shelves, desks and windowsills.'}
+      {name:'Panda Side Table',slug:'panda-side-table',tag:'A panda. A table. Apparently, both were necessary.',name2:'Pink Elephant Side Table',slug2:'pink-elephant-side-table',tag2:'A pink elephant balancing a round tabletop on its trunk.'},
+      {name:'Elephant Lamp',slug:'elephant-lamp',tag:'A little lighthearted. Literally.',name2:'Panther Sculpture',slug2:'panther-sculpture',tag2:'A faceted panther on a rock, with gold light running through it.'},
+      {name:'Big Spender Bust',slug:'big-spender-bust',tag:'A red bust with a dollar sign on its chest, on an ionic column.',name2:'XO Figure',slug2:'xo-figure',tag2:'A red figure with one crossed eye and one heart.'},
+      {name:'Bronze Chess Trio',slug:'bronze-chess-trio',tag:'A knight, a queen and a king in antique bronze.',name2:'Elephant Wall Planter',slug2:'elephant-wall-planter',tag2:'A carved elephant head with room for a plant on top.'}
     ];
     const h=heroes[this.state.hero];
     const c=colls[this.state.coll];
@@ -559,7 +573,7 @@ class Component extends DCLogic {
       heroTitle:h.name, heroHref:'./pieces/'+h.slug,
       hero0:()=>this.setState({hero:0}), hero1:()=>this.setState({hero:1}), hero2:()=>this.setState({hero:2}), hero3:()=>this.setState({hero:3}),
       thumb0Style:th(0), thumb1Style:th(1), thumb2Style:th(2),
-      collName:c.name, collHref:'./collection#'+c.cat, pHref:'./pieces/'+c.slug, p2Href:'./pieces/'+c.slug2, p2Name:c.name2, collDesc:c.desc,
+      collName:c.name, collTag:c.tag, pHref:'./pieces/'+c.slug, p2Href:'./pieces/'+c.slug2, p2Name:c.name2, p2Tag:c.tag2,
       c0:()=>this.setState({coll:0}), c1:()=>this.setState({coll:1}), c2:()=>this.setState({coll:2}), c3:()=>this.setState({coll:3}),
       coll0Style:ct(0), coll1Style:ct(1), coll2Style:ct(2), coll3Style:ct(3),
       menuOpen:this.state.menuOpen, cartOpen:this.state.cartOpen,

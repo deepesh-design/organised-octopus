@@ -28,7 +28,8 @@
     'background:#000;color:#fff;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:-0.03em;line-height:130%;' +
     'padding:12px 16px;max-width:calc(100vw - 32px);text-align:center;transition:opacity .3s ease,transform .3s ease;}' +
     '.oo-toast.is-on{opacity:1;transform:translate(-50%,0);pointer-events:auto;}' +
-    '.oo-toast a{color:#fff;text-decoration:underline;text-underline-offset:3px;margin-left:8px;}';
+    '.oo-toast a{color:#fff;text-decoration:underline;text-underline-offset:3px;margin-left:8px;}' +
+    '@media (max-width:767px){.oo-bar{height:48px;}}';
   document.head.appendChild(css);
 
   function message(name, slug) {

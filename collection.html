@@ -80,6 +80,7 @@
     .sort-dropdown .sort-menu { left: 0 !important; right: auto !important; width: 220px; }
     .r-loading-img { width: 100px !important; }
     .r-lede { grid-column: 1 / -1 !important; }
+    .r-tile-name, .r-tile-tag { font-size: 14px !important; }
   }
 </style>
 </head>
@@ -196,9 +197,9 @@ function ProductTile({ p }) {
       </a>
       <div style={{ padding: '12px 0 0' }}>
         <a href={href} style={{ color: 'inherit', textDecoration: 'none' }}>
-          <p style={{ fontSize: 'var(--text-body)', fontWeight: 500, margin: 0 }}>{p.name}</p>
+          <p className="r-tile-name" style={{ fontSize: 'var(--text-body)', fontWeight: 500, margin: 0 }}>{p.name}</p>
         </a>
-        <p style={{ fontSize: 'var(--text-body)', fontWeight: 500, lineHeight: 1.3, margin: '4px 0 0', color: 'var(--text-muted)', maxWidth: 340 }}>{p.tag}</p>
+        <p className="r-tile-tag" style={{ fontSize: 'var(--text-body)', fontWeight: 500, lineHeight: 1.3, margin: '4px 0 0', color: 'var(--text-muted)', maxWidth: 340 }}>{p.tag}</p>
       </div>
       <div style={{ marginTop: 'auto', paddingTop: 12 }}>
         <a href={href} className="oo-bar">
@@ -386,7 +387,7 @@ function Page() {
 
 ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
 </script>
-<script src="./share.js?v=6"></script>
+<script src="./share.js?v=7"></script>
 <script src="./menu-stack.js?v=3"></script>
 <script src="./piece-link.js?v=3"></script>
 </body>
