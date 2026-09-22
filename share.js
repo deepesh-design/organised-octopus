@@ -1,16 +1,17 @@
-/* "Ask for price" buttons.
-   Any element with data-oo-share="whatsapp" | "instagram" plus data-slug, data-name and data-img.
+/* "Enquire" button.
+   Any element with data-oo-share="whatsapp" plus data-slug, data-name and data-img.
 
    On click:
    1. A picture card is built for the piece (photo, name, "Could you share the price?").
    2. The card is copied to the clipboard as an image.
-   3. The studio's chat opens and the customer pastes the card and sends it.
-   WhatsApp also opens with a written message that links to the piece's own page. For Instagram, whose chat can't be
-   pre-filled, that same message is copied alongside the picture, so pasting still gives the studio the product.
-   If a browser can't copy images, the written message is copied instead. */
+   3. WhatsApp opens and the customer pastes the card and sends it, along with a written
+      message that links to the piece's own page.
+   If a browser can't copy images, the written message is copied instead.
+
+   Share button. Any element with data-oo-share-open plus data-slug and data-name opens a
+   small menu (WhatsApp, Instagram, copy link) for sharing the piece's page with someone else. */
 (function () {
   var WHATSAPP = '917013319687';
-  var INSTAGRAM_DM = 'https://ig.me/m/organised_octopus';
   var SITE = 'https://organisedoctopus.com';
   var FONT = '"BDOGrotesk", "Bdogrotesk", Arial, Helvetica, sans-serif';
 
@@ -24,6 +25,14 @@
     'letter-spacing:-0.03em;cursor:pointer;box-sizing:border-box;text-decoration:none;transition:opacity .3s ease;}' +
     '.oo-bar:hover{opacity:.85;}' +
     '.oo-bar--solid{background:#000;color:#fff;}' +
+    '.oo-share-btn{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;padding:0;' +
+    'border:1px solid #000;border-radius:0;background:#fff;color:#000;cursor:pointer;box-sizing:border-box;transition:opacity .3s ease;}' +
+    '.oo-share-btn:hover{opacity:.85;}' +
+    '.oo-share-menu{position:fixed;z-index:130;min-width:180px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;}' +
+    '.oo-share-menu button{display:block;width:100%;text-align:left;padding:12px 16px;border:none;background:#fff;color:#000;' +
+    'font-family:inherit;font-size:16px;font-weight:500;letter-spacing:-0.03em;cursor:pointer;border-bottom:1px solid #000;}' +
+    '.oo-share-menu button:last-child{border-bottom:none;}' +
+    '.oo-share-menu button:hover{background:#000;color:#fff;}' +
     '.oo-toast{position:fixed;left:50%;bottom:24px;z-index:120;transform:translate(-50%,16px);opacity:0;pointer-events:none;' +
     'background:#000;color:#fff;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:-0.03em;line-height:130%;' +
     'padding:12px 16px;max-width:calc(100vw - 32px);text-align:center;transition:opacity .3s ease,transform .3s ease;}' +
@@ -32,8 +41,10 @@
     '@media (max-width:767px){.oo-bar{height:44px;}}';
   document.head.appendChild(css);
 
+  function pieceUrl(slug) { return SITE + '/pieces/' + slug; }
+
   function message(name, slug) {
-    return 'Hi Organised Octopus, I’d like to know the price of the ' + name + '. ' + SITE + '/pieces/' + slug;
+    return 'Hi Organised Octopus, I’d like to know the price of the ' + name + '. ' + pieceUrl(slug);
   }
 
   var toastEl = null, toastTimer = null;
@@ -108,29 +119,21 @@
 
   window.ooShare = { buildCard: buildCard, message: message };
 
+  // Enquire (WhatsApp only).
   document.addEventListener('click', function (e) {
-    var el = e.target && e.target.closest ? e.target.closest('[data-oo-share]') : null;
-    if (!el) return;
+    var el = e.target && e.target.closest ? e.target.closest('[data-oo-share="whatsapp"]') : null;
+    if (!el || !WHATSAPP) return;
     e.preventDefault();
 
-    var kind = el.getAttribute('data-oo-share');
     var name = el.getAttribute('data-name');
     var slug = el.getAttribute('data-slug');
     var imgUrl = new URL(el.getAttribute('data-img'), document.baseURI).href;
     var text = message(name, slug);
-    if (kind === 'whatsapp' && !WHATSAPP) return;
-
-    var chatUrl = kind === 'whatsapp'
-      ? 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text)
-      : INSTAGRAM_DM;
-    var chatName = kind === 'whatsapp' ? 'WhatsApp' : 'Instagram';
+    var chatUrl = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text);
 
     function textFallback() {
-      var copied = kind === 'instagram' ? copyText(text) : true;
-      if (!openChat(chatUrl)) toast('Your browser blocked the chat.', chatUrl, 'Open ' + chatName);
-      else toast(kind === 'instagram'
-        ? (copied ? 'Message copied. Paste it in the chat and send.' : 'Send us this in the chat: ' + text)
-        : 'Send the message in the chat.');
+      if (!openChat(chatUrl)) toast('Your browser blocked the chat.', chatUrl, 'Open WhatsApp');
+      else toast('Send the message in the chat.');
     }
 
     var canCopyImage = window.ClipboardItem && navigator.clipboard && navigator.clipboard.write && window.isSecureContext;
@@ -138,14 +141,81 @@
 
     toast('Getting the image ready…');
     var item = { 'image/png': buildCard(imgUrl, name) };
-    if (kind === 'instagram') item['text/plain'] = new Blob([text], { type: 'text/plain' });
 
     // The image is copied first, while this page still has focus, then the chat opens.
     navigator.clipboard.write([new window.ClipboardItem(item)])
       .then(function () {
         if (openChat(chatUrl)) toast('Image copied. Paste it in the chat and send.');
-        else toast('Image copied. Paste it in the chat and send.', chatUrl, 'Open ' + chatName);
+        else toast('Image copied. Paste it in the chat and send.', chatUrl, 'Open WhatsApp');
       })
       .catch(textFallback);
+  });
+
+  // Share menu (WhatsApp / Instagram / copy link) — shares the piece's page, not a price request.
+  var menuEl = null;
+  function closeMenu() {
+    if (!menuEl) return;
+    menuEl.remove();
+    menuEl = null;
+    document.removeEventListener('click', onOutsideClick, true);
+    document.removeEventListener('keydown', onKey, true);
+    window.removeEventListener('resize', closeMenu);
+    window.removeEventListener('scroll', closeMenu, true);
+  }
+  function onOutsideClick(e) { if (menuEl && !menuEl.contains(e.target)) closeMenu(); }
+  function onKey(e) { if (e.key === 'Escape') closeMenu(); }
+
+  function openMenu(btn, name, slug) {
+    closeMenu();
+    var url = pieceUrl(slug);
+    var text = name + ' — ' + url;
+
+    var menu = document.createElement('div');
+    menu.className = 'oo-share-menu';
+    menu.innerHTML =
+      '<button type="button" data-act="wa">Share on WhatsApp</button>' +
+      '<button type="button" data-act="ig">Share on Instagram</button>' +
+      '<button type="button" data-act="copy">Copy link</button>';
+    document.body.appendChild(menu);
+
+    var rect = btn.getBoundingClientRect();
+    var top = Math.min(rect.bottom + 8, window.innerHeight - menu.offsetHeight - 16);
+    var left = Math.min(rect.right - menu.offsetWidth, window.innerWidth - menu.offsetWidth - 16);
+    left = Math.max(16, left);
+    menu.style.top = top + 'px';
+    menu.style.left = left + 'px';
+
+    menu.addEventListener('click', function (e) {
+      var actEl = e.target && e.target.closest ? e.target.closest('[data-act]') : null;
+      if (!actEl) return;
+      var act = actEl.getAttribute('data-act');
+      if (act === 'wa') {
+        openChat('https://wa.me/?text=' + encodeURIComponent(text));
+      } else if (act === 'ig') {
+        copyText(text);
+        openChat('https://www.instagram.com/');
+        toast('Link copied. Paste it in Instagram.');
+      } else if (act === 'copy') {
+        var ok = copyText(url);
+        toast(ok ? 'Link copied.' : 'Copy this link: ' + url);
+      }
+      closeMenu();
+    });
+
+    menuEl = menu;
+    setTimeout(function () {
+      document.addEventListener('click', onOutsideClick, true);
+      document.addEventListener('keydown', onKey, true);
+      window.addEventListener('resize', closeMenu);
+      window.addEventListener('scroll', closeMenu, true);
+    }, 0);
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target && e.target.closest ? e.target.closest('[data-oo-share-open]') : null;
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openMenu(btn, btn.getAttribute('data-name'), btn.getAttribute('data-slug'));
   });
 })();
