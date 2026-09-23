@@ -69,7 +69,7 @@ a:hover{color:#555;}
   .r-hero-copyright{position:static !important;text-align:left !important;order:-1;}
   .r-hero-content{position:static !important;}
   .r-hero-side{margin-top:24px !important;}
-  .r-hero-thumbs img{height:64px !important;}
+  .r-hero-thumbs-inner a{width:64px !important;height:64px !important;}
   /* logo: fixed size, no scroll animation on mobile */
   .r-logo{right:auto !important;width:200px !important;transform:none !important;transition:none !important;}
   .r-hero-pad{padding-top:70px !important;}
@@ -151,9 +151,9 @@ a:hover{color:#555;}
           <div class="r-hero-content" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
             <div class="r-hero-thumbs" style="overflow:hidden;">
               <div ref="{{ thumbsInnerRef }}" class="r-hero-thumbs-inner" style="display: flex; flex-direction: row; gap: 12px; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);">
-              <a onClick="{{ hero0 }}" style="{{ thumb0Style }}"><img src="./assets/products/sm/head-side-table.webp" alt="Head Case Side Table" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
-              <a onClick="{{ hero1 }}" style="{{ thumb1Style }}"><img src="./assets/products/sm/bronze-monkey-side-table.webp" alt="Bronze Monkey Side Table" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
-              <a onClick="{{ hero2 }}" style="{{ thumb2Style }}"><img src="./assets/products/sm/elephant-planter.webp" alt="Elephant Wall Planter" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero0 }}" style="{{ thumb0Style }}"><img src="./assets/products/sm/head-side-table.webp" alt="Head Case Side Table" style="width: 100%; height: 100%; object-fit: cover; display: block;"></a>
+              <a onClick="{{ hero1 }}" style="{{ thumb1Style }}"><img src="./assets/products/sm/bronze-monkey-side-table.webp" alt="Bronze Monkey Side Table" style="width: 100%; height: 100%; object-fit: cover; display: block;"></a>
+              <a onClick="{{ hero2 }}" style="{{ thumb2Style }}"><img src="./assets/products/sm/elephant-planter.webp" alt="Elephant Wall Planter" style="width: 100%; height: 100%; object-fit: cover; display: block;"></a>
             </div>
             </div>
             <h2 class="r-h3" style="font-size:80px;line-height:98%;font-weight:500;letter-spacing:-0.03em;margin:0;color:#000;">{{ heroTitle }}</h2>
@@ -556,7 +556,7 @@ class Component extends DCLogic {
     ];
     const h=heroes[this.state.hero];
     const c=colls[this.state.coll];
-    const th=(i)=>({display:'block',cursor:'pointer',outline:this.state.hero===i?'2px solid #000':'2px solid transparent',outlineOffset:'2px',transition:'outline-color .2s'});
+    const th=(i)=>({display:'block',cursor:'pointer',width:94,height:94,boxSizing:'border-box',border:this.state.hero===i?'2px solid #000':'2px solid transparent',transition:'border-color .2s'});
     const ct=(i)=>({display:'flex',flexDirection:'row',alignItems:'flex-end',gap:'16px',width:'100%',padding:'16px 0',textDecoration:'none',cursor:'pointer',color:this.state.coll===i?'#000':'#afafaf',borderBottom:this.state.coll===i?'1px solid #000':'1px solid #afafaf'});
     return {
       heroTitle:h.name, heroHref:'./pieces/'+h.slug,
