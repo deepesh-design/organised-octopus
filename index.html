@@ -96,8 +96,11 @@ a:hover{color:#555;}
   .r-s3-stage > div{position:static !important;transform:none !important;width:100% !important;}
   .r-s3-btn{opacity:1 !important;transform:none !important;pointer-events:auto !important;}
   /* designer: simple stacked layout on mobile — no grid columns, no scroll-pin */
-  .r-kei-img{width:48% !important;flex:0 0 48% !important;max-height:52vh !important;}
-  .r-kei-label{transform:rotate(-90deg);white-space:nowrap;padding-top:0 !important;}
+  .r-kei-sticky{justify-content:center !important;}
+  .r-kei-img{width:74% !important;flex:0 0 auto !important;max-height:62vh !important;}
+  .r-kei-label{position:absolute !important;top:50% !important;margin:0 !important;transform:translateY(-50%) rotate(-90deg) !important;white-space:nowrap;padding-top:0 !important;}
+  .r-kei-sticky > p.r-kei-label:first-of-type{left:16px !important;transform-origin:11.25px center !important;}
+  .r-kei-sticky > p.r-kei-label:last-of-type{right:16px !important;transform-origin:calc(100% - 11.25px) center !important;}
   .r-kei-text{position:relative !important;margin-top:-100vh !important;padding:90vh 15vw 80vh !important;display:flex !important;grid-template-columns:repeat(12,1fr) !important;gap:24px !important;align-content:start !important;flex-direction:column !important;width:100vw !important;align-items:flex-start !important;}
   .r-kei-title{text-align:left !important;font-size:48px !important;line-height:100% !important;}
   .r-kei-para{max-width:none !important;width:100%;}
