@@ -5,9 +5,9 @@
 
   var IMAGES = [
     { src: 'assets/products/md/geometric-deer-head.webp', alt: 'Geometric Deer Head' },
-    { src: 'assets/products/md/bronze-monkey-side-table.webp', alt: 'Bronze Monkey Side Table' },
+    { src: 'assets/products/md/geometric-dog-side-table.webp', alt: 'Geometric Dog Side Table' },
     { src: 'assets/products/md/lion-head-wall-mount.webp', alt: 'Lion Head Wall Mount' },
-    { src: 'assets/products/md/geometric-dog-side-table.webp', alt: 'Geometric Dog Side Table' }
+    { src: 'assets/products/md/elephant-planter.webp', alt: 'Elephant Wall Planter' }
   ];
 
   // resting pose for each rank in the pile (0 = top card)
