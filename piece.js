@@ -69,8 +69,7 @@
         img.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')';
         if (info) { info.style.opacity = '0'; info.style.transform = 'translateY(24px)'; }
         void img.offsetWidth; // apply the starting position before animating
-        // a timer rather than requestAnimationFrame, so it still runs if the tab isn't in front yet
-        setTimeout(function () {
+        function startFlip() {
           img.style.transition = 'transform .9s cubic-bezier(.16,1,.3,1)';
           img.style.transform = 'none';
           if (info) {
@@ -78,7 +77,14 @@
             info.style.opacity = '1';
             info.style.transform = 'none';
           }
-        }, 40);
+        }
+        // double rAF locks the start to the next paint, so the glide never skips or stutters its first frame;
+        // a plain timer falls back for background tabs, where rAF is throttled and would delay the start instead
+        if (document.hidden) {
+          setTimeout(startFlip, 40);
+        } else {
+          requestAnimationFrame(function () { requestAnimationFrame(startFlip); });
+        }
         setTimeout(function () {
           img.style.transition = ''; img.style.transform = ''; img.style.zIndex = ''; img.style.position = ''; img.style.transformOrigin = '';
           if (info) { info.style.transition = ''; info.style.opacity = ''; info.style.transform = ''; }

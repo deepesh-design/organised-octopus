@@ -364,6 +364,7 @@ function MenuOverlay({
       transform: 'translate(-50%,-50%) rotate(-45deg)'
     }
   }))), /*#__PURE__*/React.createElement("div", {
+    className: 'r-menu-ov-links',
     style: {
       gridColumn: '1 / 8',
       display: 'flex',
@@ -375,7 +376,7 @@ function MenuOverlay({
     key: i,
     href: l.href || '#',
     onClick: onClose,
-    className: 'r-hovable',
+    className: 'r-hovable r-menu-ov-link',
     style: {
       color: '#fff',
       textDecoration: 'none',
@@ -387,6 +388,7 @@ function MenuOverlay({
       transition: `opacity 0.5s ease ${0.12 + i * 0.07}s, transform 0.5s ease ${0.12 + i * 0.07}s`
     }
   }, __rSwap(l.label)))), /*#__PURE__*/React.createElement("div", {
+    className: 'r-menu-ov-desc',
     style: {
       gridColumn: '9 / 13',
       alignSelf: 'end',
@@ -404,6 +406,7 @@ function MenuOverlay({
       color: 'var(--oo-gray-60)'
     }
   }, description)), /*#__PURE__*/React.createElement("div", {
+    className: 'r-menu-ov-bottom',
     style: {
       gridColumn: '1 / 13',
       display: 'flex',

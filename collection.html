@@ -34,7 +34,7 @@
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script src="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/_ds_bundle.js"></script>
+<script src="_ds/organied-octopus-design-system-10b7e1d5-d6c5-41e6-9c65-474afbb5749c/_ds_bundle.js?v=2"></script>
 
 <style>
   html, body { margin: 0; padding: 0; background: #fff; }
@@ -79,8 +79,11 @@
     .sort-dropdown { align-self: flex-start; }
     .sort-dropdown .sort-menu { left: 0 !important; right: auto !important; width: 220px; }
     .r-loading-img { width: 100px !important; }
-    .r-lede { grid-column: 1 / -1 !important; }
     .r-tile-name, .r-tile-tag { font-size: 14px !important; }
+    .r-menu-ov-links { grid-column: 1 / -1 !important; margin-left: 0 !important; gap: 12px !important; }
+    .r-menu-ov-link { font-size: 44px !important; }
+    .r-menu-ov-desc { grid-column: 1 / -1 !important; align-self: start !important; margin-top: 16px !important; }
+    .r-menu-ov-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; margin-left: 0 !important; margin-right: 0 !important; }
   }
 </style>
 </head>
@@ -329,7 +332,7 @@ function Page() {
           <SortDropdown value={sort} onChange={setSort} />
         </div>
 
-        <div id="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px 16px', padding: '0 16px' }}>
+        <div id="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '44px 16px', padding: '0 16px' }}>
           {sorted.map(p => <ProductTile key={p.id} p={p} />)}
         </div>
 
