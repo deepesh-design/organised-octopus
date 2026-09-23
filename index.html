@@ -97,6 +97,7 @@ a:hover{color:#555;}
   .r-s3-btn{opacity:1 !important;transform:none !important;pointer-events:auto !important;}
   /* designer: simple stacked layout on mobile — no grid columns, no scroll-pin */
   .r-kei-img{width:48% !important;flex:0 0 48% !important;max-height:52vh !important;}
+  .r-kei-label{transform:rotate(-90deg);white-space:nowrap;padding-top:0 !important;}
   .r-kei-text{position:relative !important;margin-top:-100vh !important;padding:90vh 15vw 80vh !important;display:flex !important;grid-template-columns:repeat(12,1fr) !important;gap:24px !important;align-content:start !important;flex-direction:column !important;width:100vw !important;align-items:flex-start !important;}
   .r-kei-title{text-align:left !important;font-size:48px !important;line-height:100% !important;}
   .r-kei-para{max-width:none !important;width:100%;}
@@ -267,8 +268,8 @@ a:hover{color:#555;}
     <div style="position:relative;">
       <!-- sticky centered cover image -->
       <div class="r-kei-sticky" style="position: sticky; top: 0; z-index: 0; display: flex; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 0 16px; height: 100vh; align-items: center; justify-content: space-between">
-        <p style="grid-column: 1 / 6; font-size: 16px; font-weight: 500; margin: 0; padding-top: 16px; position: static; align-self: center">Process</p>
-        <img class="r-kei-img" src="./assets/process/wip-elephant-planter.webp" alt="Hand-finishing the Elephant Wall Planter" style="grid-column: 1 / 5; aspect-ratio: 2/2.6; object-fit: cover; justify-self: start; max-height: 56vh"><p style="grid-column: 8 / 13; justify-self: end; align-self: center; padding-top: 16px; font-size: 16px; font-weight: 500; margin: 0">Made by us</p>
+        <p class="r-kei-label" style="grid-column: 1 / 6; font-size: 16px; font-weight: 500; margin: 0; padding-top: 16px; position: static; align-self: center">Process</p>
+        <img class="r-kei-img" src="./assets/process/wip-elephant-planter.webp" alt="Hand-finishing the Elephant Wall Planter" style="grid-column: 1 / 5; aspect-ratio: 2/2.6; object-fit: cover; justify-self: start; max-height: 56vh"><p class="r-kei-label" style="grid-column: 8 / 13; justify-self: end; align-self: center; padding-top: 16px; font-size: 16px; font-weight: 500; margin: 0">Made by us</p>
 
       </div>
       <!-- rich text scrolls transparently OVER the image, no background -->
