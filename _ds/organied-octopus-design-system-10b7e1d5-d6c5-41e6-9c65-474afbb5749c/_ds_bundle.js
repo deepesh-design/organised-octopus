@@ -531,6 +531,7 @@ function SiteHeader({
       left: 0,
       right: 0,
       zIndex: 40,
+      background: '#fff',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
