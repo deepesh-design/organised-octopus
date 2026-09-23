@@ -51,6 +51,8 @@ a:hover{color:#555;}
 .r-hero-img-wrap.r-hero-loading::after{opacity:1;animation:oo-hero-spin .7s linear infinite;}
 .r-hero-img-wrap.r-hero-loading .r-hero-img{opacity:.35;}
 @keyframes oo-hero-spin{to{transform:rotate(360deg);}}
+/* process photo: dark overlay for contrast under the blend-mode text */
+.r-kei-img-wrap::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.35);pointer-events:none;}
 @media (max-width:767px){
   /* generic 12-col grids stack */
   .r-stack{grid-template-columns:1fr !important;gap:12px !important;}
@@ -97,7 +99,7 @@ a:hover{color:#555;}
   .r-s3-btn{opacity:1 !important;transform:none !important;pointer-events:auto !important;}
   /* designer: simple stacked layout on mobile — no grid columns, no scroll-pin */
   .r-kei-sticky{justify-content:center !important;}
-  .r-kei-img{width:74% !important;flex:0 0 auto !important;max-height:62vh !important;}
+  .r-kei-img-wrap{width:74% !important;flex:0 0 auto !important;max-height:62vh !important;}
   .r-kei-label{position:absolute !important;top:50% !important;margin:0 !important;transform:translateY(-50%) rotate(-90deg) !important;white-space:nowrap;padding-top:0 !important;}
   .r-kei-sticky > p.r-kei-label:first-of-type{left:16px !important;transform-origin:11.25px center !important;}
   .r-kei-sticky > p.r-kei-label:last-of-type{right:16px !important;transform-origin:calc(100% - 11.25px) center !important;}
@@ -272,7 +274,7 @@ a:hover{color:#555;}
       <!-- sticky centered cover image -->
       <div class="r-kei-sticky" style="position: sticky; top: 0; z-index: 0; display: flex; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 0 16px; height: 100vh; align-items: center; justify-content: space-between">
         <p class="r-kei-label" style="grid-column: 1 / 6; font-size: 16px; font-weight: 500; margin: 0; padding-top: 16px; position: static; align-self: center">Process</p>
-        <img class="r-kei-img" src="./assets/process/wip-elephant-planter.webp" alt="Hand-finishing the Elephant Wall Planter" style="grid-column: 1 / 5; aspect-ratio: 2/2.6; object-fit: cover; justify-self: start; max-height: 56vh"><p class="r-kei-label" style="grid-column: 8 / 13; justify-self: end; align-self: center; padding-top: 16px; font-size: 16px; font-weight: 500; margin: 0">Made by us</p>
+        <div class="r-kei-img-wrap" style="grid-column: 1 / 5; aspect-ratio: 2/2.6; justify-self: start; max-height: 56vh; position: relative; overflow: hidden;"><img class="r-kei-img" src="./assets/process/wip-elephant-planter.webp" alt="Hand-finishing the Elephant Wall Planter" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div><p class="r-kei-label" style="grid-column: 8 / 13; justify-self: end; align-self: center; padding-top: 16px; font-size: 16px; font-weight: 500; margin: 0">Made by us</p>
 
       </div>
       <!-- rich text scrolls transparently OVER the image, no background -->
