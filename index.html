@@ -46,6 +46,11 @@ a:hover{color:#555;}
 /* collection names: leave room for descenders inside the clipped swap box */
 .r-coll-link .r-hov{padding-bottom:16px;margin-bottom:-16px;}
 .r-coll-link.r-hovable:hover .r-hov-a,.r-coll-link.r-hovable:hover .r-hov-b{transform:translateY(calc(-100% - 16px));}
+/* hero: spinner + dim while the picked thumbnail's image preloads */
+.r-hero-img-wrap::after{content:'';position:absolute;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border:2px solid rgba(0,0,0,.15);border-top-color:#000;border-radius:50%;opacity:0;pointer-events:none;transition:opacity .2s ease;}
+.r-hero-img-wrap.r-hero-loading::after{opacity:1;animation:oo-hero-spin .7s linear infinite;}
+.r-hero-img-wrap.r-hero-loading .r-hero-img{opacity:.35;}
+@keyframes oo-hero-spin{to{transform:rotate(360deg);}}
 @media (max-width:767px){
   /* generic 12-col grids stack */
   .r-stack{grid-template-columns:1fr !important;gap:12px !important;}
@@ -141,14 +146,14 @@ a:hover{color:#555;}
     <div style="padding: 0 16px; position: relative">
       <div class="r-hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; justify-content: center">
 
-        <a href="{{ heroHref }}" style="display:block;overflow:hidden;aspect-ratio: 1/1; height: auto; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" data-piece-image src="./assets/products/head-side-table.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1);"></a>
+        <a href="{{ heroHref }}" style="display:block;position:relative;overflow:hidden;aspect-ratio: 1/1; height: auto; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" data-piece-image src="./assets/products/head-side-table.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1), opacity .25s ease;"></a>
         <div class="r-hero-side" style="position: relative; align-self: stretch">
           <div class="r-hero-content" style="position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 16px;">
             <div class="r-hero-thumbs" style="overflow:hidden;">
               <div ref="{{ thumbsInnerRef }}" class="r-hero-thumbs-inner" style="display: flex; flex-direction: row; gap: 12px; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);">
-              <a onClick="{{ hero0 }}" style="border-radius: 0px"><img src="./assets/products/sm/head-side-table.webp" alt="Head Case Side Table" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
-              <a onClick="{{ hero1 }}" style="border-radius: 0px"><img src="./assets/products/sm/bronze-monkey-side-table.webp" alt="Bronze Monkey Side Table" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
-              <a onClick="{{ hero2 }}" style="border-radius: 0px"><img src="./assets/products/sm/elephant-planter.webp" alt="Elephant Wall Planter" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero0 }}" style="{{ thumb0Style }}"><img src="./assets/products/sm/head-side-table.webp" alt="Head Case Side Table" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero1 }}" style="{{ thumb1Style }}"><img src="./assets/products/sm/bronze-monkey-side-table.webp" alt="Bronze Monkey Side Table" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
+              <a onClick="{{ hero2 }}" style="{{ thumb2Style }}"><img src="./assets/products/sm/elephant-planter.webp" alt="Elephant Wall Planter" style="aspect-ratio: 1/1; object-fit: cover; display: block; height: 94px"></a>
             </div>
             </div>
             <h2 class="r-h3" style="font-size:80px;line-height:98%;font-weight:500;letter-spacing:-0.03em;margin:0;color:#000;">{{ heroTitle }}</h2>
@@ -338,6 +343,7 @@ class Component extends DCLogic {
     super(props);
     this.loadingImg=LOADING_IMAGES[Math.floor(Math.random()*LOADING_IMAGES.length)];
     this.state={hero:0,coll:0,menuOpen:false,cartOpen:false};
+    this.heroImgs=['./assets/products/head-side-table.webp','./assets/products/bronze-monkey-side-table.webp','./assets/products/elephant-planter.webp'];
     this.s3=React.createRef();
     this.left=React.createRef();
     this.right=React.createRef();
@@ -454,10 +460,19 @@ class Component extends DCLogic {
     if(this.collImgRef.current) this.collImgRef.current.src=v.collImg;
     if(this.coll2ImgRef.current) this.coll2ImgRef.current.src=v.coll2Img;
   }
+  selectHero(i){
+    if(this.state.hero===i) return;
+    const wrap=this.heroImgRef.current&&this.heroImgRef.current.closest('.r-hero-img-wrap');
+    if(wrap) wrap.classList.add('r-hero-loading');
+    const pre=new Image();
+    const done=()=>{ if(wrap) wrap.classList.remove('r-hero-loading'); this.setState({hero:i}); };
+    pre.onload=done;
+    pre.onerror=done;
+    pre.src=this.heroImgs[i];
+  }
   imgVals(){
-    const heroes=['./assets/products/head-side-table.webp','./assets/products/bronze-monkey-side-table.webp','./assets/products/elephant-planter.webp'];
     const colls=[['./assets/products/panda-side-table.webp','./assets/products/pink-elephant-side-table.webp'],['./assets/products/elephant-lamp.webp','./assets/products/panther-sculpture.webp'],['./assets/products/teddy-statue.webp','./assets/products/panther-sculpture.webp'],['./assets/products/chess-pieces-bronze.webp','./assets/products/elephant-planter.webp']];
-    return {heroImg:heroes[this.state.hero], collImg:colls[this.state.coll][0], coll2Img:colls[this.state.coll][1]};
+    return {heroImg:this.heroImgs[this.state.hero], collImg:colls[this.state.coll][0], coll2Img:colls[this.state.coll][1]};
   }
   componentWillUnmount(){
     window.removeEventListener('scroll',this.onScroll);
@@ -545,7 +560,7 @@ class Component extends DCLogic {
     const ct=(i)=>({display:'flex',flexDirection:'row',alignItems:'flex-end',gap:'16px',width:'100%',padding:'16px 0',textDecoration:'none',cursor:'pointer',color:this.state.coll===i?'#000':'#afafaf',borderBottom:this.state.coll===i?'1px solid #000':'1px solid #afafaf'});
     return {
       heroTitle:h.name, heroHref:'./pieces/'+h.slug,
-      hero0:()=>this.setState({hero:0}), hero1:()=>this.setState({hero:1}), hero2:()=>this.setState({hero:2}),
+      hero0:()=>this.selectHero(0), hero1:()=>this.selectHero(1), hero2:()=>this.selectHero(2),
       thumb0Style:th(0), thumb1Style:th(1), thumb2Style:th(2),
       collName:c.name, collTag:c.tag, pHref:'./pieces/'+c.slug, p2Href:'./pieces/'+c.slug2, p2Name:c.name2, p2Tag:c.tag2,
       c0:()=>this.setState({coll:0}), c1:()=>this.setState({coll:1}), c2:()=>this.setState({coll:2}), c3:()=>this.setState({coll:3}),
