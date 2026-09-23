@@ -450,7 +450,7 @@ try { (() => {
 function SiteFooter({
   columns = [],
   logoSrc,
-  copyright = '© 2025 Organised Octopus'
+  copyright = '© 2026 Organised Octopus'
 }) {
   return /*#__PURE__*/React.createElement("div", {
     style: {
