@@ -525,6 +525,7 @@ function SiteHeader({
   homeHref = '#'
 }) {
   return /*#__PURE__*/React.createElement("div", {
+    id: 'site-header',
     style: {
       position: 'fixed',
       top: 0,

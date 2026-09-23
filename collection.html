@@ -355,7 +355,7 @@ function Page() {
       </div>
       </div>
 
-      <div ref={spacerRef} style={{ width: '100%' }}></div>
+      <div ref={spacerRef} id="spacer" style={{ width: '100%' }}></div>
 
       <div ref={footerRef} style={{ position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 0 }}>
         <SiteFooter
@@ -389,6 +389,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
 </script>
 <script src="./share.js?v=8"></script>
 <script src="./menu-stack.js?v=4"></script>
+<script src="./nav-hide.js?v=3"></script>
 <script src="./piece-link.js?v=3"></script>
 </body>
 </html>
