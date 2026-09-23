@@ -50,10 +50,7 @@ a:hover{color:#555;}
 .r-hero-img-wrap::after{content:'';position:absolute;top:50%;left:50%;width:32px;height:32px;margin:-16px 0 0 -16px;border:2px solid rgba(0,0,0,.15);border-top-color:#000;border-radius:50%;opacity:0;pointer-events:none;transition:opacity .2s ease;}
 .r-hero-img-wrap.r-hero-loading::after{opacity:1;animation:oo-hero-spin .7s linear infinite;}
 .r-hero-img-wrap.r-hero-loading .r-hero-img{opacity:.35;}
-@keyframes oo-hero-spin{to{transform:rotate(360deg);}}
-/* process photo: dark overlay for contrast under the blend-mode text */
-.r-kei-img-wrap::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.35);pointer-events:none;}
-@media (max-width:767px){
+@keyframes oo-hero-spin{to{transform:rotate(360deg);}}@media (max-width:767px){
   /* generic 12-col grids stack */
   .r-stack{grid-template-columns:1fr !important;gap:12px !important;}
   .r-stack > *{grid-column:1 / -1 !important;grid-row:auto !important;justify-self:start !important;width:100% !important;}
@@ -103,9 +100,9 @@ a:hover{color:#555;}
   .r-kei-label{position:absolute !important;top:50% !important;margin:0 !important;transform:translateY(-50%) rotate(-90deg) !important;white-space:nowrap;padding-top:0 !important;}
   .r-kei-sticky > p.r-kei-label:first-of-type{left:16px !important;transform-origin:11.25px center !important;}
   .r-kei-sticky > p.r-kei-label:last-of-type{right:16px !important;transform-origin:calc(100% - 11.25px) center !important;}
-  .r-kei-text{position:relative !important;margin-top:-100vh !important;padding:90vh 15vw 80vh !important;display:flex !important;grid-template-columns:repeat(12,1fr) !important;gap:24px !important;align-content:start !important;flex-direction:column !important;width:100vw !important;align-items:flex-start !important;}
-  .r-kei-title{text-align:left !important;font-size:48px !important;line-height:100% !important;}
-  .r-kei-para{max-width:none !important;width:100%;}
+  .r-kei-text{position:relative !important;margin-top:-100vh !important;padding:90vh 16px 80vh !important;display:flex !important;grid-template-columns:repeat(12,1fr) !important;gap:24px !important;align-content:start !important;flex-direction:column !important;width:100vw !important;align-items:flex-start !important;}
+  .r-kei-title{text-align:left !important;font-size:64px !important;line-height:100% !important;}
+  .r-kei-para{max-width:none !important;width:calc(100% - 40px) !important;margin-left:40px !important;}
   /* footer */
   .r-footer{grid-template-columns:1fr 1fr !important;gap:24px 16px !important;}
   .r-footer > *{grid-column:auto !important;justify-self:start !important;}
@@ -279,7 +276,7 @@ a:hover{color:#555;}
       </div>
       <!-- rich text scrolls transparently OVER the image, no background -->
       <div class="r-kei-text" style="position: relative; margin-top: -100vh; padding: 96vh 16px 120vh; display: grid; grid-template-columns: repeat(12,1fr); gap: 44px; align-content: start; padding-bottom: 80vh; padding-top: 90vh">
-        <h1 class="r-kei-title" style="grid-column:4 / 10;text-align:center;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;grid-row:1;color:#fff;mix-blend-mode:difference;">From idea<br>to object</h1>
+        <h1 class="r-kei-title" style="grid-column:3 / 11;text-align:center;font-size:140px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0;grid-row:1;color:#fff;mix-blend-mode:difference;">From idea<br>to object</h1>
         <p class="r-kei-para" style="grid-column:7 / 11;grid-row:2;font-size:16px;font-weight:500;margin:0;line-height:120%;max-width:350px;color:#fff;mix-blend-mode:difference;">Every piece starts as an idea, becomes a digital form, and passes through our hands before it becomes an object.</p>
       </div>
     </div>
