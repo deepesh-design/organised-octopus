@@ -134,7 +134,7 @@ function ChevronIcon({ open }) {
 }
 
 const SORT_OPTIONS = [
-  { value: 'newest', label: 'Just hatched' },
+  { value: 'newest', label: 'Recently added' },
   { value: 'name-asc', label: 'Name A\u2013Z' },
 ];
 
@@ -306,9 +306,6 @@ function Page() {
           <h1 className="r-big" style={{ gridColumn: '1 / 13', fontSize: 'var(--text-hero)', lineHeight: 'var(--text-hero-line)', fontWeight: 500, letterSpacing: 'var(--tracking-tight)', margin: 0 }}>
             Collection
           </h1>
-          <p className="r-lede" style={{ gridColumn: '1 / 6', fontSize: 'var(--text-lede)', lineHeight: 'var(--text-lede-line)', fontWeight: 500, margin: '32px 0 0' }}>
-            Furniture, lamps and sculptures, designed on screen and finished by hand.
-          </p>
         </div>
 
         <div className="filterbar" style={{
@@ -332,7 +329,7 @@ function Page() {
           <SortDropdown value={sort} onChange={setSort} />
         </div>
 
-        <div id="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px 16px', padding: '0 16px' }}>
+        <div id="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px 16px', padding: '0 16px' }}>
           {sorted.map(p => <ProductTile key={p.id} p={p} />)}
         </div>
 

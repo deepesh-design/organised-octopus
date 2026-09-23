@@ -16,10 +16,13 @@ a:hover{color:#555;}
 /* collection names: leave room for descenders inside the clipped swap box */
 .r-coll-link .r-hov{padding-bottom:16px;margin-bottom:-16px;}
 .r-coll-link.r-hovable:hover .r-hov-a,.r-coll-link.r-hovable:hover .r-hov-b{transform:translateY(calc(-100% - 16px));}
+/* recommendations: extra row gap between stacked product tiles on mobile */
+.r-rec-grid{row-gap:32px;}
 @media (max-width:767px){
   /* generic 12-col grids stack */
   .r-stack{grid-template-columns:1fr !important;gap:12px !important;}
   .r-stack > *{grid-column:1 / -1 !important;grid-row:auto !important;justify-self:start !important;width:100% !important;}
+  .r-rec-grid{gap:40px !important;}
   /* studio: split layout stacks */
   .r-about-split{grid-template-columns:1fr !important;gap:24px !important;}
   .r-about-split > *{grid-column:1 / -1 !important;}
