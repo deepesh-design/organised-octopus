@@ -21,7 +21,7 @@
   css.textContent =
     '.oo-no-wa [data-oo-share="whatsapp"]{display:none !important;}' +
     '.oo-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;height:44px;padding:0 16px;' +
-    'border:1px solid #000;border-radius:0;background:#fff;color:#000;font-family:inherit;font-size:16px;font-weight:500;' +
+    'border:1px solid #000;border-radius:0;background:#fff;color:#000;font-family:inherit;font-size:14px;font-weight:500;' +
     'letter-spacing:-0.03em;cursor:pointer;box-sizing:border-box;text-decoration:none;transition:opacity .3s ease;}' +
     '.oo-bar:hover{opacity:.85;}' +
     '.oo-bar--solid{background:#000;color:#fff;}' +
