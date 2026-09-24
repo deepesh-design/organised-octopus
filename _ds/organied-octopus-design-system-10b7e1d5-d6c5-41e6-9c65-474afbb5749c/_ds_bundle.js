@@ -450,6 +450,7 @@ try { (() => {
 function SiteFooter({
   columns = [],
   logoSrc,
+  logoHref = '#',
   copyright = '© 2026 Organised Octopus'
 }) {
   return /*#__PURE__*/React.createElement("div", {
@@ -460,6 +461,7 @@ function SiteFooter({
       letterSpacing: 'var(--tracking-tight)'
     }
   }, /*#__PURE__*/React.createElement("div", {
+    className: 'r-footer',
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(12,1fr)',
@@ -494,7 +496,8 @@ function SiteFooter({
       fontWeight: 500
     }
   }, copyright), logoSrc ? /*#__PURE__*/React.createElement("a", {
-    href: "#",
+    href: logoHref,
+    className: 'r-footer-logo',
     style: {
       gridColumn: '1 / 13',
       display: 'flex',
@@ -503,7 +506,7 @@ function SiteFooter({
     }
   }, /*#__PURE__*/React.createElement("img", {
     src: logoSrc,
-    alt: "Logo",
+    alt: "Organised Octopus",
     style: {
       width: '100%',
       display: 'block'
