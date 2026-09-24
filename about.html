@@ -53,10 +53,12 @@ a:hover{color:#555;}
   /* studio: split layout stacks */
   .r-about-split{grid-template-columns:1fr !important;gap:24px !important;}
   .r-about-split > *{grid-column:1 / -1 !important;}
+  .r-about-info{grid-template-columns:1fr !important;gap:12px !important;}
   /* headings */
   .r-big{font-size:44px !important;max-width:none !important;}
   .r-mid{font-size:26px !important;}
   .r-lede{font-size:18px !important;}
+  .r-sec.r-vision{gap:24px !important;}
   .r-h3{font-size:40px !important;}
   /* section vertical rhythm */
   .r-sec{padding-top:96px !important;}
@@ -135,13 +137,14 @@ a:hover{color:#555;}
   </div>
 
   <!-- PAGE CONTENT : STUDIO -->
-  <div class="r-sec r-gap-sm" style="margin-top:8vw;padding-top:200px;padding-bottom:0;display:flex;flex-direction:column;gap:80px;">
+  <div class="r-sec r-gap-sm r-vision" style="margin-top:8vw;padding-top:200px;padding-bottom:0;display:flex;flex-direction:column;gap:64px;">
 
     <!-- 01 statement -->
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
         <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">We’re an organised bunch of weirdos. Our idea of tidy is a dog holding a tray.</h2>
       </div>
+      <div style="grid-column:1 / 13;height:1px;background:#e5e5e5;margin-top:-8px;"></div>
     </div>
 
     <!-- 01 info + cover -->

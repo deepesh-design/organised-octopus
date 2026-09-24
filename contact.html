@@ -54,6 +54,8 @@ a:hover{color:#555;}
   .r-big{font-size:44px !important;max-width:none !important;}
   .r-mid{font-size:26px !important;}
   .r-h3{font-size:40px !important;}
+  .r-lede{font-size:18px !important;}
+  .r-sec.r-vision{gap:24px !important;}
   /* section vertical rhythm */
   .r-sec{padding-top:96px !important;}
   .r-gap-sm{gap:56px !important;}
@@ -141,15 +143,20 @@ a:hover{color:#555;}
   </div>
 
   <!-- PAGE CONTENT : CONTACT -->
-  <div class="r-sec r-gap-sm" style="margin-top:8vw;padding-top:200px;padding-bottom:120px;display:flex;flex-direction:column;gap:80px;">
+  <div class="r-sec r-gap-sm r-vision" style="margin-top:8vw;padding-top:200px;padding-bottom:120px;display:flex;flex-direction:column;gap:64px;">
 
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <h1 class="r-big" style="grid-column:1 / 13;font-size:100px;line-height:95%;font-weight:500;letter-spacing:-0.03em;margin:0 0 16px;">Say hello</h1>
-      <p style="grid-column:1 / 6;font-size:22px;font-weight:500;line-height:120%;margin:0;">Ask about a piece, a custom idea or a project. We’ll get back to you.</p>
+      <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
+        <h1 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">Say hello</h1>
+      </div>
+      <div style="grid-column:1 / 13;height:1px;background:#e5e5e5;margin-top:-8px;"></div>
     </div>
 
     <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <form id="contact-form" style="grid-column:1 / 8;display:flex;flex-direction:column;gap:8px;">
+      <p style="grid-column:1 / 5;font-size:14px;font-weight:500;margin:0;color:#8f8f8f;">Custom work</p>
+      <div style="grid-column:5 / 9;display:flex;flex-direction:column;gap:24px;">
+      <p class="r-lede" style="font-size:22px;font-weight:500;line-height:120%;margin:0;">Ask about a piece, a custom idea or a project. We’ll get back to you.</p>
+      <form id="contact-form" style="display:flex;flex-direction:column;gap:8px;">
         <div class="oo-row2" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
           <input class="oo-field" type="text" name="name" autocomplete="name" placeholder="Your name" aria-label="Your name">
           <input class="oo-field" type="email" name="email" autocomplete="email" placeholder="Your email" aria-label="Your email">
@@ -162,10 +169,11 @@ a:hover{color:#555;}
           <p id="form-status" role="status" style="display:none;font-size:16px;font-weight:500;line-height:130%;margin:0;"></p>
         </div>
       </form>
-      <div style="grid-column:9 / 13;display:flex;flex-direction:column;gap:8px;align-self:start;">
-        <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">Prefer to write directly?</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <p style="font-size:14px;font-weight:500;margin:0;color:#8f8f8f;">Prefer to write directly?</p>
         <a href="mailto:contact@organisedoctopus.com" style="font-size:16px;font-weight:500;color:#000;text-decoration:underline;text-underline-offset:3px;width:fit-content;">contact@organisedoctopus.com</a>
         <a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" style="font-size:16px;font-weight:500;color:#000;text-decoration:underline;text-underline-offset:3px;width:fit-content;">Instagram</a>
+      </div>
       </div>
     </div>
 
