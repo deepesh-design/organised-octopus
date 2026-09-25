@@ -459,7 +459,7 @@ function SiteFooter({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       background: 'var(--oo-black)',
-      padding: '16px 0',
+      padding: '16px 0 40px',
       fontFamily: 'var(--font-sans)',
       letterSpacing: 'var(--tracking-tight)'
     }
@@ -497,7 +497,8 @@ function SiteFooter({
       justifySelf: 'end',
       color: '#fff',
       fontSize: 'var(--text-body)',
-      fontWeight: 500
+      fontWeight: 500,
+      whiteSpace: 'nowrap'
     }
   }, copyright), logoSrc ? /*#__PURE__*/React.createElement("a", {
     href: logoHref,
