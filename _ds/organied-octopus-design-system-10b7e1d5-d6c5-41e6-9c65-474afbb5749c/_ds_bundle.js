@@ -314,14 +314,14 @@ function MenuOverlay({
       zIndex: 35,
       background: 'var(--oo-black)',
       color: 'var(--oo-white)',
-      clipPath: open ? 'circle(150% at calc(100% - 38px) 38px)' : 'circle(0px at calc(100% - 38px) 38px)',
-      WebkitClipPath: open ? 'circle(150% at calc(100% - 38px) 38px)' : 'circle(0px at calc(100% - 38px) 38px)',
+      clipPath: open ? 'circle(150% at calc(100% - var(--gx) - 22px) 38px)' : 'circle(0px at calc(100% - var(--gx) - 22px) 38px)',
+      WebkitClipPath: open ? 'circle(150% at calc(100% - var(--gx) - 22px) 38px)' : 'circle(0px at calc(100% - var(--gx) - 22px) 38px)',
       transition: `clip-path var(--duration-menu) var(--ease-menu)`,
       pointerEvents: open ? 'auto' : 'none',
       display: 'grid',
       gridTemplateColumns: 'repeat(12,1fr)',
       gap: 16,
-      padding: '24px',
+      padding: '24px calc(var(--gx) + 8px)',
       alignContent: 'space-between',
       fontFamily: 'var(--font-sans)',
       letterSpacing: 'var(--tracking-tight)'
@@ -469,7 +469,7 @@ function SiteFooter({
       display: 'grid',
       gridTemplateColumns: 'repeat(12,1fr)',
       gap: 16,
-      padding: '0 16px',
+      padding: '0 var(--gx)',
       alignItems: 'start'
     }
   }, columns.map((col, i) => /*#__PURE__*/React.createElement("div", {
@@ -544,7 +544,7 @@ function SiteHeader({
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'flex-start',
-      padding: 16
+      padding: '16px var(--gx)'
     }
   }, /*#__PURE__*/React.createElement("a", {
     href: homeHref,
@@ -654,7 +654,7 @@ function HomeScreen() {
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       paddingTop: 140,
-      padding: '140px 16px 0'
+      padding: '140px var(--gx) 0'
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -724,7 +724,7 @@ function HomeScreen() {
       display: 'grid',
       gridTemplateColumns: 'repeat(12,1fr)',
       gap: 16,
-      padding: '0 16px'
+      padding: '0 var(--gx)'
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -739,7 +739,7 @@ function HomeScreen() {
       display: 'grid',
       gridTemplateColumns: 'repeat(12,1fr)',
       gap: 16,
-      padding: '0 16px'
+      padding: '0 var(--gx)'
     }
   }, /*#__PURE__*/React.createElement("p", {
     style: {
@@ -759,7 +759,7 @@ function HomeScreen() {
   }, "Redefining minimalism through material authenticity and design order. Organied Octopus moves beyond simple form, creating refined designs that shape spaces."))), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 100,
-      padding: '0 16px'
+      padding: '0 var(--gx)'
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -810,7 +810,7 @@ function HomeScreen() {
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
-      padding: '0 16px'
+      padding: '0 var(--gx)'
     }
   }, /*#__PURE__*/React.createElement("h1", {
     style: {
@@ -824,7 +824,7 @@ function HomeScreen() {
       display: 'grid',
       gridTemplateColumns: 'repeat(12,1fr)',
       gap: 16,
-      padding: '0 16px'
+      padding: '0 var(--gx)'
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
@@ -908,7 +908,7 @@ function HomeScreen() {
       display: 'grid',
       gridTemplateColumns: 'repeat(12,1fr)',
       gap: 16,
-      padding: '0 16px'
+      padding: '0 var(--gx)'
     }
   }, /*#__PURE__*/React.createElement("h2", {
     style: {
@@ -923,7 +923,7 @@ function HomeScreen() {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '60px 16px 0'
+      padding: '60px var(--gx) 0'
     }
   }, /*#__PURE__*/React.createElement("p", {
     style: {
@@ -948,7 +948,7 @@ function HomeScreen() {
   }, "Designer")), /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: 'center',
-      padding: '48px 16px'
+      padding: '48px var(--gx)'
     }
   }, /*#__PURE__*/React.createElement("h1", {
     style: {

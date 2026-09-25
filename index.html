@@ -26,6 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..700&family=Funnel+Sans:wght@400..600&display=swap" rel="stylesheet">
+<style>:root{--gx:max(16px,calc((100vw - 1440px)/2 + 16px));}</style>
 </head>
 <body>
 <x-dc>
@@ -144,8 +145,8 @@ a:hover{color:#555;}
   <div ref="{{ mainRef }}" style="position:relative;z-index:1;background:#fff;">
 
   <!-- HEADER -->
-  <div id="site-header" style="position:fixed;top:0;left:0;right:0;z-index:40;background:#fff;display:flex;justify-content:space-between;align-items:flex-start;padding:16px;">
-    <a ref="{{ logoRef }}" href="https://organisedoctopus.com/" class="r-logo" style="position:absolute;top:16px;left:16px;right:16px;transform-origin:top left;will-change:transform;display:flex;align-items:center;overflow:hidden;"><img ref="{{ logoSlideRef }}" src="./icon-black-mrdekrfj.svg" alt="Organised Octopus" style="width: 100%; display: block; object-fit: contain; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);"></a>
+  <div id="site-header" style="position:fixed;top:0;left:0;right:0;z-index:40;background:#fff;display:flex;justify-content:space-between;align-items:flex-start;padding:16px var(--gx);">
+    <a ref="{{ logoRef }}" href="https://organisedoctopus.com/" class="r-logo" style="position:absolute;top:16px;left:var(--gx);right:var(--gx);transform-origin:top left;will-change:transform;display:flex;align-items:center;overflow:hidden;"><img ref="{{ logoSlideRef }}" src="./icon-black-mrdekrfj.svg" alt="Organised Octopus" style="width: 100%; display: block; object-fit: contain; transform:translateY(100%); transition:transform .8s cubic-bezier(.16,1,.3,1);"></a>
     <div></div>
     <div style="overflow:hidden;"><button ref="{{ menuBtnRef }}" onClick="{{ toggleMenu }}" aria-label="Menu" style="position:relative;z-index:50;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:6px;transform:translateY(100%);transition:transform .8s cubic-bezier(.16,1,.3,1);">
       <span ref="{{ bar1Ref }}" style="display:block;width:28px;height:2px;background:#000;transition:transform .4s cubic-bezier(.77,0,.18,1),background .4s;"></span>
@@ -156,7 +157,7 @@ a:hover{color:#555;}
 
   <!-- SECTION 01 : HERO -->
   <div style="padding-top: 20vw" class="r-hero-pad">
-    <div style="padding: 0 16px; position: relative">
+    <div style="padding:0 var(--gx); position: relative">
       <div class="r-hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; justify-content: center">
 
         <a href="{{ heroHref }}" style="display:block;position:relative;overflow:hidden;aspect-ratio: 1/1; height: auto; width: 100%; border-radius: 0px;" class="r-hero-img-wrap"><img ref="{{ heroImgRef }}" class="r-hero-img" data-piece-image src="./assets/products/head-side-table.webp" alt="{{ heroTitle }}" style="object-fit: cover; height: 100%; margin-right: 0px; width: 100%; transform:translateY(100%); transition:transform .9s cubic-bezier(.16,1,.3,1), opacity .25s ease;"></a>
@@ -182,11 +183,11 @@ a:hover{color:#555;}
 
   <!-- SECTION 02 : ORGANISING -->
   <div ref="{{ sec2Ref }}" class="r-sec r-gap-sm r-vision" style="padding-top:200px;display:flex;flex-direction:column;gap:64px;">
-    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
       <h2 class="r-mid" style="grid-column:1 / 13;width:100%;text-wrap:wrap;font-size:70px;line-height:105%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Give everything a place.</h2>
       <div style="grid-column:1 / 13;height:1px;background:#e5e5e5;margin-top:8px;"></div>
     </div>
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
       <p class="r-label" style="grid-column:1 / 5;font-size:14px;font-weight:700;margin:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Vision</p>
       <p class="r-lede" style="grid-column:5 / 11;font-size:22px;font-weight:500;line-height:120%;margin:0;">Organised Octopus creates everyday objects that bring a little more order to the spaces we live and work in. Things to hold, light, organise, display and live with. Designed to be useful, but never ordinary.</p>
     </div>
@@ -195,9 +196,9 @@ a:hover{color:#555;}
   <!-- SECTION 03 : FROM SCREEN TO SPACE (scroll reveal) -->
   <div ref="{{ s3Ref }}" class="r-s3" style="height:250vh;position:relative;margin-top:120px;">
     
-  <div class="r-s3-sticky" style="position: sticky; top: 0; height: 100vh; padding: 0 16px; overflow: hidden; background: #fff">
-      <p ref="{{ matLabel }}" class="r-label" style="position:absolute;top:50%;left:16px;transform:translateY(-50%);font-size:14px;font-weight:700;margin:0;z-index:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Designed to be used</p>
-      <p ref="{{ drvLabel }}" class="r-label" style="position:absolute;top:50%;right:16px;transform:translateY(-50%);font-size:14px;font-weight:700;margin:0;z-index:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Made to be noticed</p>
+  <div class="r-s3-sticky" style="position: sticky; top: 0; height: 100vh; padding:0 var(--gx); overflow: hidden; background: #fff">
+      <p ref="{{ matLabel }}" class="r-label" style="position:absolute;top:50%;left:var(--gx);transform:translateY(-50%);font-size:14px;font-weight:700;margin:0;z-index:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Designed to be used</p>
+      <p ref="{{ drvLabel }}" class="r-label" style="position:absolute;top:50%;right:var(--gx);transform:translateY(-50%);font-size:14px;font-weight:700;margin:0;z-index:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Made to be noticed</p>
       <div ref="{{ stageRef }}" class="r-s3-stage" style="position:relative;width:100%;height:100%;">
         <!-- left -->
         <div ref="{{ leftRef }}" data-piece-tile style="position:absolute;top:50%;left:35%;transform:translate(0,-50%);width:30%;z-index:1;background:#fff;">
@@ -222,11 +223,11 @@ a:hover{color:#555;}
 
   <!-- SECTION 04 : DISCOVER COLLECTION -->
   <div id="collection" class="r-sec r-gap-sm" style="padding-top:120px;display:flex;flex-direction:column;gap:80px;">
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
       <h1 class="r-big" style="grid-column:1 / 13;font-size:100px;line-height:95%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Collection</h1>
       <p class="r-lede" style="grid-column:5 / 11;font-size:22px;font-weight:500;line-height:120%;margin:8px 0 0;">Objects for the things you use, the things you keep, and the things you want people to ask about.</p>
     </div>
-    <div class="r-disc-grid" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+    <div class="r-disc-grid" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
       <div class="r-disc-list" style="grid-column:1 / 5;display:flex;flex-direction:column;align-self:start;">
         <a onClick="{{ c0 }}" class="r-coll-link r-hovable" style="{{ coll0Style }}"><p class="r-label" style="font-size:14px;font-weight:700;margin:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">001</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:40px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Entryway</h3></div><div class="r-hov-a"><h3 style="font-size:40px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Entryway</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:40px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Entryway</h3></div></div></a>
         <a onClick="{{ c1 }}" class="r-coll-link r-hovable" style="{{ coll1Style }}"><p class="r-label" style="font-size:14px;font-weight:700;margin:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">002</p><div class="r-hov"><div class="r-hov-ph"><h3 style="font-size:40px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Bedside</h3></div><div class="r-hov-a"><h3 style="font-size:40px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Bedside</h3></div><div class="r-hov-b" aria-hidden="true"><h3 style="font-size:40px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Bedside</h3></div></div></a>
@@ -259,13 +260,13 @@ a:hover{color:#555;}
 
   <!-- SECTION 05 : CONTACT -->
   <div id="contact" class="r-sec r-gap-sm r-vision" style="padding-top:200px;display:flex;flex-direction:column;gap:64px;">
-    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
       <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
         <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Got something in mind? Let’s give it a place.</h2>
       </div>
       <div style="grid-column:1 / 13;height:1px;background:#e5e5e5;margin-top:-8px;"></div>
     </div>
-    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
+    <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
       <p class="r-label" style="grid-column:1 / 5;font-size:14px;font-weight:700;margin:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Custom work</p>
       <div style="grid-column:5 / 9;display:flex;flex-direction:column;gap:24px;">
         <div style="display:flex;flex-direction:column;gap:16px;">
@@ -284,7 +285,7 @@ a:hover{color:#555;}
   <div id="about" class="r-sec" style="position:relative;padding-top:200px;background:#fff;">
     <div style="position:relative;">
       <!-- sticky centered cover image -->
-      <div class="r-kei-sticky" style="position: sticky; top: 0; z-index: 0; display: flex; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 0 16px; height: 100vh; align-items: center; justify-content: space-between">
+      <div class="r-kei-sticky" style="position: sticky; top: 0; z-index: 0; display: flex; grid-template-columns: repeat(12,1fr); gap: 16px; padding:0 var(--gx); height: 100vh; align-items: center; justify-content: space-between">
         <p class="r-kei-label" style="grid-column: 1 / 6; font-size: 14px; color: #000; font-weight:700; margin: 0; padding-top: 16px; position: static; align-self: center;font-family:'Funnel Display',Arial,sans-serif;">Process</p>
         <div class="r-kei-img-wrap" style="grid-column: 1 / 5; aspect-ratio: 2/2.6; justify-self: start; max-height: 56vh; position: relative; overflow: hidden;"><img class="r-kei-img" src="./assets/process/wip-elephant-planter.webp" alt="Hand-finishing the Elephant Wall Planter" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div><p class="r-kei-label" style="grid-column: 8 / 13; justify-self: end; align-self: center; padding-top: 16px; font-size: 14px; color: #000; font-weight:700; margin: 0;font-family:'Funnel Display',Arial,sans-serif;">Made by us</p>
 
@@ -307,7 +308,7 @@ a:hover{color:#555;}
 
   <!-- FOOTER -->
   <div ref="{{ footerRef }}" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 0; background: #000; padding: 16px 0; padding-bottom: 40px">
-    <div class="r-footer" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;align-items:start;">
+    <div class="r-footer" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);align-items:start;">
       <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:12px;">
         <a href="./" class="r-hovable" style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
         <a href="./collection" class="r-hovable" style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Shop</div><div class="r-hov-a">Shop</div><div class="r-hov-b" aria-hidden="true">Shop</div></div></a>
@@ -326,7 +327,7 @@ a:hover{color:#555;}
   </div>
 
   <!-- MENU OVERLAY : circle reveal from top-right -->
-  <div ref="{{ menuRef }}" class="r-menu" style="position: fixed; inset: 0; z-index: 35; background: #000; color: #fff; clip-path: circle(0px at calc(100% - 38px) 38px); -webkit-clip-path: circle(0px at calc(100% - 38px) 38px); transition: clip-path .75s cubic-bezier(.77,0,.18,1),-webkit-clip-path .75s cubic-bezier(.77,0,.18,1); pointer-events: none; display: grid; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 16px; align-content: space-between; padding-top: 24px; padding-right: 24px; padding-bottom: 24px; padding-left: 24px">
+  <div ref="{{ menuRef }}" class="r-menu" style="position: fixed; inset: 0; z-index: 35; background: #000; color: #fff; clip-path: circle(0px at calc(100% - var(--gx) - 22px) 38px); -webkit-clip-path: circle(0px at calc(100% - var(--gx) - 22px) 38px); transition: clip-path .75s cubic-bezier(.77,0,.18,1),-webkit-clip-path .75s cubic-bezier(.77,0,.18,1); pointer-events: none; display: grid; grid-template-columns: repeat(12,1fr); gap: 16px; padding: 16px; align-content: space-between; padding-top: 24px; padding-right: calc(var(--gx) + 8px); padding-bottom: 24px; padding-left: calc(var(--gx) + 8px)">
     <button onClick="{{ closeMenu }}" aria-label="Close menu" style="grid-column:1 / 13;grid-row:1;justify-self:end;align-self:start;width:44px;height:44px;border:none;background:transparent;cursor:pointer;padding:0;position:relative;">
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(45deg);"></span>
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(-45deg);"></span>
@@ -438,7 +439,7 @@ class Component extends DCLogic {
     const open=this.state.menuOpen;
     const m=this.menuRef.current;
     if(m){
-      const r=open?'circle(150% at calc(100% - 38px) 38px)':'circle(0px at calc(100% - 38px) 38px)';
+      const r=open?'circle(150% at calc(100% - var(--gx) - 22px) 38px)':'circle(0px at calc(100% - var(--gx) - 22px) 38px)';
       m.style.clipPath=r; m.style.webkitClipPath=r;
       m.style.pointerEvents=open?'auto':'none';
     }

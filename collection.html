@@ -99,6 +99,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..700&family=Funnel+Sans:wght@400..600&display=swap" rel="stylesheet">
+<style>:root{--gx:max(16px,calc((100vw - 1440px)/2 + 16px));}</style>
 </head>
 <body>
 <div id="root"></div>
@@ -317,7 +318,7 @@ function Page() {
       <div style={{ position: 'relative', zIndex: 1, background: 'var(--surface-page)' }}>
       <SiteHeader logoSrc="icon-black-mrdekrfj.svg" menuOpen={menuOpen} onToggleMenu={() => setMenuOpen(o => !o)} homeHref="./" />
 
-      <div style={{ padding: '140px 16px 120px' }}>
+      <div style={{ padding: '140px var(--gx) 120px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 16 }}>
           <h1 className="r-big" style={{ gridColumn: '1 / 13', fontSize: 'var(--text-hero)', lineHeight: 'var(--text-hero-line)', fontWeight: 700, fontFamily: 'var(--font-display)', letterSpacing: '0', margin: 0 }}>
             Collection
@@ -326,7 +327,7 @@ function Page() {
 
         <div className="filterbar" style={{
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          padding: '32px 16px 16px', borderBottom: '1px solid var(--border-hairline)', margin: '0 0 32px',
+          padding: '32px var(--gx) 16px', borderBottom: '1px solid var(--border-hairline)', margin: '0 0 32px',
         }}>
           <div className="cat-pills" style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
             {['all', ...CATEGORIES].map(c => (
@@ -345,7 +346,7 @@ function Page() {
           <SortDropdown value={sort} onChange={setSort} />
         </div>
 
-        <div id="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '44px 16px', padding: '0 16px' }}>
+        <div id="product-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '44px 16px', padding: '0 var(--gx)' }}>
           {sorted.map(p => <ProductTile key={p.id} p={p} />)}
         </div>
 
@@ -364,7 +365,7 @@ function Page() {
                 <p style={{ fontSize: 16, fontWeight: 500, lineHeight: '130%', margin: 0 }}>If you can imagine it, let’s see what we can make of it.</p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <a href="./contact" className="r-hovable r-btn" style={{ background: '#000', color: '#fff', width: '100%', height: 44, padding: '0 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-display)' }}>
+                <a href="./contact" className="r-hovable r-btn" style={{ background: '#000', color: '#fff', width: '100%', height: 44, padding: '0 var(--gx)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-display)' }}>
                   <SwapLabel text="Tell us your idea" />
                   <svg width="16" height="10" viewBox="0 0 16 10" fill="none" style={{ flexShrink: 0 }} aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" strokeWidth="1.5" /></svg>
                 </a>

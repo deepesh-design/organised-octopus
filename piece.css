@@ -1,3 +1,4 @@
+:root{--gx:max(16px,calc((100vw - 1440px)/2 + 16px));}
 html,body{margin:0;padding:0;background:#fff;}
 *{box-sizing:border-box;}
 a{color:#000;}

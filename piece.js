@@ -16,7 +16,7 @@
   onResize();
 
   function setMenu(open) {
-    var r = open ? 'circle(150% at calc(100% - 38px) 38px)' : 'circle(0px at calc(100% - 38px) 38px)';
+    var r = open ? 'circle(150% at calc(100% - var(--gx) - 22px) 38px)' : 'circle(0px at calc(100% - var(--gx) - 22px) 38px)';
     menu.style.clipPath = r; menu.style.webkitClipPath = r;
     menu.style.pointerEvents = open ? 'auto' : 'none';
     var c = open ? '#fff' : '#000';

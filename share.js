@@ -1,4 +1,4 @@
-/* "Enquire" button.
+/* "Inquire" button.
    Any element with data-oo-share="whatsapp" plus data-slug, data-name and data-img.
 
    On click:
@@ -121,7 +121,7 @@
 
   window.ooShare = { buildCard: buildCard, message: message };
 
-  // Enquire (WhatsApp only).
+  // Inquire (WhatsApp only).
   document.addEventListener('click', function (e) {
     var el = e.target && e.target.closest ? e.target.closest('[data-oo-share="whatsapp"]') : null;
     if (!el || !WHATSAPP) return;

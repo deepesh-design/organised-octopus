@@ -23,7 +23,7 @@
 
   var css = document.createElement('style');
   css.textContent =
-    '.oo-stack{position:absolute;z-index:1;top:40%;right:9vw;width:min(24vw,360px);aspect-ratio:1/1;' +
+    '.oo-stack{position:absolute;z-index:1;top:40%;right:max(9vw,calc((100vw - 1440px)/2 + 130px));width:min(24vw,360px);aspect-ratio:1/1;' +
     'transform:translateY(-50%);pointer-events:none;}' +
     '.oo-stack img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;' +
     'outline:1px solid #000;opacity:0;will-change:transform,opacity;}';
