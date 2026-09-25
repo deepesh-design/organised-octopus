@@ -25,6 +25,7 @@
     'border:1px solid #000;border-radius:0;background:#fff;color:#000;font-family:"Funnel Display",Arial,sans-serif;font-size:14px;font-weight:700;' +
     'letter-spacing:0;cursor:pointer;box-sizing:border-box;text-decoration:none;transition:opacity .3s ease;}' +
     '.oo-bar:hover{opacity:.85;}' +
+    '@media (max-width:767px){.oo-bar{font-size:16px;}}' +
     '.oo-bar--solid{background:#000;color:#fff;}' +
     '.oo-share-btn{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;padding:0;' +
     'border:1px solid #000;border-radius:0;background:#fff;color:#000;cursor:pointer;box-sizing:border-box;transition:opacity .3s ease;}' +

@@ -42,6 +42,7 @@ a:hover{color:#555;}
   .r-hero-pad{padding-top:70px !important;}
   .r-coll-desc p{font-size:14px !important;}
   p.r-label.r-label,a.r-label.r-label{font-size:16px !important;}
+  .r-btn.r-btn,.oo-submit{font-size:16px !important;}
   /* discover: reorder so "View more in collection" renders after the product images */
   .r-disc-grid{grid-template-columns:1fr !important;gap:24px !important;}
   .r-disc-list{display:contents !important;}
