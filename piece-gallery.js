@@ -49,9 +49,11 @@
       var v = vertical();
       var size = v ? view.clientHeight : view.clientWidth;
       var pos = v ? view.scrollTop : view.scrollLeft;
-      var idx = Math.round(pos / size);
+      var gap = parseFloat(getComputedStyle(view)[v ? 'rowGap' : 'columnGap']) || 0;
+      var step = size + gap;
+      var idx = Math.round(pos / step);
       view.style.scrollSnapType = '';
-      view.scrollTo(v ? { top: idx * size, behavior: 'smooth' } : { left: idx * size, behavior: 'smooth' });
+      view.scrollTo(v ? { top: idx * step, behavior: 'smooth' } : { left: idx * step, behavior: 'smooth' });
     }
     bar.addEventListener('pointerup', end);
     bar.addEventListener('pointercancel', end);

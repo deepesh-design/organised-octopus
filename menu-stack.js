@@ -1,6 +1,11 @@
 /* Menu overlay: hovering "Collection" fans a stack of pieces in like a pile of files,
    then flicks through them while the pointer stays on the link. Pointer devices only. */
 (function () {
+  // Clip each animated line independently so descenders cannot leak after the swap.
+  var labelStyle = document.createElement('style');
+  labelStyle.textContent = '.r-menu-link .r-hov,.r-menu-ov-link .r-hov{line-height:1.2;}' +
+    '.r-menu-link .r-hov-a,.r-menu-link .r-hov-b,.r-menu-ov-link .r-hov-a,.r-menu-ov-link .r-hov-b{height:100%;overflow:hidden;clip-path:inset(0);}' ;
+  document.head.appendChild(labelStyle);
   if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
   var IMAGES = [
