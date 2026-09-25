@@ -55,23 +55,24 @@
     var raw = sessionStorage.getItem('ooPiece');
     sessionStorage.removeItem('ooPiece');
     var img = $('piece-img'), info = $('piece-info');
+    var flip = (img && img.closest && img.closest('.oo-gallery__view')) || img;
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (raw && img && !reduce) {
       var d = JSON.parse(raw);
       if (d && d.slug === img.getAttribute('data-slug') && Date.now() - d.t < 10000) {
-        var r = img.getBoundingClientRect();
+        var r = flip.getBoundingClientRect();
         var dx = d.left - r.left, dy = d.top - r.top, s = d.width / r.width;
         img.setAttribute('data-flip', Math.round(dx) + ',' + Math.round(dy) + ',' + s.toFixed(3));
-        img.style.position = 'relative';
-        img.style.zIndex = '30';
-        img.style.transformOrigin = 'top left';
-        img.style.transition = 'none';
-        img.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')';
+        flip.style.position = 'relative';
+        flip.style.zIndex = '30';
+        flip.style.transformOrigin = 'top left';
+        flip.style.transition = 'none';
+        flip.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')';
         if (info) { info.style.opacity = '0'; info.style.transform = 'translateY(24px)'; }
-        void img.offsetWidth; // apply the starting position before animating
+        void flip.offsetWidth; // apply the starting position before animating
         function startFlip() {
-          img.style.transition = 'transform .9s cubic-bezier(.16,1,.3,1)';
-          img.style.transform = 'none';
+          flip.style.transition = 'transform .9s cubic-bezier(.16,1,.3,1)';
+          flip.style.transform = 'none';
           if (info) {
             info.style.transition = 'opacity .7s ease .3s, transform .9s cubic-bezier(.16,1,.3,1) .3s';
             info.style.opacity = '1';
@@ -86,7 +87,7 @@
           requestAnimationFrame(function () { requestAnimationFrame(startFlip); });
         }
         setTimeout(function () {
-          img.style.transition = ''; img.style.transform = ''; img.style.zIndex = ''; img.style.position = ''; img.style.transformOrigin = '';
+          flip.style.transition = ''; flip.style.transform = ''; flip.style.zIndex = ''; flip.style.position = ''; flip.style.transformOrigin = '';
           if (info) { info.style.transition = ''; info.style.opacity = ''; info.style.transform = ''; }
         }, 1600);
       }

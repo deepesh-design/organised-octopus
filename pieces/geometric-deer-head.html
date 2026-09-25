@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Geometric Deer Head | Organised Octopus">
 <meta name="twitter:description" content="A low-poly deer head, framed and mounted on the wall.">
 <meta name="twitter:image" content="https://organisedoctopus.com/assets/og/pieces/geometric-deer-head.jpg">
-<link rel="stylesheet" href="./piece.css?v=3">
+<link rel="stylesheet" href="./piece.css?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..700&family=Funnel+Sans:wght@400..600&display=swap" rel="stylesheet">
@@ -46,7 +46,15 @@
   <!-- PAGE CONTENT : PIECE -->
   <div class="r-sec r-gap-sm" style="margin-top:0;padding-top:140px;padding-bottom:120px;display:flex;flex-direction:column;gap:80px;">
     <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
-      <div style="grid-column:1 / 7;"><img id="piece-img" data-slug="geometric-deer-head" src="./assets/products/geometric-deer-head.webp" alt="Geometric Deer Head" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></div>
+      <div style="grid-column:1 / 7;">
+        <div class="oo-gallery" data-oo-gallery>
+          <div class="oo-gallery__view" tabindex="0" role="region" aria-label="Geometric Deer Head images">
+            <img id="piece-img" data-slug="geometric-deer-head" src="./assets/products/geometric-deer-head.webp" alt="Geometric Deer Head">
+            <img src="./assets/products/geometric-deer-head-side.webp" alt="Geometric Deer Head, side view on a wall" loading="lazy">
+          </div>
+          <div class="oo-gallery__bar" aria-hidden="true"><span class="oo-gallery__thumb"></span></div>
+        </div>
+      </div>
       <div id="piece-info" style="grid-column:8 / 13;align-self:end;display:flex;flex-direction:column;gap:32px;">
         <div style="display:flex;flex-direction:column;gap:16px;">
           <a href="./collection#Entryway" class="r-label" style="font-size:14px;font-weight:700;color:#8f8f8f;text-decoration:none;width:fit-content;font-family:'Funnel Display',Arial,sans-serif;">Entryway</a>
@@ -153,5 +161,6 @@
 <script src="./footer-fit.js?v=1"></script>
 <script src="./share.js?v=9"></script>
 <script src="./piece.js?v=4"></script>
+<script src="./piece-gallery.js?v=1"></script>
 </body>
 </html>
