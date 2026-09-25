@@ -15,7 +15,7 @@
   --surface-inverted: var(--oo-black);
   --text-primary: var(--oo-black);
   --text-inverted: var(--oo-white);
-  --text-muted: var(--oo-gray-60);
+  --text-muted: var(--oo-black);
   --text-disabled: var(--oo-gray-50);
   --border-hairline: var(--oo-gray-50);
   --action-bg: var(--oo-black);

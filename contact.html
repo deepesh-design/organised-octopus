@@ -23,14 +23,14 @@
 <meta name="twitter:description" content="Got something in mind? We've got eight arms and room for one more idea.">
 <meta name="twitter:image" content="https://organisedoctopus.com/assets/og/og-share.jpg">
 <script src="./support.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..700&family=Funnel+Sans:wght@400..600&display=swap" rel="stylesheet">
 </head>
 <body>
 <x-dc>
 <helmet>
 <style>
-@font-face{font-family:Bdogrotesk;src:url("https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67a78595a859206cd764377b_BDOGrotesk-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;}
-@font-face{font-family:Bdogrotesk;src:url("https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67a785954dbb6364e4100d58_BDOGrotesk-Medium.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;}
-@font-face{font-family:Bdogrotesk;src:url("https://cdn.prod.website-files.com/67a766fea7b4c145250bc504/67a78595a859206cd764376b_BDOGrotesk-Bold.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;}
 html,body{margin:0;padding:0;background:#fff;}
 *{box-sizing:border-box;}
 a{color:#000;}
@@ -108,25 +108,25 @@ a:hover{color:#555;}
   #site-header{padding:12px 16px !important;}
 }
   /* contact form */
-  .oo-field{display:block;width:100%;height:48px;border:1px solid #000;border-radius:0;background:#fff;color:#000;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:-0.03em;line-height:130%;padding:0 16px;margin:0;outline:none;-webkit-appearance:none;appearance:none;box-sizing:border-box;}
-  .oo-field::placeholder{color:#8f8f8f;opacity:1;}
+  .oo-field{display:block;width:100%;height:48px;border:1px solid #000;border-radius:0;background:#fff;color:#000;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:0;line-height:130%;padding:0 16px;margin:0;outline:none;-webkit-appearance:none;appearance:none;box-sizing:border-box;}
+  .oo-field::placeholder{color:#545454;opacity:1;}
   .oo-field:focus{box-shadow:inset 0 0 0 1px #000;}
   select.oo-field{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23000' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;}
   textarea.oo-field{resize:none;height:auto;min-height:160px;padding:14px 16px;}
-  .oo-submit{background:#000;color:#fff;width:100%;height:44px;padding:0 16px;border:0;border-radius:0;display:flex;justify-content:space-between;align-items:center;font-family:inherit;font-size:14px;font-weight:500;letter-spacing:-0.03em;cursor:pointer;transition:opacity .3s ease;}
+  .oo-submit{background:#000;color:#fff;width:100%;height:44px;padding:0 16px;border:0;border-radius:0;display:flex;justify-content:space-between;align-items:center;font-family:'Funnel Display',Arial,sans-serif;font-size:14px;font-weight:700;letter-spacing:0;cursor:pointer;transition:opacity .3s ease;}
   .oo-submit:hover{opacity:.85;}
   .oo-submit:disabled{opacity:.5;cursor:default;}
   @media (max-width:767px){.oo-row2{grid-template-columns:1fr !important;}}
 </style>
 </helmet>
 
-<div style="position:relative;font-family:Bdogrotesk,Arial,sans-serif;color:#000;letter-spacing:-0.03em;-webkit-font-smoothing:antialiased;overflow-x:clip;">
+<div style="position:relative;font-family:'Funnel Sans',Arial,sans-serif;color:#000;letter-spacing:0;-webkit-font-smoothing:antialiased;overflow-x:clip;">
 
   <!-- LOADING SCREEN -->
   <div ref="{{ loadingRef }}" style="position:fixed;inset:0;z-index:100;background:#fff;color:#000;padding:16px;transform:translateY(0%);transition:transform 1s cubic-bezier(.77,0,.18,1);">
     <img ref="{{ loadingImgRef }}" class="r-loading-img" alt="" style="position:absolute;top:16px;left:16px;width:160px;aspect-ratio:1/1;object-fit:cover;">
     <img src="./assets/loading-icon.svg" alt="Organised Octopus" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;display:block;">
-    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:-0.02em;margin:0;max-width:380px;text-align:right;">Make room for strange. Furniture, lamps and sculptures for rooms with a bit of personality.</p>
+    <p class="r-loading-text" style="position:absolute;bottom:16px;right:16px;font-size:20px;font-weight:500;line-height:110%;letter-spacing:0;margin:0;max-width:380px;text-align:right;">Make room for strange. Furniture, lamps and sculptures for rooms with a bit of personality.</p>
   </div>
 
   <div ref="{{ mainRef }}" style="position:relative;z-index:1;background:#fff;">
@@ -147,13 +147,13 @@ a:hover{color:#555;}
 
     <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
       <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-        <h1 class="r-mid" style="font-size:70px;line-height:100%;font-weight:500;letter-spacing:-0.03em;margin:0;">Say hello</h1>
+        <h1 class="r-mid" style="font-size:70px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Say hello</h1>
       </div>
       <div style="grid-column:1 / 13;height:1px;background:#e5e5e5;margin-top:-8px;"></div>
     </div>
 
     <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;">
-      <p style="grid-column:1 / 5;font-size:14px;font-weight:500;margin:0;color:#8f8f8f;">Custom work</p>
+      <p style="grid-column:1 / 5;font-size:14px;font-weight:700;margin:0;color:#000;font-family:'Funnel Display',Arial,sans-serif;">Custom work</p>
       <div style="grid-column:5 / 9;display:flex;flex-direction:column;gap:24px;">
       <p class="r-lede" style="font-size:22px;font-weight:500;line-height:120%;margin:0;">Ask about a piece, a custom idea or a project. We’ll get back to you.</p>
       <form id="contact-form" style="display:flex;flex-direction:column;gap:8px;">
@@ -170,7 +170,7 @@ a:hover{color:#555;}
         </div>
       </form>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <p style="font-size:14px;font-weight:500;margin:0;color:#8f8f8f;">Prefer to write directly?</p>
+        <p style="font-size:14px;font-weight:700;margin:0;color:#000;font-family:'Funnel Display',Arial,sans-serif;">Prefer to write directly?</p>
         <a href="mailto:contact@organisedoctopus.com" style="font-size:16px;font-weight:500;color:#000;text-decoration:underline;text-underline-offset:3px;width:fit-content;">contact@organisedoctopus.com</a>
         <a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" style="font-size:16px;font-weight:500;color:#000;text-decoration:underline;text-underline-offset:3px;width:fit-content;">Instagram</a>
       </div>
@@ -187,14 +187,14 @@ a:hover{color:#555;}
   <div ref="{{ footerRef }}" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 0; background: #000; padding: 16px 0; padding-bottom: 16px">
     <div class="r-footer" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 16px;align-items:start;">
       <div style="grid-column:1 / 4;display:flex;flex-direction:column;gap:12px;">
-        <a href="./" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
-        <a href="./collection" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Shop</div><div class="r-hov-a">Shop</div><div class="r-hov-b" aria-hidden="true">Shop</div></div></a>
-        <a href="./about" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Studio</div><div class="r-hov-a">Studio</div><div class="r-hov-b" aria-hidden="true">Studio</div></div></a>
-        <a href="./contact" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Custom</div><div class="r-hov-a">Custom</div><div class="r-hov-b" aria-hidden="true">Custom</div></div></a>
+        <a href="./" class="r-hovable" style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Home</div><div class="r-hov-a">Home</div><div class="r-hov-b" aria-hidden="true">Home</div></div></a>
+        <a href="./collection" class="r-hovable" style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Shop</div><div class="r-hov-a">Shop</div><div class="r-hov-b" aria-hidden="true">Shop</div></div></a>
+        <a href="./about" class="r-hovable" style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Studio</div><div class="r-hov-a">Studio</div><div class="r-hov-b" aria-hidden="true">Studio</div></div></a>
+        <a href="./contact" class="r-hovable" style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Custom</div><div class="r-hov-a">Custom</div><div class="r-hov-b" aria-hidden="true">Custom</div></div></a>
       </div>
       <div style="grid-column:4 / 7;display:flex;flex-direction:column;gap:12px;">
-        <a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a>
-        <a href="mailto:contact@organisedoctopus.com" class="r-hovable" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a>
+        <a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" class="r-hovable" style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a>
+        <a href="mailto:contact@organisedoctopus.com" class="r-hovable" style="color:#fff;font-size:16px;font-weight:700;text-decoration:none;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a>
       </div>
       <div style="grid-column:10 / 13;justify-self:end;display:flex;flex-direction:column;gap:12px;">
         <a href="#" style="color:#fff;font-size:16px;font-weight:500;text-decoration:none;">© 2026 Organised Octopus</a>
@@ -210,16 +210,16 @@ a:hover{color:#555;}
       <span style="position:absolute;top:50%;left:50%;width:26px;height:2px;background:#fff;transform:translate(-50%,-50%) rotate(-45deg);"></span>
     </button>
     <div class="r-menu-links" style="grid-column: 1 / 8; grid-row: 2; display: flex; flex-direction: column; gap: 24px; margin-left: 24px">
-      <a href="./collection" ref="{{ mi0 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Shop</div><div class="r-hov-a">Shop</div><div class="r-hov-b" aria-hidden="true">Shop</div></div></a>
-      <a href="./about" ref="{{ mi1 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Studio</div><div class="r-hov-a">Studio</div><div class="r-hov-b" aria-hidden="true">Studio</div></div></a>
-      <a href="./contact" ref="{{ mi2 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:500;letter-spacing:-0.03em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;"><div class="r-hov"><div class="r-hov-ph">Custom</div><div class="r-hov-a">Custom</div><div class="r-hov-b" aria-hidden="true">Custom</div></div></a>
+      <a href="./collection" ref="{{ mi0 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:700;letter-spacing:-0.01em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Shop</div><div class="r-hov-a">Shop</div><div class="r-hov-b" aria-hidden="true">Shop</div></div></a>
+      <a href="./about" ref="{{ mi1 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:700;letter-spacing:-0.01em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Studio</div><div class="r-hov-a">Studio</div><div class="r-hov-b" aria-hidden="true">Studio</div></div></a>
+      <a href="./contact" ref="{{ mi2 }}" class="r-menu-link r-hovable" style="color:#fff;text-decoration:none;font-size:88px;line-height:104%;font-weight:700;letter-spacing:-0.01em;opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Custom</div><div class="r-hov-a">Custom</div><div class="r-hov-b" aria-hidden="true">Custom</div></div></a>
     </div>
     <div class="r-menu-desc" style="grid-column:9 / 13;grid-row:2;align-self:end;display:flex;flex-direction:column;gap:24px;">
-      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#8f8f8f;">Furniture, lamps and sculptures for rooms with a bit of personality.</p>
+      <p style="font-size:16px;font-weight:500;margin:0;line-height:130%;max-width:320px;color:#fff;">Furniture, lamps and sculptures for rooms with a bit of personality.</p>
     </div>
     <div class="r-menu-bottom" style="grid-column: 1 / 13; grid-row: 3; display: flex; justify-content: space-between; align-items: flex-end; margin-left: 24px; margin-right: 24px; margin-bottom: 24px">
-      <div style="display:flex;gap:24px;"><a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a><a href="mailto:contact@organisedoctopus.com" onClick="{{ closeMenu }}" class="r-hovable" style="color:#8f8f8f;text-decoration:none;font-size:16px;font-weight:500;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a></div>
-      <p style="font-size:16px;font-weight:500;margin:0;color:#8f8f8f;">© 2026 Organised Octopus</p>
+      <div style="display:flex;gap:24px;"><a href="https://www.instagram.com/organised_octopus" target="_blank" rel="noopener" onClick="{{ closeMenu }}" class="r-hovable" style="color:#fff;text-decoration:none;font-size:16px;font-weight:700;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Instagram</div><div class="r-hov-a">Instagram</div><div class="r-hov-b" aria-hidden="true">Instagram</div></div></a><a href="mailto:contact@organisedoctopus.com" onClick="{{ closeMenu }}" class="r-hovable" style="color:#fff;text-decoration:none;font-size:16px;font-weight:700;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Email</div><div class="r-hov-a">Email</div><div class="r-hov-b" aria-hidden="true">Email</div></div></a></div>
+      <p style="font-size:16px;font-weight:500;margin:0;color:#fff;">© 2026 Organised Octopus</p>
     </div>
   </div>
 
@@ -228,7 +228,7 @@ a:hover{color:#555;}
     <div style="position:fixed;inset:0;z-index:40;display:flex;justify-content:flex-end;">
       <div onClick="{{ closeCart }}" style="position:absolute;inset:0;background:rgba(0,0,0,0.5);cursor:pointer;"></div>
       <div class="r-cart" style="position:relative;z-index:1;background:#fff;width:100%;max-width:480px;min-width:320px;height:100%;display:flex;flex-direction:column;">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px;"><p style="font-size:16px;font-weight:500;margin:0;">Cart</p><a onClick="{{ closeCart }}" style="font-size:16px;font-weight:500;color:#000;text-decoration:none;cursor:pointer;">Close</a></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:16px;"><p style="font-size:16px;font-weight:700;margin:0;font-family:'Funnel Display',Arial,sans-serif;">Cart</p><a onClick="{{ closeCart }}" style="font-size:16px;font-weight:500;color:#000;text-decoration:none;cursor:pointer;">Close</a></div>
         <div style="flex:1;display:flex;justify-content:center;align-items:center;"><p style="font-size:16px;font-weight:500;margin:0;">Cart is empty</p></div>
       </div>
     </div>

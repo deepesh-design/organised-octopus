@@ -382,7 +382,9 @@ function MenuOverlay({
       textDecoration: 'none',
       fontSize: 'var(--text-menu-link)',
       lineHeight: 'var(--text-menu-line)',
-      fontWeight: 500,
+      fontWeight: 700,
+      fontFamily: 'var(--font-display)',
+      letterSpacing: '-0.01em',
       opacity: open ? 1 : 0,
       transform: open ? 'translateY(0)' : 'translateY(24px)',
       transition: `opacity 0.5s ease ${0.12 + i * 0.07}s, transform 0.5s ease ${0.12 + i * 0.07}s`
@@ -403,7 +405,7 @@ function MenuOverlay({
       margin: 0,
       lineHeight: 1.3,
       maxWidth: 320,
-      color: 'var(--oo-gray-60)'
+      color: '#fff'
     }
   }, description)), /*#__PURE__*/React.createElement("div", {
     className: 'r-menu-ov-bottom',
@@ -426,17 +428,18 @@ function MenuOverlay({
     href: s.href || '#',
     className: 'r-hovable',
     style: {
-      color: 'var(--oo-gray-60)',
+      color: '#fff',
       textDecoration: 'none',
       fontSize: 'var(--text-body)',
-      fontWeight: 500
+      fontWeight: 700,
+      fontFamily: 'var(--font-display)'
     }
   }, __rSwap(s.label)))), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 'var(--text-body)',
       fontWeight: 500,
       margin: 0,
-      color: 'var(--oo-gray-60)'
+      color: '#fff'
     }
   }, copyright)));
 }
@@ -484,7 +487,8 @@ function SiteFooter({
     style: {
       color: '#fff',
       fontSize: 'var(--text-body)',
-      fontWeight: 500,
+      fontWeight: 700,
+      fontFamily: 'var(--font-display)',
       textDecoration: 'none'
     }
   }, __rSwap(l.label))))), /*#__PURE__*/React.createElement("div", {

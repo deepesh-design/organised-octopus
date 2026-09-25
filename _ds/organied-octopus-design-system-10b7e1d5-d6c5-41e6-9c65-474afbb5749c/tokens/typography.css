@@ -1,5 +1,6 @@
 :root {
-  --font-sans: 'BDOGrotesk', Arial, Helvetica, sans-serif;
+  --font-sans: 'Funnel Sans', Arial, Helvetica, sans-serif;
+  --font-display: 'Funnel Display', Arial, Helvetica, sans-serif;
 
   /* Base weights available */
   --weight-light: 300;
@@ -8,8 +9,8 @@
   --weight-bold: 700;
 
   /* Brand-wide letter tracking: a single tight negative value used almost everywhere */
-  --tracking-tight: -0.03em;
-  --tracking-normal: -0.02em;
+  --tracking-tight: 0;
+  --tracking-normal: 0;
 
   /* Display / heading scale (desktop) */
   --text-hero: 100px;       /* hero + "Discover Collection" headline */

@@ -13,7 +13,8 @@
 (function () {
   var WHATSAPP = '917013319687';
   var SITE = 'https://organisedoctopus.com';
-  var FONT = '"BDOGrotesk", "Bdogrotesk", Arial, Helvetica, sans-serif';
+  var FONT = '"Funnel Sans", Arial, Helvetica, sans-serif';
+  var FONT_DISPLAY = '"Funnel Display", Arial, Helvetica, sans-serif';
 
   if (!WHATSAPP) document.documentElement.classList.add('oo-no-wa');
 
@@ -21,8 +22,8 @@
   css.textContent =
     '.oo-no-wa [data-oo-share="whatsapp"]{display:none !important;}' +
     '.oo-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;height:44px;padding:0 16px;' +
-    'border:1px solid #000;border-radius:0;background:#fff;color:#000;font-family:inherit;font-size:14px;font-weight:500;' +
-    'letter-spacing:-0.03em;cursor:pointer;box-sizing:border-box;text-decoration:none;transition:opacity .3s ease;}' +
+    'border:1px solid #000;border-radius:0;background:#fff;color:#000;font-family:"Funnel Display",Arial,sans-serif;font-size:14px;font-weight:700;' +
+    'letter-spacing:0;cursor:pointer;box-sizing:border-box;text-decoration:none;transition:opacity .3s ease;}' +
     '.oo-bar:hover{opacity:.85;}' +
     '.oo-bar--solid{background:#000;color:#fff;}' +
     '.oo-share-btn{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;padding:0;' +
@@ -30,11 +31,11 @@
     '.oo-share-btn:hover{opacity:.85;}' +
     '.oo-share-menu{position:fixed;z-index:130;min-width:180px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;}' +
     '.oo-share-menu button{display:block;width:100%;text-align:left;padding:12px 16px;border:none;background:#fff;color:#000;' +
-    'font-family:inherit;font-size:16px;font-weight:500;letter-spacing:-0.03em;cursor:pointer;border-bottom:1px solid #000;}' +
+    'font-family:inherit;font-size:16px;font-weight:500;letter-spacing:0;cursor:pointer;border-bottom:1px solid #000;}' +
     '.oo-share-menu button:last-child{border-bottom:none;}' +
     '.oo-share-menu button:hover{background:#000;color:#fff;}' +
     '.oo-toast{position:fixed;left:50%;bottom:24px;z-index:120;transform:translate(-50%,16px);opacity:0;pointer-events:none;' +
-    'background:#000;color:#fff;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:-0.03em;line-height:130%;' +
+    'background:#000;color:#fff;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:0;line-height:130%;' +
     'padding:12px 16px;max-width:calc(100vw - 32px);text-align:center;transition:opacity .3s ease,transform .3s ease;}' +
     '.oo-toast.is-on{opacity:1;transform:translate(-50%,0);pointer-events:auto;}' +
     '.oo-toast a{color:#fff;text-decoration:underline;text-underline-offset:3px;margin-left:8px;}' +
@@ -69,7 +70,7 @@
   // Product photo on top, name and the question underneath, as a PNG.
   function buildCard(imgUrl, name) {
     var fontReady = (document.fonts && document.fonts.load)
-      ? Promise.all([document.fonts.load('500 44px ' + FONT), document.fonts.ready]).catch(function () {})
+      ? Promise.all([document.fonts.load('700 44px ' + FONT_DISPLAY), document.fonts.load('500 30px ' + FONT), document.fonts.ready]).catch(function () {})
       : Promise.resolve();
     return fontReady.then(function () {
       return new Promise(function (resolve, reject) {
@@ -83,9 +84,9 @@
           g.fillRect(0, 0, c.width, c.height);
           g.drawImage(img, 0, 0, W, W);
           g.fillStyle = '#000';
-          g.font = '500 44px ' + FONT;
+          g.font = '700 44px ' + FONT_DISPLAY;
           g.fillText(name, 40, W + 70);
-          g.fillStyle = '#8f8f8f';
+          g.fillStyle = '#000';
           g.font = '500 30px ' + FONT;
           g.fillText('Could you share the price?', 40, W + 120);
           c.toBlob(function (b) { b ? resolve(b) : reject(new Error('no blob')); }, 'image/png');

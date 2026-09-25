@@ -50,7 +50,7 @@
   .sort-toggle {
     display: flex; align-items: center; gap: 8px; background: none; border: none;
     border-bottom: 1px solid var(--oo-black); padding: 6px 0; cursor: pointer;
-    font-family: var(--font-sans); font-size: var(--text-body); font-weight: 500;
+    font-family: var(--font-display); font-size: var(--text-body); font-weight: 700;
     letter-spacing: var(--tracking-tight); color: var(--text-primary);
   }
   .sort-option {
@@ -65,7 +65,7 @@
 
   a.oo-bar:hover { color: #000; }
   a.oo-bar--solid:hover { color: #fff; }
-  .oo-contact-h2 { font-size: 70px; line-height: 100%; font-weight: 500; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+  .oo-contact-h2 { font-family: var(--font-display); font-size: 70px; line-height: 100%; font-weight: 700; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
   .oo-contact-row { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
   .oo-contact-sec { padding-top: 200px; display: flex; flex-direction: column; gap: 64px; }
 
@@ -94,6 +94,9 @@
     #site-header { padding: 12px 16px !important; }
   }
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..700&family=Funnel+Sans:wght@400..600&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="root"></div>
@@ -209,7 +212,7 @@ function ProductTile({ p }) {
       </a>
       <div style={{ padding: '12px 0 0' }}>
         <a href={href} style={{ color: 'inherit', textDecoration: 'none' }}>
-          <p className="r-tile-name" style={{ fontSize: 'var(--text-body)', fontWeight: 500, margin: 0 }}>{p.name}</p>
+          <p className="r-tile-name" style={{ fontSize: 'var(--text-body)', fontWeight: 700, fontFamily: 'var(--font-display)', margin: 0 }}>{p.name}</p>
         </a>
       </div>
       <div style={{ marginTop: 'auto', paddingTop: 12 }}>
@@ -314,7 +317,7 @@ function Page() {
 
       <div style={{ padding: '140px 16px 120px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 16 }}>
-          <h1 className="r-big" style={{ gridColumn: '1 / 13', fontSize: 'var(--text-hero)', lineHeight: 'var(--text-hero-line)', fontWeight: 500, letterSpacing: 'var(--tracking-tight)', margin: 0 }}>
+          <h1 className="r-big" style={{ gridColumn: '1 / 13', fontSize: 'var(--text-hero)', lineHeight: 'var(--text-hero-line)', fontWeight: 700, fontFamily: 'var(--font-display)', letterSpacing: '0', margin: 0 }}>
             Collection
           </h1>
         </div>
@@ -352,14 +355,14 @@ function Page() {
             <div style={{ gridColumn: '1 / 13', height: 1, background: '#e5e5e5', marginTop: -8 }}></div>
           </div>
           <div className="oo-contact-row">
-            <p style={{ gridColumn: '1 / 5', fontSize: 14, fontWeight: 500, margin: 0, color: '#8f8f8f' }}>Custom work</p>
+            <p style={{ gridColumn: '1 / 5', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-display)', margin: 0, color: '#000' }}>Custom work</p>
             <div style={{ gridColumn: '5 / 9', display: 'flex', flexDirection: 'column', gap: 24 }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <p className="oo-lede" style={{ fontSize: 22, fontWeight: 500, lineHeight: '120%', margin: 0 }}>Sometimes the thing you want doesn’t exist yet. A piece made for an awkward corner. A strange idea that needs somewhere to live. Something for your home, business or space.</p>
                 <p className="oo-lede" style={{ fontSize: 22, fontWeight: 500, lineHeight: '120%', margin: 0 }}>If you can imagine it, let’s see what we can make of it.</p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <a href="./contact" className="r-hovable" style={{ background: '#000', color: '#fff', width: '100%', height: 44, padding: '0 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', fontSize: 14, fontWeight: 500 }}>
+                <a href="./contact" className="r-hovable" style={{ background: '#000', color: '#fff', width: '100%', height: 44, padding: '0 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textDecoration: 'none', fontSize: 14, fontWeight: 700, fontFamily: 'var(--font-display)' }}>
                   <SwapLabel text="Tell us your idea" />
                   <svg width="16" height="10" viewBox="0 0 16 10" fill="none" style={{ flexShrink: 0 }} aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" strokeWidth="1.5" /></svg>
                 </a>
