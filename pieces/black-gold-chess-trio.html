@@ -46,7 +46,17 @@
   <!-- PAGE CONTENT : PIECE -->
   <div class="r-sec r-gap-sm" style="margin-top:0;padding-top:140px;padding-bottom:120px;display:flex;flex-direction:column;gap:80px;">
     <div class="r-stack" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
-      <div style="grid-column:1 / 7;"><img id="piece-img" data-slug="black-gold-chess-trio" src="./assets/products/chess-pieces-black-gold.webp" alt="Black &amp; Gold Chess Trio" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></div>
+      <div style="grid-column:1 / 7;">
+        <div class="oo-gallery" data-oo-gallery>
+          <div class="oo-gallery__view" tabindex="0" role="region" aria-label="Black &amp; Gold Chess Trio images">
+            <img id="piece-img" data-slug="black-gold-chess-trio" src="./assets/products/chess-pieces-black-gold.webp" alt="Black &amp; Gold Chess Trio" width="1200" height="1200" decoding="async">
+            <img src="./assets/products/gallery/black-gold-chess-trio-side.webp" srcset="./assets/products/gallery/sm/black-gold-chess-trio-side.webp 600w, ./assets/products/gallery/black-gold-chess-trio-side.webp 1200w" sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1440px) 50vw, 700px" alt="Black &amp; Gold Chess Trio, side angle" width="1200" height="1200" loading="lazy" decoding="async">
+            <img src="./assets/products/gallery/black-gold-chess-trio-closeup.webp" srcset="./assets/products/gallery/sm/black-gold-chess-trio-closeup.webp 600w, ./assets/products/gallery/black-gold-chess-trio-closeup.webp 1200w" sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1440px) 50vw, 700px" alt="Black &amp; Gold Chess Trio, close-up of surface texture and detail" width="1200" height="1200" loading="lazy" decoding="async">
+            <img src="./assets/products/gallery/black-gold-chess-trio-lifestyle.webp" srcset="./assets/products/gallery/sm/black-gold-chess-trio-lifestyle.webp 600w, ./assets/products/gallery/black-gold-chess-trio-lifestyle.webp 1200w" sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1440px) 50vw, 700px" alt="Black &amp; Gold Chess Trio, styled in a home interior" width="1200" height="1200" loading="lazy" decoding="async">
+          </div>
+          <div class="oo-gallery__bar" aria-hidden="true"><span class="oo-gallery__thumb"></span></div>
+        </div>
+      </div>
       <div id="piece-info" style="grid-column:8 / 13;align-self:end;display:flex;flex-direction:column;gap:32px;">
         <div style="display:flex;flex-direction:column;gap:16px;">
           <a href="./collection#Living%20Room" class="r-label" style="font-size:14px;font-weight:700;color:#8f8f8f;text-decoration:none;width:fit-content;font-family:'Funnel Display',Arial,sans-serif;">Living Room</a>
@@ -153,5 +163,6 @@
 <script src="./footer-fit.js?v=1"></script>
 <script src="./share.js?v=9"></script>
 <script src="./piece.js?v=4"></script>
+<script src="./piece-gallery.js?v=1"></script>
 </body>
 </html>
