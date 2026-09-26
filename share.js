@@ -30,13 +30,15 @@
     '.oo-share-btn{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;padding:0;' +
     'border:1px solid #000;border-radius:0;background:#fff;color:#000;cursor:pointer;box-sizing:border-box;transition:opacity .3s ease;}' +
     '.oo-share-btn:hover{opacity:.85;}' +
-    '.oo-share-menu{position:fixed;z-index:130;min-width:180px;background:#fff;border:1px solid #000;display:flex;flex-direction:column;}' +
-    '.oo-share-menu button{display:block;width:100%;text-align:left;padding:12px 16px;border:none;background:#fff;color:#000;' +
-    'font-family:inherit;font-size:16px;font-weight:500;letter-spacing:0;cursor:pointer;border-bottom:1px solid #000;}' +
-    '.oo-share-menu button:last-child{border-bottom:none;}' +
-    '.oo-share-menu button:hover{background:#000;color:#fff;}' +
+    '.oo-share-menu{position:fixed;z-index:130;width:244px;max-width:calc(100vw - 32px);padding:6px;background:#fff;border:1px solid #000;box-shadow:0 8px 24px rgba(0,0,0,.12);box-sizing:border-box;display:flex;flex-direction:column;font-family:"Funnel Sans",Arial,Helvetica,sans-serif;}' +
+    '.oo-share-menu__title{padding:8px 10px 10px;color:#666;font-size:11px;font-weight:600;line-height:16px;letter-spacing:.08em;text-transform:uppercase;}' +
+    '.oo-share-menu button{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;text-align:left;padding:12px 10px;border:0;border-radius:0;background:#fff;color:#000;font-family:"Funnel Sans",Arial,Helvetica,sans-serif;font-size:14px;font-weight:500;line-height:20px;letter-spacing:0;cursor:pointer;}' +
+    '.oo-share-menu button svg{width:20px;height:20px;flex:none;}' +
+    '.oo-share-menu button[data-act="copy"]{border-top:1px solid #e5e5e5;margin-top:4px;}' +
+    '.oo-share-menu button:hover{background:#f2f2f2;}' +
+    '.oo-share-menu button:focus-visible{outline:2px solid #000;outline-offset:-2px;background:#f2f2f2;}' +
     '.oo-toast{position:fixed;left:50%;bottom:24px;z-index:120;transform:translate(-50%,16px);opacity:0;pointer-events:none;' +
-    'background:#000;color:#fff;font-family:inherit;font-size:16px;font-weight:500;letter-spacing:0;line-height:130%;' +
+    'background:#000;color:#fff;font-family:"Funnel Sans",Arial,Helvetica,sans-serif;font-size:14px;font-weight:500;letter-spacing:0;line-height:130%;' +
     'padding:12px 16px;max-width:calc(100vw - 32px);text-align:center;transition:opacity .3s ease,transform .3s ease;}' +
     '.oo-toast.is-on{opacity:1;transform:translate(-50%,0);pointer-events:auto;}' +
     '.oo-toast a{color:#fff;text-decoration:underline;text-underline-offset:3px;margin-left:8px;}' +
@@ -174,14 +176,24 @@
 
     var menu = document.createElement('div');
     menu.className = 'oo-share-menu';
-    menu.innerHTML =
-      '<button type="button" data-act="wa">Share on WhatsApp</button>' +
-      '<button type="button" data-act="ig">Share on Instagram</button>' +
-      '<button type="button" data-act="copy">Copy link</button>';
+    var iconStart = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">';
+    var icons = {
+      wa: iconStart + '<path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3 20.5l1.4-4.7a8.5 8.5 0 1 1 16.1-4.1Z"/><path d="M8.3 7.3c-.7.5-.9 1.2-.6 2.1.8 2.5 2.8 4.5 5.3 5.3.9.3 1.6.1 2.1-.6l.6-1-2.2-1.1-.9.8c-1.3-.6-2.4-1.7-3-3l.8-.9-1.1-2.2Z"/></svg>',
+      ig: iconStart + '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>',
+      copy: iconStart + '<path d="m10 13 4-4M8 15l-1 1a3.5 3.5 0 0 1-5-5l4-4a3.5 3.5 0 0 1 5 0M16 9l1-1a3.5 3.5 0 0 1 5 5l-4 4a3.5 3.5 0 0 1-5 0" transform="translate(0 -1)"/></svg>'
+    };
+    menu.setAttribute('role', 'group');
+    menu.setAttribute('aria-label', 'Share this piece');
+    menu.innerHTML = '<div class="oo-share-menu__title">Share this piece</div>' +
+      '<button type="button" data-act="wa">' + icons.wa + '<span>Share on WhatsApp</span></button>' +
+      '<button type="button" data-act="ig">' + icons.ig + '<span>Share on Instagram</span></button>' +
+      '<button type="button" data-act="copy">' + icons.copy + '<span>Copy link</span></button>';
     document.body.appendChild(menu);
 
     var rect = btn.getBoundingClientRect();
-    var top = Math.min(rect.bottom + 8, window.innerHeight - menu.offsetHeight - 16);
+    var top = rect.bottom + 8;
+    if (top + menu.offsetHeight > window.innerHeight - 16) top = rect.top - menu.offsetHeight - 8;
+    top = Math.max(16, top);
     var left = Math.min(rect.right - menu.offsetWidth, window.innerWidth - menu.offsetWidth - 16);
     left = Math.max(16, left);
     menu.style.top = top + 'px';
