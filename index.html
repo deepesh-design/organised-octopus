@@ -237,7 +237,7 @@ a:hover{color:#555;}
       </div>
       <div class="r-2col" style="grid-column:5 / 13;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
         <div data-piece-tile style="display:flex;flex-direction:column;">
-          <a href="{{ pHref }}" style="display:block;"><img ref="{{ collImgRef }}" data-piece-main src="./assets/products/geometric-dog-side-table.webp" alt="{{ collName }}" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
+          <a href="{{ pHref }}" style="display:block;"><img ref="{{ collImgRef }}" data-piece-main src="./assets/products/gallery/geometric-dog-side-table-lifestyle-v5.webp" alt="{{ collName }}" loading="lazy" decoding="async" sizes="(max-width: 767px) calc(100vw - 32px), 33vw" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
           <div style="padding:12px 0 0;">
             <p class="r-tile-name" style="font-size:16px;font-weight:500;margin:0;font-family:'Funnel Display',Arial,sans-serif;">{{ collName }}</p>
           </div>
@@ -246,7 +246,7 @@ a:hover{color:#555;}
           </div>
         </div>
         <div data-piece-tile style="display:flex;flex-direction:column;">
-          <a href="{{ p2Href }}" style="display:block;"><img ref="{{ coll2ImgRef }}" src="./assets/products/lion-head-wall-mount.webp" alt="{{ p2Name }}" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
+          <a href="{{ p2Href }}" style="display:block;"><img ref="{{ coll2ImgRef }}" src="./assets/products/gallery/lion-head-wall-mount-selected-lifestyle-v6.webp" alt="{{ p2Name }}" loading="lazy" decoding="async" sizes="(max-width: 767px) calc(100vw - 32px), 33vw" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;"></a>
           <div style="padding:12px 0 0;">
             <p class="r-tile-name" style="font-size:16px;font-weight:500;margin:0;font-family:'Funnel Display',Arial,sans-serif;">{{ p2Name }}</p>
           </div>
@@ -480,8 +480,18 @@ class Component extends DCLogic {
   syncImgs(){
     const v=this.imgVals();
     if(this.heroImgRef.current) this.heroImgRef.current.src=v.heroImg;
-    if(this.collImgRef.current) this.collImgRef.current.src=v.collImg;
-    if(this.coll2ImgRef.current) this.coll2ImgRef.current.src=v.coll2Img;
+    if(this.collImgRef.current) {
+      const img=this.collImgRef.current, src=v.collImg;
+      const width=/head-case|elephant-wall-planter/.test(src)?1024:1200;
+      img.srcset=src.replace('/gallery/','/gallery/sm/')+' 600w, '+src+' '+width+'w';
+      img.src=src;
+    }
+    if(this.coll2ImgRef.current) {
+      const img=this.coll2ImgRef.current, src=v.coll2Img;
+      const width=/head-case|elephant-wall-planter/.test(src)?1024:1200;
+      img.srcset=src.replace('/gallery/','/gallery/sm/')+' 600w, '+src+' '+width+'w';
+      img.src=src;
+    }
   }
   selectHero(i){
     if(this.state.hero===i) return;
@@ -494,7 +504,7 @@ class Component extends DCLogic {
     pre.src=this.heroImgs[i];
   }
   imgVals(){
-    const colls=[['./assets/products/geometric-dog-side-table.webp','./assets/products/lion-head-wall-mount.webp'],['./assets/products/elephant-lamp.webp','./assets/products/head-side-table.webp'],['./assets/products/bronze-monkey-side-table.webp','./assets/products/chess-pieces-black-gold.webp'],['./assets/products/nobo-side-stand.webp','./assets/products/elephant-planter.webp']];
+    const colls=[["./assets/products/gallery/geometric-dog-side-table-lifestyle-v5.webp","./assets/products/gallery/lion-head-wall-mount-selected-lifestyle-v6.webp"],["./assets/products/gallery/elephant-lamp-lifestyle-v5.webp","./assets/products/gallery/head-case-side-table-selected-lifestyle-v6.webp"],["./assets/products/gallery/bronze-monkey-side-table-selected-lifestyle-v6.webp","./assets/products/gallery/black-gold-chess-trio-lifestyle-v5.webp"],["./assets/products/gallery/nobo-side-stand-selected-lifestyle-v6.webp","./assets/products/gallery/elephant-wall-planter-selected-lifestyle-v6.webp"]];
     return {heroImg:this.heroImgs[this.state.hero], collImg:colls[this.state.coll][0], coll2Img:colls[this.state.coll][1]};
   }
   componentWillUnmount(){
