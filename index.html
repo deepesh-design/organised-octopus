@@ -360,7 +360,7 @@ a:hover{color:#555;}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const LOADING_IMAGES=['./assets/products/sm/geometric-dog-side-table.webp','./assets/products/sm/pink-elephant-side-table.webp','./assets/products/sm/nobo-side-stand.webp','./assets/products/sm/tree-hugger-side-table.webp','./assets/products/sm/chess-pieces-black-gold.webp','./assets/products/sm/chess-pieces-bronze.webp','./assets/products/sm/elephant-planter.webp','./assets/products/sm/head-side-table.webp','./assets/products/sm/fireplace-side-table.webp','./assets/products/sm/elephant-lamp.webp','./assets/products/sm/dab-bear-side-table.webp','./assets/products/sm/panther-sculpture.webp','./assets/products/sm/panda-side-table.webp','./assets/products/sm/bronze-monkey-side-table.webp', './assets/products/sm/lion-head-wall-mount.webp', './assets/products/sm/geometric-deer-head.webp'];
+const LOADING_IMAGES=['./assets/products/sm/geometric-dog-side-table.webp','./assets/products/sm/pink-elephant-side-table.webp','./assets/products/sm/nobo-side-stand.webp','./assets/products/sm/tree-hugger-side-table.webp','./assets/products/sm/chess-pieces-black-gold.webp','./assets/products/sm/chess-pieces-bronze.webp','./assets/products/sm/elephant-planter.webp','./assets/products/sm/head-side-table.webp','./assets/products/sm/fireplace-side-table.webp','./assets/products/sm/elephant-lamp.webp','./assets/products/sm/dab-bear-side-table.webp','./assets/products/sm/panda-side-table.webp','./assets/products/sm/bronze-monkey-side-table.webp', './assets/products/sm/lion-head-wall-mount.webp', './assets/products/sm/geometric-deer-head.webp'];
 class Component extends DCLogic {
   constructor(props){
     super(props);
@@ -494,7 +494,7 @@ class Component extends DCLogic {
     pre.src=this.heroImgs[i];
   }
   imgVals(){
-    const colls=[['./assets/products/geometric-dog-side-table.webp','./assets/products/lion-head-wall-mount.webp'],['./assets/products/elephant-lamp.webp','./assets/products/head-side-table.webp'],['./assets/products/bronze-monkey-side-table.webp','./assets/products/panther-sculpture.webp'],['./assets/products/nobo-side-stand.webp','./assets/products/elephant-planter.webp']];
+    const colls=[['./assets/products/geometric-dog-side-table.webp','./assets/products/lion-head-wall-mount.webp'],['./assets/products/elephant-lamp.webp','./assets/products/head-side-table.webp'],['./assets/products/bronze-monkey-side-table.webp','./assets/products/chess-pieces-black-gold.webp'],['./assets/products/nobo-side-stand.webp','./assets/products/elephant-planter.webp']];
     return {heroImg:this.heroImgs[this.state.hero], collImg:colls[this.state.coll][0], coll2Img:colls[this.state.coll][1]};
   }
   componentWillUnmount(){
@@ -574,7 +574,7 @@ class Component extends DCLogic {
     const colls=[
       {name:'Geometric Dog Side Table',slug:'geometric-dog-side-table',tag:'A low-poly dog holding a brass tray.',name2:'Lion Head Wall Mount',slug2:'lion-head-wall-mount',tag2:'A bronze lion head, mounted and ready to watch the room.'},
       {name:'Elephant Lamp',slug:'elephant-lamp',tag:'A little lighthearted. Literally.',name2:'Head Case Side Table',slug2:'head-case-side-table',tag2:'A classical head that holds a stack of books and a lamp.'},
-      {name:'Bronze Monkey Side Table',slug:'bronze-monkey-side-table',tag:'A bronze monkey holding a round glass tray overhead.',name2:'Panther Sculpture',slug2:'panther-sculpture',tag2:'A faceted panther on a rock, with gold light running through it.'},
+      {name:'Bronze Monkey Side Table',slug:'bronze-monkey-side-table',tag:'A bronze monkey holding a round glass tray overhead.',name2:'Black & Gold Chess Trio',slug2:'black-gold-chess-trio',tag2:'A knight, a king and a queen in black and gold.'},
       {name:'Nobo Side Stand',slug:'nobo-side-stand',tag:'A round little creature with an open shelf on its head.',name2:'Elephant Wall Planter',slug2:'elephant-wall-planter',tag2:'A carved elephant head with room for a plant on top.'}
     ];
     const h=heroes[this.state.hero];
