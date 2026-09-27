@@ -1,0 +1,16 @@
+/* Paint inside the existing image box, preserving gallery and transition layouts. */
+img.oo-image-pending {
+  background: linear-gradient(100deg, #efefed 25%, #fafaf8 45%, #efefed 65%);
+  background-size: 250% 100%;
+  animation: oo-image-shimmer 1.5s ease-in-out infinite;
+}
+img.oo-image-reveal { animation: oo-image-fade .35s ease-out both; }
+@keyframes oo-image-shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+@keyframes oo-image-fade { from { opacity: .25; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  img.oo-image-pending { animation: none; background: #efefed; }
+  img.oo-image-reveal { animation: none; }
+}
