@@ -51,17 +51,6 @@
 .st-hero-lede{grid-column:1 / 6;display:flex;flex-direction:column;gap:56px;padding-top:8px;}
 .st-lede{font-size:22px;font-weight:500;line-height:120%;margin:0;}
 .st-hero-a{grid-column:6 / 12;grid-row:1;aspect-ratio:4/5;}
-.st-hero-b{grid-column:11 / 13;grid-row:1;align-self:end;aspect-ratio:3/4;margin-bottom:-72px;position:relative;z-index:1;border:8px solid var(--st-paper);}
-
-/* ---------- 02 statement, words fill on scroll ---------- */
-.st-state{padding-block:160px 200px;}
-.st-fill{font-size:clamp(34px,6.4vw,104px);line-height:1;letter-spacing:-.03em;max-width:15ch;text-wrap:balance;}
-.st-fill .w{display:inline-block;transition:opacity .25s linear;}
-.st-go .st-fill .w{opacity:.14;}
-.st-go .st-fill .w.on{opacity:1;}
-.st-state-foot{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:72px;}
-.st-state-foot .st-label{grid-column:1 / 5;}
-.st-state-foot p.st-lede{grid-column:5 / 9;}
 
 /* ---------- 03 process, pinned horizontal ---------- */
 .st-proc{position:relative;height:420vh;}
@@ -97,12 +86,6 @@
 .st-sk{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s var(--st-ease-io);transition-delay:calc(var(--i,0) * 120ms);}
 .st-panel.in .st-sk{stroke-dashoffset:0;}
 
-/* ---------- 04 ticker ---------- */
-.st-tick{background:#000;color:#fff;overflow:hidden;padding:28px 0;white-space:nowrap;}
-.st-tick-in{display:inline-flex;will-change:transform;}
-.st-tick span{font:700 clamp(32px,5.2vw,80px)/1 var(--st-display);letter-spacing:-.03em;padding-right:.55em;}
-.st-tick span::after{content:"/";padding-left:.55em;opacity:.35;}
-
 /* ---------- 05 spaces ---------- */
 .st-spaces{padding-block:200px 160px;}
 .st-spaces-head{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-bottom:56px;}
@@ -115,16 +98,6 @@
 }
 .st-row .n{grid-column:1 / 3;font:700 14px/1 var(--st-display);color:var(--st-mute);}
 .st-row .t{grid-column:3 / 13;font:700 clamp(44px,9.6vw,150px)/.95 var(--st-display);letter-spacing:-.04em;transition:transform .7s var(--st-ease),opacity .4s;}
-.st-list:hover .st-row .t{opacity:.18;}
-.st-list .st-row:hover .t{opacity:1;transform:translateX(24px);}
-.st-peek{
-  position:fixed;left:0;top:0;width:min(26vw,360px);aspect-ratio:4/5;z-index:30;pointer-events:none;
-  overflow:hidden;opacity:0;transform:translate3d(-999px,-999px,0) scale(.9);
-  transition:opacity .35s var(--st-ease);
-}
-.st-peek.on{opacity:1;}
-.st-peek img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s;}
-.st-peek img.on{opacity:1;}
 
 /* ---------- 06 close ---------- */
 .st-close{padding-block:120px 200px;text-align:center;}
@@ -140,11 +113,6 @@
   .st-hero-lede{grid-column:1 / -1;grid-row:1;gap:24px;}
   .st-lede{font-size:18px;}
   .st-hero-a{grid-column:1 / -1;grid-row:2;}
-  .st-hero-b{grid-column:8 / 13;grid-row:2;align-self:end;margin:0 0 -48px;}
-  .st-state{padding-block:96px 120px;}
-  .st-fill{max-width:none;}
-  .st-state-foot{margin-top:40px;}
-  .st-state-foot .st-label,.st-state-foot p.st-lede{grid-column:1 / -1;}
   .st-proc{height:auto;}
   .st-proc-pin{position:relative;height:auto;overflow:visible;}
   .st-proc-top,.st-bar{display:none;}
@@ -154,16 +122,13 @@
   .st-visual{order:2;aspect-ratio:1/1;height:auto;max-height:none;}
   .st-panel-copy{order:3;}
   .st-panel p{font-size:18px;}
-  .st-tick{padding:20px 0;}
   .st-spaces{padding-block:120px 96px;}
   .st-spaces-head{margin-bottom:32px;}
   .st-spaces-head .st-label,.st-spaces-head h2{grid-column:1 / -1;}
   .st-row .n{grid-column:1 / 13;}
   .st-row .t{grid-column:1 / 13;}
-  .st-peek{display:none;}
   .st-close{padding-block:72px 120px;}
 }
-@media (hover:none){.st-peek{display:none;}}
 
 /* ---------- reduced motion: final states, no movement ---------- */
 @media (prefers-reduced-motion:reduce){
@@ -171,7 +136,5 @@
   .st-line > span,.st-fade,.st-rule{transform:none !important;opacity:1 !important;transition:none !important;}
   .st-img::after{transform:scaleY(0) !important;transition:none !important;}
   .st-img img,.st-visual img{transform:none !important;}
-  .st-fill .w{opacity:1 !important;}
-  .st-tick-in{transform:none !important;}
   .st-row .t{transition:none;}
 }
