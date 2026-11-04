@@ -17,7 +17,7 @@
 .st h1,.st h2,.st h3{font-family:var(--st-display);font-weight:700;margin:0;}
 
 /* ---------- reveal primitives ---------- */
-.st-line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em;}
+.st-line{display:block;overflow:hidden;padding-bottom:.24em;margin-bottom:-.24em;}
 .st-line > span{display:block;transition:transform 1s var(--st-ease);transition-delay:calc(var(--i,0) * 90ms);}
 .st-fade{transition:opacity .9s var(--st-ease),transform .9s var(--st-ease);transition-delay:calc(var(--i,0) * 90ms);}
 .st-img{position:relative;overflow:hidden;background:#efefed;}
