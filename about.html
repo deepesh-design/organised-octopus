@@ -28,6 +28,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..700&family=Funnel+Sans:wght@400..600&display=swap" rel="stylesheet">
 <style>:root{--gx:max(16px,calc((100vw - 1440px)/2 + 16px));}</style>
 <link rel="stylesheet" href="/image-loading.css?v=1">
+<link rel="stylesheet" href="/studio.css?v=1">
 <script defer src="/image-loading.js?v=1"></script>
 </head>
 <body>
@@ -142,51 +143,117 @@ a:hover{color:#555;}
   </div>
 
   <!-- PAGE CONTENT : STUDIO -->
-  <div class="r-sec r-gap-sm r-vision" style="margin-top:8vw;padding-top:200px;padding-bottom:0;display:flex;flex-direction:column;gap:64px;">
+  <main class="st">
 
-    <!-- 01 statement -->
-    <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
-      <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-        <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">We’re an organised bunch of weirdos. Our idea of tidy is a dog holding a tray.</h2>
+    <!-- 01 hero -->
+    <section class="st-hero st-pad">
+      <p class="st-label">Studio</p>
+      <h1 class="st-title" data-in aria-label="An organised bunch of weirdos.">
+        <span class="st-line" aria-hidden="true"><span style="--i:0">An organised</span></span>
+        <span class="st-line" aria-hidden="true"><span style="--i:1">bunch of</span></span>
+        <span class="st-line" aria-hidden="true"><span style="--i:2">weirdos.</span></span>
+      </h1>
+      <div class="st-hero-grid">
+        <div class="st-hero-lede">
+          <p class="st-lede st-fade" data-in>Organised Octopus is a design and making studio. We make furniture, lamps and sculptures with a personality, because a panda can be a table.</p>
+        </div>
+        <div class="st-hero-a st-img" data-in><img data-speed=".09" src="./assets/products/gallery/panda-side-table-lifestyle-v5.webp" alt="Panda Side Table in a room"></div>
+        <div class="st-hero-b st-img" data-in><img data-speed=".16" src="./assets/products/gallery/geometric-dog-side-table-closeup.webp" alt="Geometric Dog Side Table, close up"></div>
       </div>
-      <div style="grid-column:1 / 13;height:1px;background:#e5e5e5;margin-top:-8px;"></div>
+    </section>
+
+    <!-- 02 statement -->
+    <section class="st-state st-pad">
+      <h2 class="st-fill">Our idea of tidy is a dog holding a tray.</h2>
+      <div class="st-state-foot">
+        <p class="st-label">Idea</p>
+        <p class="st-lede st-fade" data-in>A good room has one thing in it that makes guests ask where you found it.</p>
+      </div>
+    </section>
+
+    <!-- 03 process, pinned horizontal -->
+    <section class="st-proc" aria-label="Process">
+      <div class="st-proc-pin">
+        <div class="st-proc-top"><p class="st-label">Process</p><p class="st-count" style="margin:0"><i><b data-c="0">01</b></i> / 03</p></div>
+        <div class="st-bar"><span></span></div>
+        <div class="st-track">
+
+          <article class="st-panel" data-in>
+            <div class="st-num">01</div>
+            <div class="st-panel-copy"><h3>Sketch</h3><p>Wouldn’t it be better if…? Every piece starts with that question.</p></div>
+            <div class="st-visual">
+              <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Construction sketch of a faceted head">
+                <g class="st-sk-g"><path d="M0 100H600M0 200H600M0 300H600M0 400H600M0 500H600M100 0V600M200 0V600M300 0V600M400 0V600M500 0V600"/></g>
+                <g class="st-sk">
+                  <path pathLength="1" style="--i:0" d="M170 430 L150 250 L230 140 L330 110 L430 150 L470 250 L440 430 Z"/>
+                  <path pathLength="1" style="--i:1" d="M150 250 L300 290 L470 250"/>
+                  <path pathLength="1" style="--i:2" d="M230 140 L300 290 L330 110"/>
+                  <path pathLength="1" style="--i:3" d="M300 290 L440 430"/>
+                  <path pathLength="1" style="--i:4" d="M300 290 L170 430"/>
+                  <path pathLength="1" style="--i:5" d="M430 150 L300 290"/>
+                  <path pathLength="1" style="--i:6" d="M230 140 L170 60 L260 100"/>
+                  <path pathLength="1" style="--i:7" d="M430 150 L470 70 L390 118"/>
+                  <path pathLength="1" style="--i:8" d="M150 480 H470"/>
+                </g>
+              </svg>
+            </div>
+          </article>
+
+          <article class="st-panel" data-in>
+            <div class="st-num">02</div>
+            <div class="st-panel-copy"><h3>Form</h3><p>The sketch becomes a digital form. We print it, test it, refine it.</p></div>
+            <div class="st-visual"><img src="./assets/products/gallery/elephant-wall-planter-closeup.webp" alt="Elephant Wall Planter, printed surface close up"></div>
+          </article>
+
+          <article class="st-panel" data-in>
+            <div class="st-num">03</div>
+            <div class="st-panel-copy"><h3>Hands</h3><p>Every piece passes through ours before it’s yours.</p></div>
+            <div class="st-visual"><img src="./assets/process/wip-elephant-planter.webp" alt="Hand-finishing the Elephant Wall Planter"></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 ticker -->
+    <div class="st-tick" aria-hidden="true">
+      <div class="st-tick-in">
+        <span>Geometric Dog</span><span>Head Case</span><span>Bronze Monkey</span><span>Elephant Planter</span><span>Lion Head</span><span>Butler Bear</span><span>Tree Hugger</span><span>Nobo</span>
+        <span>Geometric Dog</span><span>Head Case</span><span>Bronze Monkey</span><span>Elephant Planter</span><span>Lion Head</span><span>Butler Bear</span><span>Tree Hugger</span><span>Nobo</span>
+      </div>
     </div>
 
-    <!-- 01 info + cover -->
-    <div class="r-about-split" style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
-      <div style="grid-column:1 / 7;display:flex;flex-direction:column;gap:56px;align-self:start;">
-        <div class="r-about-info" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <p class="r-label" style="font-size:14px;font-weight:700;margin:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Studio</p>
-          <p class="r-lede" style="font-size:22px;font-weight:500;margin:0;line-height:120%;">Organised Octopus is a design and making studio. We make furniture, lamps and sculptures with a personality, because a panda can be a table.</p>
-        </div>
+    <!-- 05 spaces -->
+    <section class="st-spaces st-pad">
+      <div class="st-spaces-head">
+        <p class="st-label">Spaces</p>
+        <h2 class="st-fade" data-in>We make for places that want something people remember.</h2>
       </div>
-      <div style="grid-column:7 / 13;">
-        <img src="./assets/products/dab-bear-side-table.webp" alt="Butler Bear Side Table" style="aspect-ratio:1/1;object-fit:cover;width:100%;display:block;">
-      </div>
-    </div>
+      <ul class="st-list">
+        <li class="st-row"><span class="n">01</span><span class="t">Homes</span></li>
+        <li class="st-row"><span class="n">02</span><span class="t">Hotels</span></li>
+        <li class="st-row"><span class="n">03</span><span class="t">Restaurants</span></li>
+        <li class="st-row"><span class="n">04</span><span class="t">Offices</span></li>
+        <li class="st-row"><span class="n">05</span><span class="t">Shops</span></li>
+      </ul>
+    </section>
 
-    <!-- 03 statement + pinned cover -->
-    <div id="about" style="position:relative;padding-top:120px;background:#fff;">
-      <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:16px;padding:0 var(--gx);">
-        <div style="grid-column:1 / 13;padding-bottom:16px;overflow:hidden;">
-          <h2 class="r-mid" style="font-size:70px;line-height:100%;font-weight:700;letter-spacing:-0.01em;margin:0;font-family:'Funnel Display',Arial,sans-serif;">A good room has one thing in it that makes guests ask where you found it.</h2>
-        </div>
+    <!-- 06 close -->
+    <section class="st-close st-pad">
+      <h1 class="st-fade" data-in style="font-family:'Funnel Display',Arial,sans-serif;font-weight:700">Make room for strange.</h1>
+      <div class="st-close-row st-fade" data-in>
+        <p>Working on a space? Tell us about it.</p>
+        <a href="./contact" class="r-btn r-hovable" style="border:1px solid #000;color:#000;width:100%;height:44px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:14px;font-weight:700;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Get in touch</div><div class="r-hov-a">Get in touch</div><div class="r-hov-b" aria-hidden="true">Get in touch</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
       </div>
-      <div style="position:relative;margin-top:80px;">
-        <div class="r-kei-sticky" style="position: sticky; top: 0; z-index: 0; display: flex; grid-template-columns: repeat(12,1fr); gap: 16px; padding:0 var(--gx); height: 100vh; align-items: center; justify-content: space-between">
-          <p class="r-label" style="font-size:14px;font-weight:700;margin:0;padding-top:16px;position:static;align-self:center;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Homes</p>
-          <img class="r-kei-img" src="./assets/products/tree-hugger-side-table.webp" alt="Tree Hugger Side Table" style="aspect-ratio: 1/1; object-fit: cover; justify-self: start; max-height: 44vh">
-          <p class="r-label" style="justify-self:end;align-self:center;padding-top:16px;font-size:14px;font-weight:700;margin:0;color:#8f8f8f;font-family:'Funnel Display',Arial,sans-serif;">Spaces</p>
-        </div>
-        <div class="r-kei-text" style="position: relative; z-index: 1; margin-top: -100vh; padding: 96vh 16px 120vh; display: grid; grid-template-columns: repeat(12,1fr); gap: 44px; align-content: start; padding-bottom: 80vh; padding-top: 90vh">
-          <h1 class="r-kei-title" style="grid-column:4 / 10;text-align:center;font-size:100px;line-height:95%;font-weight:700;letter-spacing:-0.01em;margin:0;grid-row:1;font-family:'Funnel Display',Arial,sans-serif;">Make room for strange.</h1>
-          <div class="r-kei-para" style="grid-column:7 / 11;grid-row:2;display:flex;flex-direction:column;gap:16px;max-width:350px;">
-            <p style="font-size:16px;font-weight:500;margin:0;line-height:120%;">We make for homes, and for hotels, restaurants, offices and shops that want something people remember. Working on a space? Tell us about it.</p>
-            <a href="./contact" class="r-btn r-hovable" style="border:1px solid #000;color:#000;width:100%;height:44px;padding:0 16px;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-size:14px;font-weight:700;margin-top:8px;font-family:'Funnel Display',Arial,sans-serif;"><div class="r-hov"><div class="r-hov-ph">Get in touch</div><div class="r-hov-a">Get in touch</div><div class="r-hov-b" aria-hidden="true">Get in touch</div></div><svg width="16" height="10" viewBox="0 0 16 10" fill="none" style="flex-shrink:0;" aria-hidden="true"><path d="M0.5 5H15.5M15.5 5L11 0.5M15.5 5L11 9.5" stroke="currentColor" stroke-width="1.5"/></svg></a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
+
+  </main>
+  <div class="st-peek" aria-hidden="true">
+    <img src="./assets/products/gallery/panda-side-table-lifestyle-v5.webp" alt="">
+    <img src="./assets/products/gallery/head-case-side-table-selected-lifestyle-v6.webp" alt="">
+    <img src="./assets/products/gallery/bronze-monkey-side-table-selected-lifestyle-v6.webp" alt="">
+    <img src="./assets/products/gallery/nobo-side-stand-selected-lifestyle-v6.webp" alt="">
+    <img src="./assets/products/gallery/lion-head-wall-mount-selected-lifestyle-v6.webp" alt="">
   </div>
   </div>
 
@@ -378,5 +445,6 @@ class Component extends DCLogic {
 <script src="./menu-stack.js?v=4"></script>
 <script src="./nav-hide.js?v=3"></script>
 <script src="./footer-fit.js?v=1"></script>
+<script src="./studio.js?v=1"></script>
 </body>
 </html>
